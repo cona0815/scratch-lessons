@@ -7,3 +7,5 @@
 - `files/` 角色素材檔（例：準心造型1）
 
 課程內容修改自 Scratch STEAM 教學（steam.oxxostudio.tw）與阿玉的 Scratch 教學網。
+
+交接手冊：`docs/HANDOFF.md`（給 Codex 等 AI 助手接手用）、規則摘要：`AGENTS.md`。

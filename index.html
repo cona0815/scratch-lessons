@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- 大橋國小 資訊課 Scratch 教學 首頁 v1.2 · 2026-10-13 -->
+<!-- 大橋國小 資訊課 Scratch 教學 首頁 v1.4 · 2026-10-13 -->
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>大橋國小 Scratch 教學</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -214,7 +214,7 @@ footer a{color:inherit}
 <div class="card" data-ls="l1"><div class="cl"><h2><span class="badge">1</span><a href="dog.html">小狗追球</a></h2><p class="meta">9/29　球跟著滑鼠、小狗追球、走路動畫　｜修改自 Scratch STEAM 教學</p></div><div class="cnew"></div></div>
 <div class="card" data-ls="l2 l3 lc"><div class="cl"><h2><span class="badge">2–3</span><a href="cat-mouse.html">貓抓老鼠 計時挑戰</a></h2><p class="meta">10/06　時間變數每秒＋1、碰到貓就停止全部、比誰撐最久　｜修改自 Scratch STEAM 教學</p></div><div class="cnew"></div></div>
 <div class="card" data-ls="l5"><div class="cl"><h2><span class="badge">4</span><a href="moon-mole.html">月球打老鼠</a></h2><p class="meta">四年級　準心開槍、碰到顏色得分、30 秒倒數　｜修改自阿玉的 Scratch 教學網</p>
-<div class="dl"><a href="files/crosshair_v1.0_20261013.sprite3" download>準心造型1（sprite3）</a><a href="files/crosshair_v1.0_20261013.png" download>準心造型1（png）</a></div></div><div class="cnew"></div></div>
+<div class="dl"><a href="files/crosshair_v1.1_20261013.sprite3" download>準心角色（向量 sprite3）</a><a href="files/crosshair_v1.1_20261013.svg" download>準心造型1（svg）</a></div></div><div class="cnew"></div></div>
 </div>
 <div id="tabSkills" hidden>
   <section class="blk">
@@ -225,7 +225,7 @@ footer a{color:inherit}
     <div class="road" id="road"></div>
   </section>
   <section class="blk">
-    <div class="shead"><span class="num">新</span><h2>最新一課（月球打老鼠）新學的</h2></div>
+    <div class="shead"><span class="num">新</span><h2 id="newestTitle">最新一課新學的</h2></div>
     <div class="kgrid" id="newGrid"></div>
     <h3 class="sub">新的操作技能</h3>
     <ul class="ops" id="newOps"></ul>
@@ -241,158 +241,9 @@ footer a{color:inherit}
   </section>
 </div>
 
-<footer><span>課程內容修改自 <a href="https://steam.oxxostudio.tw/category/scratch/index.html" target="_blank" rel="noopener">Scratch STEAM 教學</a>、<a href="https://sites.google.com/site/wenyuscratch/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener">阿玉的 Scratch 教學網</a></span><span>首頁 v1.2 · 2026-10-13</span></footer>
+<footer><span>課程內容修改自 <a href="https://steam.oxxostudio.tw/category/scratch/index.html" target="_blank" rel="noopener">Scratch STEAM 教學</a>、<a href="https://sites.google.com/site/wenyuscratch/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener">阿玉的 Scratch 教學網</a></span><span>首頁 v1.4 · 2026-10-13</span></footer>
 </div>
-<script>
-/* ---------- Scratch 積木 SVG 產生器 ---------- */
-const COL={motion:['#4C97FF','#3373CC'],looks:['#9966FF','#774DCB'],sound:['#CF63CF','#BD42BD'],event:['#FFBF00','#CC9900'],control:['#FFAB19','#CF8B17'],sensing:['#5CB1D6','#2E8EB8'],operators:['#59C059','#389438'],data:['#FF8C1A','#DB6E00']};
-const FONT='font-family="Noto Sans TC, PingFang TC, Microsoft JhengHei, sans-serif" font-size="14"';
-function tw(s){let w=0;for(const ch of s){const c=ch.codePointAt(0);w+= c>0x2E80?14.5: /[A-Z0-9]/.test(ch)?8.6:/[-.: ]/.test(ch)?5:8.3;}return w;}
-function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
-const GAP=6;
-function pw(p){
-  if(typeof p==='string') return tw(p);
-  if(p.flag) return 22;
-  if(p.color) return 30;
-  if(p.n!==undefined) return Math.max(30,tw(p.n)+20);
-  if(p.dd!==undefined) return tw(p.dd)+34;
-  if(p.bool) return partsW(p.bool.p)+28;
-  if(p.rep) return partsW(p.rep.p)+24;
-  return 0;
-}
-function partsW(ps){return ps.reduce((a,p)=>a+pw(p),0)+GAP*(ps.length-1)}
-function drawParts(ps,x,cy,cat){
-  let s='';
-  for(const p of ps){
-    const w=pw(p);
-    if(typeof p==='string') s+=`<text x="${x}" y="${cy+5}" fill="#fff" ${FONT} font-weight="500">${esc(p)}</text>`;
-    else if(p.flag) s+=`<path d="M${x+4} ${cy+10}V${cy-9}" stroke="#45993D" stroke-width="2.2" stroke-linecap="round"/><path d="M${x+5} ${cy-9}c4-3 7 2 12 0v10c-5 2-8-3-12 0z" fill="#4CBF56" stroke="#45993D" stroke-width="1.2" stroke-linejoin="round"/>`;
-    else if(p.color) s+=`<rect x="${x}" y="${cy-11}" width="${w}" height="22" rx="11" fill="${p.color}" stroke="#fff" stroke-width="2"/>`;
-    else if(p.n!==undefined) s+=`<rect x="${x}" y="${cy-13}" width="${w}" height="26" rx="13" fill="#fff" stroke="${COL[cat][1]}" stroke-opacity=".35"/><text x="${x+w/2}" y="${cy+5}" text-anchor="middle" fill="#575E75" ${FONT}>${esc(p.n)}</text>`;
-    else if(p.dd!==undefined) s+=`<rect x="${x}" y="${cy-13}" width="${w}" height="26" rx="13" fill="${COL[cat][1]}" stroke="${COL[cat][1]}"/><text x="${x+11}" y="${cy+5}" fill="#fff" ${FONT}>${esc(p.dd)}</text><path d="M${x+w-19} ${cy-2}l4 4 4-4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
-    else if(p.bool){const c=p.bool.c,hh=p.bool.p.some(q=>q&&q.bool)?21:16;s+=`<path d="M${x} ${cy}L${x+14} ${cy-hh}H${x+w-14}L${x+w} ${cy}L${x+w-14} ${cy+hh}H${x+14}Z" fill="${COL[c][0]}" stroke="${COL[c][1]}"/>`+drawParts(p.bool.p,x+14,cy,c)+(p.bool.nw?`<circle cx="${x+w-8}" cy="${cy-hh-2}" r="10" fill="#E5323E" stroke="#fff" stroke-width="1.5"/><text x="${x+w-8}" y="${cy-hh+2.5}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Noto Sans TC, sans-serif">新</text>`:'');}
-    else if(p.rep){const c=p.rep.c;s+=`<rect x="${x}" y="${cy-15}" width="${w}" height="30" rx="15" fill="${COL[c][0]}" stroke="${COL[c][1]}"/>`+drawParts(p.rep.p,x+12,cy,c);}
-    x+=w+GAP;
-  }
-  return s;
-}
-function topEdge(x,y,W){return `M${x} ${y+4}q0-4 4-4H${x+12}l4 4h8l4-4H${x+W-4}q4 0 4 4`}
-function botEdge(x,yb,tab){return `V${yb-4}q0 4-4 4`+(tab?`H${x+28}l-4 4h-8l-4-4`:'')+`H${x+4}q-4 0-4-4Z`}
-function layout(blocks,x,y){
-  let svg='',h=0,w=0;
-  for(const b of blocks){
-    const [f,st]=COL[b.c]; const tW=partsW(b.p)+24;
-    let bh,path,W,inner='';
-    const row=b.p.some(p=>p&&p.bool&&p.bool.p.some(q=>q&&q.bool))?58:b.p.some(p=>p&&p.bool)?48:40;
-    if(b.t==='hat'){W=Math.max(tW,110);bh=56;
-      path=`M${x} ${y+16}c25-22 71-22 96 0H${x+W-4}q4 0 4 4V${y+bh-4}q0 4-4 4H${x+28}l-4 4h-8l-4-4H${x+4}q-4 0-4-4Z`;
-      inner=drawParts(b.p,x+12,y+36,b.c);
-    }else if(b.t==='c'){
-      const sub=layout(b.in,x+16,y+row);const ih=Math.max(sub.h,24);
-      W=Math.max(tW,160,sub.w+32);const yi=y+row+ih,yb=yi+24;bh=row+ih+24;
-      path=topEdge(x,y,W)+`V${y+row-4}q0 4-4 4H${x+44}l-4 4h-8l-4-4H${x+20}q-4 0-4 4V${yi-4}q0 4 4 4H${x+28}l4 4h8l4-4H${x+W-4}q4 0 4 4`+botEdge(x,yb,!b.cap);
-      inner=drawParts(b.p,x+12,y+row/2,b.c)+sub.svg;
-    }else{W=Math.max(tW,60);bh=row;
-      path=topEdge(x,y,W)+botEdge(x,y+bh,!b.cap);
-      inner=drawParts(b.p,x+12,y+row/2,b.c);
-    }
-    const glow=b.hl?`<path d="${path}" fill="none" stroke="#FFD43B" stroke-width="9" stroke-linejoin="round"/>`:'';
-    svg+=glow+`<path d="${path}" fill="${f}" stroke="${st}" stroke-width="1"/>`+inner;
-    if(b.hl){const by=(b.t==='hat'?y+36:y+row/2);svg+=`<circle cx="${x+W+16}" cy="${by}" r="11" fill="#E5323E"/><text x="${x+W+16}" y="${by+4.5}" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Noto Sans TC, sans-serif">新</text>`;}
-    y+=bh;h+=bh;w=Math.max(w,W+(b.hl?32:0));
-  }
-  return {svg,h,w};
-}
-function renderScript(blocks){
-  const L=layout(blocks,8,12);
-  const W=L.w+20,H=L.h+22;
-  return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="積木程式">${L.svg}</svg>`;
-}
-
-/* ---------- 技能統整分頁（累計所有課程） ---------- */
-(function(){
-  function one(b){
-    if(b.bool||b.rep){const w=pw(b)+(b.bool&&b.bool.nw?10:0);const h=b.bool?44:36;return `<svg viewBox="0 0 ${w+8} ${h}" width="${w+8}" height="${h}" role="img" aria-label="積木">${drawParts([b],4,h/2+2,'motion')}</svg>`;}
-    return renderScript([b]);
-  }
-  const LS=[['l1','小狗追球','9/29'],['l2','貓抓老鼠',''],['l3','計時＋停止全部','10/06'],['lc','10/06 挑戰',''],['l5','月球打老鼠','這次']];
-  const LN=Object.fromEntries(LS.map(([k,n,d])=>[k,n+(d&&d!=='這次'?' '+d:'')+(d==='這次'?'（這次）':'')]));
-  const H={t:'hat',c:'event',p:['當',{flag:1},'被點擊']};
-  const T=v=>({rep:{c:'data',p:[v]}});
-  // [分類, 顏色, [積木, 用途, 課次, 這次用在哪]]
-  const ALL=[
-   ['事件','#FFBF00',[[H,'按下綠旗時開始執行','l1'],[{t:'hat',c:'event',p:['當角色被點擊']},'點到這個角色時開始執行','l5','步驟 4 準心開槍']]],
-   ['動作','#4C97FF',[[{t:'s',c:'motion',p:['移動',{n:'10'},'點']},'往面朝的方向走','l1'],
-     [{t:'s',c:'motion',p:['面朝',{dd:'鼠標'},'向']},'轉向滑鼠或某個角色','l1'],
-     [{t:'s',c:'motion',p:['定位到',{dd:'鼠標'},'位置']},'跳到滑鼠的位置','l1'],
-     [{t:'s',c:'motion',p:['迴轉方式設為',{dd:'左-右'}]},'只左右翻面，不會倒立','l1'],
-     [{t:'s',c:'motion',p:['定位到 x:',{n:'0'},'y:',{n:'0'}]},'回到指定位置','l2'],
-     [{t:'s',c:'motion',p:['碰到邊緣就反彈']},'撞到舞台邊邊就彈回來','l5','步驟 5 老鼠亂跑']]],
-   ['外觀','#9966FF',[[{t:'s',c:'looks',p:['造型換成下一個']},'換下一個造型，做動畫','l1'],
-     [{t:'s',c:'looks',p:['隱藏']},'讓角色看不見，程式照樣跑','l3'],
-     [{t:'s',c:'looks',p:['造型換成',{dd:'造型2'}]},'換成指定的造型','l5','步驟 4 準心變紅'],
-     [{t:'s',c:'looks',p:['圖層移到',{dd:'最上'},'層']},'放到最上面，不被別的角色蓋住','l5','步驟 3 準心'],
-     [{t:'s',c:'looks',p:['顯示']},'讓角色出現','l5','步驟 7 老鼠躲完再出來']]],
-   ['音效','#CF63CF',[[{t:'s',c:'sound',p:['播放音效',{dd:'Pop'}]},'播放一個聲音','l5','步驟 7 打中「啵」一聲']]],
-   ['控制','#FFAB19',[[{t:'c',c:'control',cap:1,p:['重複無限次'],in:[]},'嘴巴裡的積木一直做','l1'],
-     [{t:'s',c:'control',p:['等待',{n:'1'},'秒']},'停一下再做下一個','l1'],
-     [{t:'c',c:'control',p:['如果',{bool:{c:'sensing',p:['']}},'那麼'],in:[]},'條件成立才做','l3'],
-     [{t:'s',c:'control',cap:1,p:['停止',{dd:'全部'}]},'全部程式停下來','l3']]],
-   ['偵測','#5CB1D6',[[{bool:{c:'sensing',p:['碰到',{dd:'Cat'},'？']}},'有沒有碰到某個角色','l3'],
-     [{rep:{c:'sensing',p:['計時器']}},'內建時鐘，停止全部後還會跑','lc'],
-     [{t:'s',c:'sensing',p:['計時器重置']},'把內建計時器歸零','lc'],
-     [{bool:{c:'sensing',p:['碰到顏色',{color:'#f80000'},'？']}},'有沒有碰到某個顏色','l5','步驟 7 被紅色準心打中']]],
-   ['運算','#59C059',[[{bool:{c:'operators',p:[{bool:{c:'sensing',p:['']}},'或',{bool:{c:'sensing',p:['']}}]}},'兩個條件有一個成立','lc'],
-     [{rep:{c:'operators',p:[{n:''},'+',{n:''}]}},'加法（還有 −、×、/）','lc'],
-     [{bool:{c:'operators',p:[{n:''},'=',{n:''}]}},'兩邊一樣就成立','l5','步驟 6 時間 = 0']]],
-   ['變數','#FF8C1A',[[{t:'s',c:'data',p:['變數',{dd:'時間'},'設為',{n:'0'}]},'把數字直接換掉','l3'],
-     [{t:'s',c:'data',p:['變數',{dd:'時間'},'改變',{n:'1'}]},'加上一個數（負數就是減）','l3'],
-     [T('時間'),'變數本身，可以放進別的積木','l3']]]
-  ];
-  const OPS=[['l1','從角色庫新增角色、刪除角色'],['l1','把積木拖進程式區、接起來、放進嘴巴'],['l1','檔案 → 下載到你的電腦存檔'],
-    ['l3','用「繪畫」新增空白角色、改角色名稱'],['l3','建立變數，勾選後顯示在舞台'],['l3','點一下六角形積木，看 true／false'],
-    ['lc','右鍵複製角色（程式一起複製）'],['lc','到「造型」分頁換造型'],
-    ['l5','用「選個背景」換背景'],['l5','改角色的「尺寸」'],['l5','用「上傳角色」放進老師給的檔案'],['l5','在造型分頁複製造型'],['l5','用「填滿」工具幫造型上色'],['l5','用「滴管」選舞台上的顏色'],['l5','點「方向」轉轉盤，改角色方向']];
-  const IDEAS=[['l1','一個角色可以同時跑好幾段程式'],['l1','換造型＋等待 ＝ 動畫'],['l2','每個角色有自己的程式，先選對角色再寫'],
-    ['l3','變數像貼了名字的盒子，裡面放一個數字'],['l3','條件只有 true 和 false'],['l3','停止全部後，變數停住 ＝ 成績'],['l3','隱藏的角色，程式照樣會跑'],
-    ['lc','下拉選單選的角色要存在（Cat 2 問題）'],
-    ['l5','兩個造型快速切換 ＝ 開槍效果'],['l5','用「碰到顏色」判斷打中'],['l5','打中後隱藏一下，一槍只算一分'],['l5','時間往下數：比固定時間內誰得分多']];
-  window.SKILL_ALL=ALL;window.SKILL_ONE=one;
-  const card=(b,use,l,where)=>{const isNew=l==='l5';const bb=Object.assign({},b);if(isNew&&!bb.bool&&!bb.rep)bb.hl=1;if(isNew&&bb.bool)bb.bool=Object.assign({nw:1},bb.bool);
-    return `<div class="kc${isNew?' isnew':''}" data-l="${l}"><div class="b">${one(bb)}</div><p>${use}</p>${where?`<span class="where">${where}</span>`:`<span class="lt ${l}">${LN[l]}</span>`}</div>`;};
-  const cnt={};let total=0;const newG=[];let all='';
-  ALL.forEach(([cat,col,items])=>{
-    all+=`<div class="catrow" style="--c:${col}"><h3>${cat}</h3><div class="kgrid">`;
-    items.forEach(([b,use,l,where])=>{total++;cnt[l]=(cnt[l]||0)+1;if(l==='l5')newG.push(card(b,use,l,where));all+=card(b,use,l,'');});
-    all+='</div></div>';
-  });
-  document.getElementById('newGrid').innerHTML=newG.join('');
-  document.getElementById('allCats').innerHTML=all;
-  const li=(arr)=>arr.map(([l,t])=>`<li><span class="lt ${l}">${LN[l]}</span><span>${t}</span></li>`).join('');
-  document.getElementById('allOps').innerHTML=li(OPS);document.getElementById('allIdeas').innerHTML=li(IDEAS);
-  document.getElementById('newOps').innerHTML=OPS.filter(o=>o[0]==='l5').map(([l,t])=>`<li><span class="nb">新</span>${t}</li>`).join('');
-  // road
-  let acc=0;const blocksOf=l=>ALL.flatMap(([c,col,items])=>items.filter(it=>it[2]===l).map(it=>it[0]));
-  document.getElementById('road').innerHTML=LS.map(([k,n,d],i)=>{const bs=blocksOf(k);acc+=bs.length;const ops=OPS.filter(o=>o[0]===k).length;
-    return `<article class="lesson${k==='l5'?' now':''}"><div class="lh"><span class="lt ${k}">${i+1}</span><div><h3>${n}${d?`<small>${d}</small>`:''}</h3><p class="src">修改自 ${k==='l5'?'阿玉的 Scratch 教學網':'Scratch STEAM 教學'}</p><p>新積木 <b>${bs.length}</b> 個・操作 <b>${ops}</b> 項　→　累計 <b class="acc">${acc}</b> 個積木</p></div></div><div class="minis">${bs.map(b=>`<span class="mini">${one(b)}</span>`).join('')}</div></article>`;}).join('');
-  document.getElementById('sumrow').innerHTML=`<div><b>${total}</b><span>個積木（累計）</span></div><div><b>${OPS.length}</b><span>項操作技能</span></div><div><b>${LS.length}</b><span>堂課</span></div><div class="hot"><b>${cnt.l5}</b><span>個最新一課新學</span></div>`;
-  // filters
-  const F=document.getElementById('filters');
-  [['all','全部']].concat(LS.map(([k])=>[k,LN[k]])).forEach(([k,v],i)=>{const b=document.createElement('button');b.type='button';b.textContent=k==='all'?`全部（${total}）`:`${v}（${cnt[k]||0}）`;b.setAttribute('aria-pressed',i===0?'true':'false');
-    b.onclick=()=>{F.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');
-      document.querySelectorAll('#allCats .kc').forEach(c=>c.hidden=!(k==='all'||c.dataset.l===k));
-      document.querySelectorAll('#allCats .catrow').forEach(r=>r.hidden=![...r.querySelectorAll('.kc')].some(c=>!c.hidden));};F.appendChild(b);});
-  // tabs
-  const tabs=document.querySelectorAll('.tabbar button'),Lt=document.getElementById('tabLesson'),S=document.getElementById('tabSkills');
-  function go(k){const sk=k==='skills';Lt.hidden=sk;S.hidden=!sk;tabs.forEach(t=>t.setAttribute('aria-selected',String(t.dataset.k===k)));window.scrollTo(0,0);}
-  tabs.forEach(t=>t.onclick=()=>go(t.dataset.k));
-  if(location.hash==='#skills')go('skills');
-})();
-
-(function(){const A=window.SKILL_ALL,one=window.SKILL_ONE;const NM={l1:'',l2:'貓抓老鼠',l3:'計時',lc:'挑戰',l5:''};
-document.querySelectorAll('.card[data-ls]').forEach(c=>{const ls=c.dataset.ls.split(' ');let n=0,h='';
-ls.forEach(l=>{const bs=A.flatMap(([cat,col,items])=>items.filter(it=>it[2]===l).map(it=>it[0]));n+=bs.length;if(!bs.length)return;
-if(ls.length>1)h+=`<div class="tag">${NM[l]}</div>`;h+=`<div class="mm">${bs.map(b=>one(b)).join('')}</div>`;});
-c.querySelector('.cnew').innerHTML=`<div class="ct">這單元的新積木 <b>${n}</b> 個</div>`+h;});})();
-</script>
+<script src="assets/scratch-blocks.js"></script>
+<script src="assets/skills.js"></script>
+<script src="assets/index-cards.js"></script>
 </body></html>

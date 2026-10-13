@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 月球打老鼠 教學步驟 v1.6 · 2026-10-13 · 大橋國小 資訊課 · 四年級（課程修改自阿玉的 Scratch 教學網） -->
+<!-- 月球打老鼠 教學步驟 v1.7 · 2026-10-13 · 大橋國小 資訊課 · 四年級（課程修改自阿玉的 Scratch 教學網） -->
 <title>月球打老鼠</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -296,14 +296,15 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   <div class="cols">
     <div class="how stack">
       <ol>
-        <li><span>老師給的 <b>準心_造型1.sprite3</b>：滑到 <span class="ui">選個角色</span> → 點 <span class="ui">上傳角色</span>（往上的箭頭），選這個檔案。舞台上出現黑色準心，就是 <b>造型1</b>。</span></li>
+        <li><span>老師給的 <b>準心.sprite3</b>：滑到 <span class="ui">選個角色</span> → 點 <span class="ui">上傳角色</span>（往上的箭頭），選這個檔案。舞台上出現黑色準心，就是 <b>造型1</b>（向量圖）。</span></li>
         <li><span>點上方的 <span class="ui">造型</span> 分頁，在左邊的造型1 上按<b>右鍵</b> → <span class="ui">複製</span>，多出 <b>造型2</b>。</span></li>
-        <li><span>點選 <b>造型2</b>，在左邊工具找 <b>填滿</b>（油漆桶）。<span class="nb">新</span></span></li>
+        <li><span>點選 <b>造型2</b>，確認畫布左下角的按鈕寫著 <span class="ui">轉換成點陣圖</span>（代表現在是<b>向量模式</b>）。在左邊工具找 <b>填滿</b>（油漆桶）。<span class="nb">新</span></span></li>
         <li><span>上方 <b>填滿</b> 的顏色選 <b>紅色</b>（顏色拉到最左邊，彩度、亮度拉到最右邊）。</span></li>
-        <li><span>用油漆桶<b>點圓的裡面</b>，四小格都點一下，整個圓就變紅了。</span></li>
+        <li><span>用油漆桶<b>點圓的裡面一下</b>，整個圓就變紅了。（向量模式的圓是一整個形狀，點一次就好）</span></li>
         <li><span>點回 <b>造型1</b>，確定它還是黑色、沒有紅色。</span></li>
       </ol>
       <div class="note warn"><b class="h">紅色很重要</b>等一下老鼠是靠「碰到紅色」判斷有沒有被打中。只有造型2 是紅的，造型1 不能有紅色。</div>
+      <div class="note warn"><b class="h">點了沒變紅？</b>可能點到「線」上了，十字線也會被塗紅。按 Ctrl＋Z 復原，改點圓裡面沒有線的地方。不要按「轉換成點陣圖」。</div>
       <div class="note tip"><b class="h">填錯了怎麼辦？</b>按 <span class="ui">Ctrl</span>＋<span class="ui">Z</span> 回到上一步，或刪掉造型2 重新複製一次。</div>
     </div>
     <div class="fig"><figure><div data-fig="paint"></div><figcaption>① 複製造型1　② 選造型2　③ 填滿工具　④ 選紅色　⑤ 點圓的裡面</figcaption></figure></div>
@@ -484,7 +485,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </section>
 </div>
 
-<footer><span>月球打老鼠 教學步驟 · v1.6 · 2026-10-13</span><span>課程修改自 <a href="https://sites.google.com/site/wenyuscratch/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener">阿玉的 Scratch 教學網</a></span></footer>
+<footer><span>月球打老鼠 教學步驟 · v1.7 · 2026-10-13</span><span>課程修改自 <a href="https://sites.google.com/site/wenyuscratch/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener">阿玉的 Scratch 教學網</a></span></footer>
 </div>
 
 <div class="pbar" id="pbar" hidden>
@@ -617,9 +618,9 @@ const FIGS={
     s+=`<rect x="204" y="12" width="344" height="40" rx="8" fill="#F9F9F9" stroke="#E3E6EC"/>`+TX(220,37,'填滿','font-size="13" fill="#575E75"')+`<rect x="256" y="22" width="34" height="20" rx="4" fill="#FF0000" stroke="#999"/>`+TX(300,37,'← 選紅色','font-size="13" fill="#B4532A" font-weight="700"');
     s+=CO('④',252,18,42,28);
     s+=`<rect x="204" y="60" width="344" height="228" rx="8" fill="#fff" stroke="#E3E6EC"/>`;
-    s+=`<g transform="translate(376 168)"><path d="M0 0V-58A58 58 0 0 1 58 0Z" fill="#FF0000"/><path d="M0 0H-58A58 58 0 0 1 0 -58Z" fill="#FF0000"/><circle r="58" fill="none" stroke="#111" stroke-width="7"/><path d="M-86 0H86M0 -86V86" stroke="#111" stroke-width="7"/></g>`;
-    s+=`<path d="M408 192l12-12 6 6-12 12-8 2z" fill="#575E75"/>`+CO('⑤',392,180,46,40);
-    s+=TX(376,280,'圓的四小格都點一下（圖中已點 2 格）','text-anchor="middle" font-size="12" fill="#575E75"');
+    s+=`<g transform="translate(376 168)"><circle r="58" fill="#FF0000" stroke="#111" stroke-width="7"/><circle r="58" fill="none" stroke="#111" stroke-width="7"/><path d="M-86 0H86M0 -86V86" stroke="#111" stroke-width="7"/></g>`;
+    s+=`<path d="M396 204l12-12 6 6-12 12-8 2z" fill="#fff" stroke="#575E75"/>`+CO('⑤',384,190,46,40)+`<rect x="212" y="254" width="96" height="24" rx="5" fill="#fff" stroke="#C9CED6"/>`+TX(260,271,'轉換成點陣圖','text-anchor="middle" font-size="11" fill="#575E75"');
+    s+=TX(440,272,'向量模式：點圓裡面一下，整個圓變紅','text-anchor="middle" font-size="12" fill="#575E75"');
     return s+'</svg>';
   },
   bounce(){
