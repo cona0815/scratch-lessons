@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- 大橋國小 資訊課 Scratch 教學 首頁 v1.1 · 2026-10-13 -->
+<!-- 大橋國小 資訊課 Scratch 教學 首頁 v1.2 · 2026-10-13 -->
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>大橋國小 Scratch 教學</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -195,17 +195,26 @@ body.present .tabbar{display:none}
 .dl a{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:2px 12px;color:var(--accent);text-decoration:none}
 .badge{display:inline-block;background:var(--accent);color:var(--panel);border-radius:6px;padding:0 8px;font-size:14px;margin-right:6px}
 footer a{color:inherit}
-.wrap{max-width:1000px}
+.wrap{max-width:1100px}
+.card{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:start;gap:14px}
+.cl{display:grid;gap:6px;min-width:0}
+.cnew{border-left:1px dashed var(--line);padding-left:14px;min-width:0}
+.cnew .ct{font-size:13px;color:var(--muted);margin-bottom:6px}
+.cnew .ct b{color:#E5323E}
+.cnew .mm{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center}
+.cnew .mm svg{display:block;height:auto;zoom:.72}
+.cnew .tag{font-size:11px;color:var(--muted);margin:6px 0 2px}
+@media (max-width:820px){.card{grid-template-columns:minmax(0,1fr)}.cnew{border-left:0;padding-left:0;border-top:1px dashed var(--line);padding-top:10px}}
 </style></head><body>
 <div class="wrap">
 <header class="top"><div><div class="eyebrow">SCRATCH 3 · 資訊課 · 大橋國小</div><h1>大橋國小 資訊課 Scratch 教學</h1>
 <p class="sub">每一課都有可以玩的成品預覽、一步一步的積木教學、除錯表和挑戰任務。</p></div></header>
 <div class="tabbar" role="tablist"><button type="button" role="tab" data-k="lesson" aria-selected="true">課程列表</button><button type="button" role="tab" data-k="skills" aria-selected="false">技能統整（累計）</button></div>
 <div id="tabLesson" style="padding-block:16px">
-<div class="card"><h2><span class="badge">1</span><a href="dog.html">小狗追球</a></h2><p class="meta">9/29　球跟著滑鼠、小狗追球、走路動畫　｜修改自 Scratch STEAM 教學</p></div>
-<div class="card"><h2><span class="badge">2–3</span><a href="cat-mouse.html">貓抓老鼠 計時挑戰</a></h2><p class="meta">10/06　時間變數每秒＋1、碰到貓就停止全部、比誰撐最久　｜修改自 Scratch STEAM 教學</p></div>
-<div class="card"><h2><span class="badge">4</span><a href="moon-mole.html">月球打老鼠</a></h2><p class="meta">四年級　準心開槍、碰到顏色得分、30 秒倒數　｜修改自阿玉的 Scratch 教學網</p>
-<div class="dl"><a href="files/crosshair_v1.0_20261013.sprite3" download>準心造型1（sprite3）</a><a href="files/crosshair_v1.0_20261013.png" download>準心造型1（png）</a></div></div>
+<div class="card" data-ls="l1"><div class="cl"><h2><span class="badge">1</span><a href="dog.html">小狗追球</a></h2><p class="meta">9/29　球跟著滑鼠、小狗追球、走路動畫　｜修改自 Scratch STEAM 教學</p></div><div class="cnew"></div></div>
+<div class="card" data-ls="l2 l3 lc"><div class="cl"><h2><span class="badge">2–3</span><a href="cat-mouse.html">貓抓老鼠 計時挑戰</a></h2><p class="meta">10/06　時間變數每秒＋1、碰到貓就停止全部、比誰撐最久　｜修改自 Scratch STEAM 教學</p></div><div class="cnew"></div></div>
+<div class="card" data-ls="l5"><div class="cl"><h2><span class="badge">4</span><a href="moon-mole.html">月球打老鼠</a></h2><p class="meta">四年級　準心開槍、碰到顏色得分、30 秒倒數　｜修改自阿玉的 Scratch 教學網</p>
+<div class="dl"><a href="files/crosshair_v1.0_20261013.sprite3" download>準心造型1（sprite3）</a><a href="files/crosshair_v1.0_20261013.png" download>準心造型1（png）</a></div></div><div class="cnew"></div></div>
 </div>
 <div id="tabSkills" hidden>
   <section class="blk">
@@ -232,7 +241,7 @@ footer a{color:inherit}
   </section>
 </div>
 
-<footer><span>課程內容修改自 <a href="https://steam.oxxostudio.tw/category/scratch/index.html" target="_blank" rel="noopener">Scratch STEAM 教學</a>、<a href="https://sites.google.com/site/wenyuscratch/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener">阿玉的 Scratch 教學網</a></span><span>首頁 v1.1 · 2026-10-13</span></footer>
+<footer><span>課程內容修改自 <a href="https://steam.oxxostudio.tw/category/scratch/index.html" target="_blank" rel="noopener">Scratch STEAM 教學</a>、<a href="https://sites.google.com/site/wenyuscratch/%E9%A6%96%E9%A0%81" target="_blank" rel="noopener">阿玉的 Scratch 教學網</a></span><span>首頁 v1.2 · 2026-10-13</span></footer>
 </div>
 <script>
 /* ---------- Scratch 積木 SVG 產生器 ---------- */
@@ -348,6 +357,7 @@ function renderScript(blocks){
     ['l3','變數像貼了名字的盒子，裡面放一個數字'],['l3','條件只有 true 和 false'],['l3','停止全部後，變數停住 ＝ 成績'],['l3','隱藏的角色，程式照樣會跑'],
     ['lc','下拉選單選的角色要存在（Cat 2 問題）'],
     ['l5','兩個造型快速切換 ＝ 開槍效果'],['l5','用「碰到顏色」判斷打中'],['l5','打中後隱藏一下，一槍只算一分'],['l5','時間往下數：比固定時間內誰得分多']];
+  window.SKILL_ALL=ALL;window.SKILL_ONE=one;
   const card=(b,use,l,where)=>{const isNew=l==='l5';const bb=Object.assign({},b);if(isNew&&!bb.bool&&!bb.rep)bb.hl=1;if(isNew&&bb.bool)bb.bool=Object.assign({nw:1},bb.bool);
     return `<div class="kc${isNew?' isnew':''}" data-l="${l}"><div class="b">${one(bb)}</div><p>${use}</p>${where?`<span class="where">${where}</span>`:`<span class="lt ${l}">${LN[l]}</span>`}</div>`;};
   const cnt={};let total=0;const newG=[];let all='';
@@ -379,5 +389,10 @@ function renderScript(blocks){
   if(location.hash==='#skills')go('skills');
 })();
 
+(function(){const A=window.SKILL_ALL,one=window.SKILL_ONE;const NM={l1:'',l2:'貓抓老鼠',l3:'計時',lc:'挑戰',l5:''};
+document.querySelectorAll('.card[data-ls]').forEach(c=>{const ls=c.dataset.ls.split(' ');let n=0,h='';
+ls.forEach(l=>{const bs=A.flatMap(([cat,col,items])=>items.filter(it=>it[2]===l).map(it=>it[0]));n+=bs.length;if(!bs.length)return;
+if(ls.length>1)h+=`<div class="tag">${NM[l]}</div>`;h+=`<div class="mm">${bs.map(b=>one(b)).join('')}</div>`;});
+c.querySelector('.cnew').innerHTML=`<div class="ct">這單元的新積木 <b>${n}</b> 個</div>`+h;});})();
 </script>
 </body></html>
