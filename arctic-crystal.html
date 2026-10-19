@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
+<!-- 北極接水晶 教學步驟 v1.0 · 2026-10-19 · 大橋國小 資訊課 · 四年級（課程修改自老師提供的「接水晶」範例） -->
+<title>北極接水晶</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: 一頁長捲軸；上方可玩的成品預覽，下方「上次回顧」與「本次進度」步驟卡（左操作、右圖示），可切投影模式 */
+:root{
+  --bg:#F5F2EE; --panel:#FFFFFF; --ink:#2A231E; --muted:#6B5F55; --line:#E1D8CF;
+  --accent:#B4532A; --accent-soft:#F6E5DA; --ok:#2C7A4B; --ok-soft:#E0EFE5;
+  --tip-bg:#FFF3D1; --tip-ink:#654A00; --warn-bg:#FDE7E5; --warn-ink:#8A2A22;
+  --fig-bg:#EFE9E2;
+  --f-display:"LXGW WenKai TC","Noto Sans TC","PingFang TC","Microsoft JhengHei",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17130F; --panel:#211B16; --ink:#EDE5DD; --muted:#B3A598; --line:#3A3028;
+  --accent:#F08A5D; --accent-soft:#3A2418; --ok:#5BC488; --ok-soft:#1E3326;
+  --tip-bg:#2D2610; --tip-ink:#F0D27C; --warn-bg:#35191A; --warn-ink:#FFB4AC;
+  --fig-bg:#2A221C; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#17130F; --panel:#211B16; --ink:#EDE5DD; --muted:#B3A598; --line:#3A3028;
+  --accent:#F08A5D; --accent-soft:#3A2418; --ok:#5BC488; --ok-soft:#1E3326;
+  --tip-bg:#2D2610; --tip-ink:#F0D27C; --warn-bg:#35191A; --warn-ink:#FFB4AC;
+  --fig-bg:#2A221C; color-scheme:dark;}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;padding-inline:16px;padding-block:0 96px}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+header.top{padding-block:28px 12px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted)}
+h1{font-size:clamp(30px,5vw,46px);font-weight:700}
+h1 small{font-size:.55em;color:var(--accent);margin-left:.3em}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.btn{font:inherit;font-size:14px;border:1.5px solid var(--accent);background:var(--panel);color:var(--accent);padding:6px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{background:var(--accent-soft)}
+.btn.solid{background:var(--accent);color:var(--panel)}
+.btn:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--ok);outline-offset:2px}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start;padding-block:12px 28px;border-bottom:1px solid var(--line)}
+.stagebox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px}
+.stagebar{display:flex;align-items:center;gap:10px;padding:0 4px 8px;font-size:13px;color:var(--muted)}
+.ib{width:28px;height:28px;border-radius:6px;border:1px solid var(--line);display:grid;place-items:center;background:var(--panel);cursor:pointer;flex:none}
+.stage{position:relative;width:100%;aspect-ratio:4/3;max-width:100%;background:#FCE7C8;border:1px solid #D9D9D9;border-radius:6px;overflow:hidden;cursor:none;touch-action:none}
+.stage .inner{position:absolute;left:0;top:0;width:480px;height:360px;transform-origin:0 0}
+.stage .bd{position:absolute;inset:0;width:480px;height:360px}
+.stage img.sp{position:absolute;pointer-events:none;user-select:none}
+.mon{position:absolute;left:5px;top:5px;background:#F2F2F2;border:1px solid #C4C4C4;border-radius:4px;padding:2px 6px;font:500 12px var(--f-body);color:#575E75;display:flex;gap:6px;align-items:center}
+.mon b{background:#FF8C1A;color:#fff;border-radius:4px;padding:0 6px;font-family:var(--f-mono);min-width:26px;text-align:center}
+.status{font-size:14px;margin-top:8px;padding:6px 10px;border-radius:8px;background:var(--fig-bg)}
+.status b{color:var(--accent)}
+.ctl{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font-size:14px;margin-top:10px}
+.ctl label{color:var(--muted)}
+.ctl select,.ctl input{font:inherit;accent-color:var(--accent)}
+.ctl select{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:2px 6px}
+.goals h2{font-size:22px;margin-bottom:8px}
+.goals ol{margin:0;padding-left:1.4em;display:grid;gap:6px}
+.goals .time{margin-top:16px;border-top:1px dashed var(--line);padding-top:12px}
+.timeline{display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;font-size:14px}
+.timeline span:nth-child(3n){color:var(--muted);text-align:right}
+
+nav.steps{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin}
+nav.steps a{flex:none;text-decoration:none;color:var(--ink);font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--panel);white-space:nowrap}
+nav.steps a b{font-family:var(--f-mono);color:var(--accent);margin-right:4px}
+nav.steps a.on{border-color:var(--accent);background:var(--accent-soft)}
+nav.steps .sep{flex:none;align-self:center;font-size:12px;color:var(--muted);padding-inline:4px}
+
+.part{padding-block:28px 0;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.part h2{font-size:clamp(22px,3vw,28px)}
+.part .tag{font-size:13px;letter-spacing:.1em;color:var(--panel);background:var(--ink);padding:2px 10px;border-radius:4px}
+section.step{padding-block:32px;border-bottom:1px solid var(--line);scroll-margin-top:64px}
+.shead{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;margin-bottom:18px}
+.num{font-family:var(--f-mono);font-weight:700;font-size:15px;color:var(--panel);background:var(--accent);border-radius:8px;padding:2px 10px}
+.num.re{background:var(--muted)}
+.shead h2{font-size:clamp(24px,3.4vw,32px)}
+.shead .chip{margin-left:auto}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:28px;align-items:start}
+.how ol{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:12px}
+.how li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px}
+.how li::before{content:counter(s);font-family:var(--f-mono);font-weight:700;font-size:14px;width:26px;height:26px;border-radius:50%;border:2px solid var(--accent);color:var(--accent);display:grid;place-items:center;margin-top:1px}
+.ui{font-weight:700;background:var(--panel);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;white-space:nowrap}
+.cat{display:inline-flex;align-items:center;gap:4px;font-weight:700;white-space:nowrap}
+.cat::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--c)}
+.c-motion{--c:#4C97FF}.c-looks{--c:#9966FF}.c-sound{--c:#CF63CF}.c-event{--c:#FFBF00}.c-control{--c:#FFAB19}.c-sensing{--c:#5CB1D6}.c-op{--c:#59C059}.c-data{--c:#FF8C1A}
+.fig{display:grid;gap:12px;min-width:0}
+figure{margin:0;background:var(--fig-bg);border-radius:10px;padding:12px;overflow-x:auto}
+figure svg{display:block;width:100%;height:auto}
+figure.blocks svg{width:auto;max-width:100%}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.note{border-radius:10px;padding:12px 14px;font-size:15px}
+.note b.h{display:block;font-family:var(--f-display);font-size:16px;margin-bottom:4px}
+.tip{background:var(--tip-bg);color:var(--tip-ink)}
+.warn{background:var(--warn-bg);color:var(--warn-ink)}
+.check{background:var(--ok-soft);color:var(--ink)}
+.check b.h{color:var(--ok)}
+.stack{display:grid;gap:14px;min-width:0}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:6px;align-content:start;min-width:0}
+.card .pic{height:96px;display:grid;place-items:center;background:var(--fig-bg);border-radius:8px}
+.card .pic img{max-height:84px;width:auto}
+.card h3{font-size:18px}
+.card p{font-size:14px;color:var(--muted)}
+.hid{font-family:var(--f-display);font-size:28px;color:var(--muted);border:2px dashed var(--line);border-radius:8px;padding:4px 14px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid2 figure,.grid3 figure{display:grid;align-content:start}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.quiz{display:grid;gap:8px}
+.quiz details{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.quiz summary{cursor:pointer;font-weight:500}
+.quiz details p{margin-top:6px;color:var(--ok);font-weight:500}
+table.debug{width:100%;border-collapse:collapse;font-size:15px}
+table.debug th,table.debug td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+table.debug th{font-size:13px;color:var(--muted);font-weight:500;letter-spacing:.06em}
+.tbl{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.lv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mini{margin:0;padding-left:1.3em;display:grid;gap:4px;font-size:15px}
+.lv > div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:10px;align-content:start;min-width:0}
+.stars{color:var(--accent);letter-spacing:2px;font-size:14px}
+footer{padding-block:28px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+code.k{font-family:var(--f-mono);background:var(--fig-bg);padding:0 5px;border-radius:4px;white-space:pre}
+
+.pbar{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--panel);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;align-items:center;justify-content:center}
+.pbar[hidden]{display:none}
+body.present header.top,body.present .hero,body.present nav.steps,body.present footer,body.present .part{display:none}
+body.present section.step{display:none;border:0;padding-block:24px}
+body.present section.step.cur{display:block}
+body.present{font-size:19px}
+body.present .wrap{max-width:1280px}
+
+@media (max-width:820px){
+  .hero,.cols,.grid2,.grid3{grid-template-columns:minmax(0,1fr)}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lv{grid-template-columns:minmax(0,1fr)}
+  .shead .chip{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pair figure{text-align:center}
+.pair .lbl{font-size:14px;font-weight:700;margin-top:6px}
+</style>
+<style>
+.credit{font-size:14px;color:var(--muted);margin-top:6px}.credit a{color:inherit;text-decoration:underline;text-underline-offset:3px}footer a{color:inherit}
+.tabbar{display:flex;gap:6px;border-bottom:2px solid var(--line);margin-bottom:8px}
+.tabbar button{font:inherit;font-size:15px;font-weight:700;border:0;background:none;color:var(--muted);padding:10px 16px;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer}
+.tabbar button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.tabbar button:focus-visible{outline:3px solid var(--ok);outline-offset:2px}
+#tabSkills section.blk{padding-block:26px;border-bottom:1px solid var(--line)}
+.sumrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sumrow div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid}
+.sumrow b{font-family:var(--f-mono);font-size:30px;line-height:1.1}
+.sumrow span{font-size:14px;color:var(--muted)}
+.sumrow .hot{border-color:var(--accent)} .sumrow .hot b{color:var(--accent)}
+.road{display:grid;gap:10px}
+.lesson{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:10px}
+.lesson.now{border:2px solid var(--accent)}
+.lh{display:flex;gap:12px;align-items:center}
+.lh .lt{font-family:var(--f-mono);font-weight:700;font-size:15px;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;padding:0}
+.lh h3{font-size:19px}.lh h3 small{font-size:13px;color:var(--muted);margin-left:8px;font-family:var(--f-body)}
+.lh p{font-size:14px;color:var(--muted)} .lh .acc{color:var(--accent);font-size:16px}
+.minis{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mini svg{display:block;height:auto;max-width:100%;zoom:.8}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.kc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:grid;gap:6px;align-content:start;min-width:0}
+.kc.isnew{border-color:#E5323E}
+.kc .b{overflow-x:auto}.kc .b svg{display:block;max-width:100%;height:auto}
+.kc p{font-size:14px;color:var(--muted)}
+.kc .where{font-size:12.5px;color:var(--accent);font-weight:700}
+.kc[hidden],.catrow[hidden]{display:none}
+.catrow{margin-bottom:18px}.catrow h3{font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.catrow h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--c)}
+.lt{display:inline-block;font-size:11.5px;padding:1px 8px;border-radius:999px;white-space:nowrap;justify-self:start}
+.lt.l1{background:#E1EEF9;color:#20507D}.lt.l2{background:#F3E8D6;color:#7A4E12}.lt.l3{background:#E0EFE5;color:#2C6B45}.lt.lc{background:#ECE6F7;color:#56398F}.lt.l5{background:#FDE2E0;color:#B3261E}
+.sub{font-size:17px;margin:18px 0 8px}
+.ops{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.ops li{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.filters button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:4px 12px;border-radius:999px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.list{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.list h3{font-size:17px;margin-bottom:8px}
+.list ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.list li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:15px}
+@media (max-width:820px){.sumrow{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:minmax(0,1fr)}}
+body.present .tabbar{display:none}
+section.quick .goal{margin-bottom:14px;max-width:70ch}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;align-items:start}
+.qgrid.one{grid-template-columns:minmax(0,760px)}
+.qgrid figure{min-width:0}
+.chip.old{background:var(--ok-soft);color:var(--ok)}
+.shead .chip.old{margin-left:0}
+.newb{margin-top:14px}
+.nb{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#E5323E;color:#fff;font-size:12px;font-weight:700;margin-inline:3px;vertical-align:1px}
+</style>
+<style>
+.bub{position:absolute;background:#fff;border:2px solid #C4C4C4;border-radius:14px;padding:4px 12px;font:700 15px var(--f-body);color:#575E75;white-space:nowrap}
+.bub::after{content:"";position:absolute;left:14px;bottom:-10px;border:8px solid transparent;border-top-color:#C4C4C4;border-bottom:0}
+.keys{display:flex;gap:10px;justify-content:center;margin-top:8px}
+.keys .btn{min-width:96px;touch-action:none;user-select:none}
+.ctl{grid-template-columns:auto 1fr}
+.ctl > span:empty{display:none}
+</style>
+<div class="wrap">
+<header class="top">
+  <div>
+    <div class="eyebrow">SCRATCH 3 · 資訊課 · 四年級</div>
+    <h1>北極接水晶<small>鍵盤控制＋音效＋說話</small></h1>
+    <p class="credit">企鵝在上面走來走去丟水晶，用左右方向鍵移動碗，30 秒內接越多越好</p>
+    <p class="credit">課程內容修改自 老師提供的「接水晶」範例</p>
+  </div>
+  <div class="meta">
+    <span class="chip">建議 1 節課</span>
+    <span class="chip">角色 5 個・新積木 4 個</span>
+    <button class="btn solid" id="presentBtn" type="button">投影模式（一次一步）</button>
+  </div>
+</header>
+<div class="tabbar" role="tablist"><button type="button" role="tab" data-k="lesson" aria-selected="true">教學步驟</button><button type="button" role="tab" data-k="skills" aria-selected="false">技能統整（累計）</button></div>
+<div id="tabLesson">
+
+<div class="hero">
+  <div class="stagebox">
+    <div class="stagebar">
+      <span class="ib" id="flagBtn" title="綠旗：開始" role="button" tabindex="0" aria-label="綠旗開始">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 22V3" stroke="#45993D" stroke-width="2.4" stroke-linecap="round"/><path d="M6 4c4-3 7 3 12 0v10c-5 3-8-3-12 0z" fill="#4CBF56" stroke="#45993D" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="ib" id="stopBtn" title="停止" role="button" tabindex="0" aria-label="停止">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M7 2h10l5 5v10l-5 5H7l-5-5V7z" fill="#EC5959"/></svg>
+      </span>
+      <span>按綠旗開始，用鍵盤 ← → 移動碗（手機按下面的按鈕）</span>
+    </div>
+    <div class="stage" id="stage" style="cursor:default"><div class="inner" id="inner">
+      <img class="bd" alt="" src="data:image/jpeg;base64,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">
+      <img class="sp" id="lineIm" alt="地板線" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/e85305b47cfd92d971704dcb7ad6e17b.svg/get/">
+      <img class="sp" id="pengIm" alt="企鵝" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/428772307d90f4b347d6cc3c0d8e76ef.svg/get/">
+      <img class="sp" id="c1Im" alt="水晶" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjUiIGhlaWdodD0iMjIuMDU2MDQzNjI0ODc3OTMiIHZpZXdCb3g9IjIuNSA0LjA0Mzk1Njc1NjU5MTc5NyAyNSAyMi4wNTYwNDM2MjQ4Nzc5MyIgdmVyc2lvbj0iMS4xIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5LjMgKDUxMTY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICA8ZGVmcy8+CiAgPGc+CiAgICA8dGl0bGU+Y3J5c3RhbC1hPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9ImNyeXN0YWwtYSIgc3Ryb2tlPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICA8ZyBpZD0iQmx1ZS1DcnlzdGFsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgIDxwYXRoIGQ9Ik0gMyAxMi4zIEMgMyAxMi4zIDUuOSA3LjEgMTAgNS42IEMgMTAgNS42IDE3LjkgMy44IDIwLjUgNC45IEMgMjAuNSA0LjkgMjUuNyA4LjUgMjcgMTAuNSBDIDI3IDEwLjUgMjAgMjMuNSAxNi43IDI1LjUgQyAxNi43IDI1LjYgNC4zIDE3LjcgMyAxMi4zIFogIiBpZD0iU2hhcGUiIGZpbGw9IiM3RkNDRUYiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMjcgMTAuNSBDIDI2LjggMTAuMiAyNi41IDkuOCAyNi4xIDkuNSBMIDIwLjYgMTIuOSBMIDE1LjggMTguNyBMIDE2LjcgMjUuNiBDIDIwLjEgMjMuNSAyNyAxMC41IDI3IDEwLjUgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzY3OEZFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAxMS4zIDEzLjkgQyAxMS4zIDEzLjkgMTMuOCAyMi42IDE2LjcgMjUuNiBDIDE2LjcgMjUuNiAyMC40IDE2LjEgMjAuNiAxMi45IEwgMTMuOCA5LjcgTCAxMS4zIDEzLjkgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzczQjVFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAyMC41IDQuOSBDIDE3LjggMy44IDEwIDUuNiAxMCA1LjYgQyA2IDcuMiAzIDEyLjMgMyAxMi4zIEMgMyAxMi4zIDkuNSAxMy45IDExLjMgMTMuOSBDIDExLjMgMTMuOSAxNyAxNCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjUuNyA4LjUgMjAuNSA0LjkgMjAuNSA0LjkgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzkyRDdFRiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAxNy4yIDQuNiBDIDE1LjggNC43IDE0LjMgNC44IDEzIDUuMSBMIDExLjggNy41IEwgMTEuNCAxNCBDIDExLjQgMTQgMTcuMSAxNC4xIDIwLjcgMTMgTCAxOCA2LjkgTCAxNy4yIDQuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0ZDQ0VGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjIgOS42IEMgMTAuNCA5LjYgNi4yIDEwLjkgMy4zIDExLjggQyAzLjEgMTIuMSAzIDEyLjMgMyAxMi4zIEMgMyAxMi4zIDkuNSAxMy45IDExLjMgMTMuOSBDIDExLjMgMTMuOSAxNyAxNCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjYuOSAxMC40IDI2LjkgMTAuMyAyNi44IDEwLjIgQyAyNC40IDkuNyAyMC4yIDguOCAxOS43IDguOCBDIDE5IDguOSAxMi40IDkuNiAxMS4yIDkuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjODNDREVGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjggNy40IEwgMTguMSA3IEMgMTguMSA3IDE5LjkgNi44IDIwLjYgNSBDIDE3LjggMy44IDEwIDUuNiAxMCA1LjYgQyAxMCA1LjYgMTAuNiA2LjUgMTEuOCA3LjQgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0JFRTZGMSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAyMC41IDQuOSBDIDIwLjMgNC44IDIwIDQuNyAxOS43IDQuNyBMIDE4IDYuOSBMIDIwLjYgMTIuOCBDIDIzIDEyLjEgMjQuNSAxMS44IDI3IDEwLjQgQyAyNS43IDguNSAyMC41IDQuOSAyMC41IDQuOSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNzNCNUU0IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDI3IDEwLjUgQyAyNyAxMC41IDI2LjkgMTAuOCAyNi43IDExLjIgQyAyNi41IDExLjcgMjYuMiAxMi4zIDI1LjkgMTMuMSBDIDI1LjcgMTMuNSAyNS41IDEzLjkgMjUuMyAxNC4zIEMgMjUuMSAxNC43IDI0LjggMTUuMiAyNC41IDE1LjcgQyAyNCAxNi42IDIzLjMgMTcuNiAyMi43IDE4LjYgQyAyMiAxOS41IDIxLjMgMjAuNSAyMC43IDIxLjMgQyAyMCAyMi4xIDE5LjQgMjIuOSAxOC44IDIzLjUgQyAxNy42IDI0LjggMTYuOCAyNS41IDE2LjggMjUuNSBDIDE2LjggMjUuNSAxNy42IDI0LjYgMTguNiAyMy4zIEMgMTkuMSAyMi42IDE5LjcgMjEuOCAyMC40IDIxIEMgMjEgMjAuMSAyMS43IDE5LjIgMjIuNCAxOC4zIEMgMjMuMSAxNy40IDIzLjcgMTYuNCAyNC4yIDE1LjUgQyAyNC44IDE0LjYgMjUuMyAxMy43IDI1LjcgMTMgQyAyNi4xIDEyLjMgMjYuNSAxMS42IDI2LjcgMTEuMiBDIDI2LjkgMTAuOCAyNyAxMC41IDI3IDEwLjUgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzNCNzNFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAzIDEyLjMgQyAzIDEyLjMgMy41IDEyLjMgNC4yIDEyLjQgQyA0LjkgMTIuNSA1LjggMTIuNiA2LjcgMTIuOCBDIDcuNiAxMyA4LjUgMTMuMiA5LjIgMTMuNCBDIDkuOSAxMy42IDEwLjMgMTMuNyAxMC4zIDEzLjcgQyAxMC4zIDEzLjcgOS44IDEzLjggOS4xIDEzLjcgQyA4LjQgMTMuNiA3LjUgMTMuNSA2LjYgMTMuMyBDIDUuNyAxMy4xIDQuOCAxMi45IDQuMSAxMi43IEMgMy40IDEyLjUgMyAxMi4zIDMgMTIuMyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjQkVFNkYxIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjUgMTQuOSBDIDExLjUgMTQuOSAxMS44IDE1LjUgMTIuMSAxNi4zIEMgMTIuNSAxNy4yIDEyLjkgMTguMyAxMy40IDE5LjQgQyAxMy44IDIwLjUgMTQuMyAyMS43IDE0LjYgMjIuNSBDIDE0LjggMjIuOSAxNC45IDIzLjMgMTUuMSAyMy41IEMgMTUuMyAyMy43IDE1LjMgMjMuOCAxNS4zIDIzLjggQyAxNS4zIDIzLjggMTUuMiAyMy43IDE1IDIzLjUgQyAxNC44IDIzLjMgMTQuNiAyMyAxNC4zIDIyLjYgQyAxMy44IDIxLjggMTMuMyAyMC43IDEyLjggMTkuNSBDIDEyLjMgMTguMyAxMiAxNy4yIDExLjcgMTYuMyBDIDExLjcgMTUuNSAxMS41IDE0LjkgMTEuNSAxNC45IFogIiBpZD0iU2hhcGUiIGZpbGw9IiNCRUU2RjEiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMTguOSA4LjkgTCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjYuOSAxMC40IDI2LjkgMTAuMyAyNi44IDEwLjIgQyAyNC40IDkuNyAyMC4yIDguOCAxOS43IDguOCBDIDE5LjYgOC45IDE5LjMgOC45IDE4LjkgOC45IFogIiBpZD0iU2hhcGUiIGZpbGw9IiM2NzlGRTQiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMTEuNiA5LjYgTCAxMS4zIDEzLjkgQyAxMS4zIDEzLjkgMTcgMTQgMjAuNiAxMi45IEwgMTguOSA4LjkgQyAxNy4yIDkuMSAxMy4yIDkuNSAxMS42IDkuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0NCRkVGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+">
+      <img class="sp" id="c2Im" alt="紫水晶" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTkuNDkwNjI1MzgxNDY5NzI3IiBoZWlnaHQ9IjQ3LjI5OTk5OTIzNzA2MDU1IiB2aWV3Qm94PSIyLjIwOTM3NDkwNDYzMjU2ODQgMC40MDAwMDAwMzU3NjI3ODY4NyAxOS40OTA2MjUzODE0Njk3MjcgNDcuMjk5OTk5MjM3MDYwNTUiIHZlcnNpb249IjEuMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CiAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0OS4zICg1MTE2NykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgPGRlZnMvPgogIDxnPgogICAgPHRpdGxlPmNyeXN0YWwtYjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJjcnlzdGFsLWIiIHN0cm9rZT0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgPGcgaWQ9IlB1cnBsZS1DcnlzdGFsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgIDxnIGlkPSJHcm91cCI+CiAgICAgICAgICA8cGF0aCBkPSJNIDMuMSA0NC40IEMgMy4xIDQ0LjQgMi4xIDE0LjcgMy4zIDEwLjYgQyAzLjMgMTAuNiA3LjYgMy42IDE0LjQgMC45IEMgMTQuNCAwLjkgMTkuMiA3LjcgMjEuMiAxMy43IEMgMjEuMiAxMy43IDEyIDQzLjEgMTAuNiA0NS4xIEMgMTAuNiA0NS4xIDcuNSA0Ni44IDUuNSA0NyBDIDUuNiA0Ny4xIDMuMSA0NS45IDMuMSA0NC40IFogIiBpZD0iU2hhcGUiIGZpbGw9IiM4NjQ0QjMiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgICAgPHBhdGggZD0iTSAzLjQgMTAuNyBDIDMuNCAxMC43IDUuNiAxNS44IDkgMTcuNyBMIDE0LjQgMS4xIEMgNy43IDMuNyAzLjQgMTAuNyAzLjQgMTAuNyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRUE4QkU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy40IDEwLjcgQyAzLjQgMTAuNyA1LjYgMTUuOCA5IDE3LjcgTCAxNC40IDEuMSBDIDcuNyAzLjcgMy40IDEwLjcgMy40IDEwLjcgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0VBOEJFNSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDIxLjIgMTMuOCBDIDE5LjMgNy44IDE0LjUgMSAxNC41IDEgQyAxNC41IDEgMTQuNCAxIDE0LjQgMS4xIEwgOC45IDE3LjcgQyA4LjkgMTcuNyAxNC43IDE2LjUgMjEgMTQuNiBDIDIxLjIgMTQgMjEuMiAxMy44IDIxLjIgMTMuOCBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjQUQ1OUMyIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy40IDEwLjcgQyAyLjIgMTQuOCAzLjIgNDQuNSAzLjIgNDQuNSBDIDMuMiA0NS45IDUuNiA0Ny4yIDUuNiA0Ny4yIEwgOSAxNy44IEwgMy40IDEwLjcgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0FENTlDMiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDguOSAxNy43IEMgOC45IDE3LjcgOC44IDE5LjMgOC42IDIxLjcgQyA4LjUgMjIuOSA4LjMgMjQuMyA4LjIgMjUuOCBDIDggMjcuMyA3LjkgMjguOSA3LjcgMzAuNCBDIDcuNSAzMiA3LjMgMzMuNiA3LjEgMzUgQyA2LjkgMzYuNSA2LjcgMzcuOSA2LjYgMzkgQyA2LjIgNDEuMyA2IDQyLjkgNiA0Mi45IEMgNiA0Mi45IDYuMSA0MS4zIDYuMyAzOC45IEMgNi40IDM3LjcgNi42IDM2LjMgNi43IDM0LjggQyA2LjkgMzMuMyA3IDMxLjcgNy4yIDMwLjIgQyA3LjQgMjguNiA3LjYgMjcgNy44IDI1LjYgQyA4IDI0LjEgOC4yIDIyLjcgOC4zIDIxLjYgQyA4LjcgMTkuMiA4LjkgMTcuNyA4LjkgMTcuNyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRUE4QkU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy4xIDQ0LjQgQyAzLjEgNDUuOCA1LjUgNDcuMSA1LjUgNDcuMSBMIDUuOSA0My44IEMgNC43IDQ0LjEgMy4xIDQ0LjQgMy4xIDQ0LjQgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0E1NDZCRCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDcuMiA0My42IEMgNyA0My42IDYuNSA0My43IDUuOSA0My44IEwgNS41IDQ3LjEgQyA3LjQgNDYuOSAxMC42IDQ1LjIgMTAuNiA0NS4yIEMgMTAuNiA0NS4yIDggNDMuNSA3LjIgNDMuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0MzNkFCIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gNS42IDQ3LjEgQyA2LjUgNDYuOSA3LjQgNDYuNiA4LjIgNDYuMyBDIDkgNDYgOS44IDQ1LjYgMTAuNSA0NSBMIDEwLjQgNDUuMSBDIDExIDQzLjEgMTEuNyA0MS4xIDEyLjQgMzkuMSBDIDEzLjEgMzcuMSAxMy43IDM1LjEgMTQuNCAzMy4yIEMgMTUuOCAyOS4yIDE3LjIgMjUuMyAxOC43IDIxLjQgQyAxNy41IDI1LjQgMTYuMiAyOS40IDE0LjggMzMuNCBDIDE0LjEgMzUuNCAxMy40IDM3LjQgMTIuOCAzOS4zIEMgMTIuMSA0MS4zIDExLjQgNDMuMyAxMC43IDQ1LjIgQyA5LjkgNDUuNyA5LjEgNDYuMSA4LjIgNDYuNCBDIDcuMyA0Ni44IDYuNSA0NyA1LjYgNDcuMSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNkIzNDhGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gOC45IDE3LjcgTCAxMS4zIDEwLjMgQyA3LjkgMTAuMyAzLjMgMTAuNyAzLjMgMTAuNyBDIDMuMyAxMC43IDUuNiAxNS43IDguOSAxNy43IFogIiBpZD0iU2hhcGUiIGZpbGw9IiNFMTdERTMiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgICAgPHBhdGggZD0iTSAxMS4zIDEwLjMgTCA4LjkgMTcuNyBDIDguOSAxNy43IDE0LjcgMTYuNSAyMSAxNC42IEMgMjEuMSAxNC4xIDIxLjIgMTMuOSAyMS4yIDEzLjkgQyAyMS4yIDEzLjggMjEuMSAxMy42IDIxLjEgMTMuNSBDIDE4LjkgMTIuNCAxNS42IDEwLjkgMTQuNyAxMC42IEMgMTQuMyAxMC4zIDEyLjkgMTAuMyAxMS4zIDEwLjMgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzlCNERBRSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDIxIDE0LjUgQyAyMSAxNC41IDIwLjQgMTQuOCAxOS42IDE1LjEgQyAxOC43IDE1LjQgMTcuNiAxNS44IDE2LjQgMTYuMiBDIDE1LjIgMTYuNSAxNCAxNi44IDEzLjEgMTcgQyAxMi4yIDE3LjIgMTEuNiAxNy4yIDExLjYgMTcuMiBDIDExLjYgMTcuMiAxMS43IDE3LjIgMTIgMTcuMSBDIDEyLjMgMTcgMTIuNiAxNi45IDEzLjEgMTYuOCBDIDE0IDE2LjUgMTUuMSAxNi4yIDE2LjMgMTUuOCBDIDE3LjUgMTUuNSAxOC43IDE1LjEgMTkuNiAxNC45IEMgMjAuNCAxNC42IDIxIDE0LjUgMjEgMTQuNSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNkIzNDhGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8L2c+CiAgICAgICAgPHBhdGggZD0iTSAxNC40IDEuMSBDIDE0LjQgMS4xIDE0LjIgMS45IDEzLjkgMy4xIEMgMTMuNiA0LjMgMTMuMSA1LjkgMTIuNiA3LjUgQyAxMi4xIDkuMSAxMS41IDEwLjcgMTEgMTEuOSBDIDEwLjUgMTMuMSAxMC4yIDEzLjkgMTAuMiAxMy45IEMgMTAuMiAxMy45IDEwLjQgMTMuMSAxMC43IDExLjkgQyAxMSAxMC42IDExLjUgOC45IDEyIDcuNCBDIDEyLjUgNS44IDEzLjEgNC4yIDEzLjYgMyBDIDE0IDEuOCAxNC40IDEuMSAxNC40IDEuMSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRkZCQ0ZDIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+">
+      <img class="sp" id="bowlIm" alt="碗" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/d147f16e3e2583719c073ac5b55fe3ca.svg/get/">
+      <div class="bub" id="bub" hidden>時間到！</div>
+      <div class="mon">得分 <b id="scoreV">0</b></div>
+      <div class="mon" style="top:30px">時間 <b id="timeV">30</b></div>
+    </div></div>
+    <div class="keys"><button class="btn" id="kL" type="button" aria-label="向左">◀ 左</button><button class="btn" id="kR" type="button" aria-label="向右">右 ▶</button></div>
+    <div class="status" id="status">狀態：<b>還沒開始</b>（按綠旗）</div>
+    <div class="ctl">
+      <label for="demoHit">示範</label>
+      <span><input id="demoHit" type="checkbox"> 拿掉「碰到碗」裡的 <b>定位到 企鵝 位置</b>，看接一次加幾分</span>
+      <span></span>
+      <label for="demoFloor">示範</label>
+      <span><input id="demoFloor" type="checkbox"> 拿掉「碰到地板線」裡的 <b>定位到 企鵝 位置</b>，沒接到會怎樣</span>
+      <span></span>
+    </div>
+  </div>
+  <div class="goals">
+    <h2>這個遊戲學生會學到</h2>
+    <ol>
+      <li>用 <span class="cat c-sensing">（向右）鍵被按下？</span> 和 <span class="cat c-motion">面朝（90）度</span>，讓碗跟著方向鍵左右走。</li>
+      <li>用學過的 <span class="cat c-motion">定位到（企鵝）位置</span>，讓水晶每次從企鵝身上掉下來。</li>
+      <li>用 <span class="cat c-sound">播放音效</span>，接到水晶時發出聲音。</li>
+      <li>用 <span class="cat c-looks">說出（ ）持續（2）秒</span>，時間到時讓碗說話。</li>
+      <li>複製角色做出第二種水晶：分數不一樣、速度不一樣。</li>
+    </ol>
+    <div class="time">
+      <div class="timeline">
+        <span class="mono">5 分</span><span>試玩成品、開啟起始檔、看懂已經寫好的程式</span><span>步驟 0–1</span>
+        <span class="mono">22 分</span><span>碗左右走、水晶從企鵝身上掉、接到有聲音、時間到說話</span><span>步驟 2–5</span>
+        <span class="mono">5 分</span><span>複製出紫水晶</span><span>步驟 6</span>
+        <span class="mono">8 分</span><span>除錯、挑戰、存檔</span><span>步驟 7–9</span>
+      </div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px">學過的程式已經寫在<b>起始檔</b>裡，這節課只教新積木。新積木在積木圖上用黃框和 <span class="nb">新</span> 標出。</p>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px">管整場遊戲的程式（得分歸零＋30 秒倒數）寫在<b>碗</b>身上；加分寫在水晶身上（只有水晶知道自己有沒有被接到）。</p>
+    </div>
+  </div>
+</div>
+
+<nav class="steps" id="nav"></nav>
+
+<div class="part"><span class="tag">開始之前</span><h2>打開起始檔</h2></div>
+
+<section class="step" id="s0" data-t="開起始檔" data-g="開始">
+  <div class="shead"><span class="num">0</span><h2>打開老師給的起始檔</h2><span class="chip">2 分鐘</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>先下載起始檔 <b class="mono">北極接水晶_起始檔.sb3</b>（老師會放在指定的地方）。</span></li>
+        <li><span>開啟 <b>scratch.mit.edu</b> → <span class="ui">創造</span>。</span></li>
+        <li><span><span class="nb">新</span>點左上角 <span class="ui">檔案</span> → <span class="ui">從你的電腦挑選</span>，選剛剛下載的檔案。</span></li>
+        <li><span>角色區會出現 <b>地板線、企鵝、水晶、碗</b> 4 個角色，背景是 <b>Arctic</b>（北極）。</span></li>
+      </ol>
+      <div class="note warn"><b class="h">要用網頁版 Scratch 開</b>企鵝和地板線是 Scratch 角色庫裡的圖，用網頁版打開時才會自動載入。</div>
+    </div>
+    <div class="fig"><figure><div data-fig="open"></div><figcaption>① 檔案　② 從你的電腦挑選</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="step quick" id="s1" data-t="看懂起始檔" data-g="開始">
+  <div class="shead"><span class="num">1</span><h2>看懂已經寫好的程式</h2><span class="chip">3 分鐘</span><span class="chip old">學過，已經寫好</span></div>
+  <p class="goal">先按一次綠旗：企鵝會走、水晶會往下掉、時間會倒數，但碗不會動、水晶掉下去就不見了。這節課要把缺的積木補上。點每個角色，看看它身上已經有哪些程式。</p>
+  <div class="qgrid">
+    <figure class="blocks"><div data-script="penguin"></div><figcaption>企鵝：在上面左右來回走（完整，不用改）</figcaption></figure>
+    <figure class="blocks"><div data-script="bowlGame0"></div><figcaption>碗的程式 ①：得分歸零、30 秒倒數、時間到停止全部</figcaption></figure>
+    <figure class="blocks"><div data-script="bowlMove0"></div><figcaption>碗的程式 ②：兩個「如果」還是空的 → 步驟 2</figcaption></figure>
+    <figure class="blocks"><div data-script="crystal0"></div><figcaption>水晶：往下掉，碰到碗加 1 分（還缺好幾塊 → 步驟 3、4）</figcaption></figure>
+  </div>
+  <div class="qgrid one" style="margin-top:14px"><figure><div data-fig="flow"></div><figcaption>整個遊戲怎麼動</figcaption></figure></div>
+  <div class="note tip newb"><b class="h">水晶為什麼會往下掉？</b>水晶的「方向」已經設成 <b class="mono">180</b>（朝下），所以「移動 5 點」就是往下走 5 點。點水晶的 <span class="ui">方向</span> 可以看到轉盤指向下面。</div>
+</section>
+
+<div class="part"><span class="tag">碗</span><h2>用方向鍵控制</h2></div>
+
+<section class="step" id="s2" data-t="碗左右走" data-g="碗">
+  <div class="shead"><span class="num">2</span><h2>按方向鍵，碗左右走</h2><span class="chip">8 分鐘</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>點 <b>碗</b>，找到有兩個空「如果」的程式 ②。</span></li>
+        <li><span><span class="cat c-sensing">偵測</span> 拖出 <b>（空白）鍵被按下？</b><span class="nb">新</span>，放進<b>第一個</b>「如果」的六角形。點下拉選單，選 <b>向右</b>。</span></li>
+        <li><span><span class="cat c-motion">動作</span> 拖出 <b>面朝（90）度</b><span class="nb">新</span>，放進第一個「如果」的嘴巴裡。</span></li>
+        <li><span>再拖一個 <b>移動（10）點</b> 接在下面。</span></li>
+        <li><span>第二個「如果」也一樣，但是選 <b>向左</b>，方向改成 <b class="mono">-90</b>。</span></li>
+        <li><span>按綠旗，按鍵盤的 ← →，碗會左右走。</span></li>
+      </ol>
+      <div class="note tip"><b class="h">面朝幾度？</b>和點 <span class="ui">方向</span> 轉轉盤一樣：<b class="mono">90</b> 是右邊、<b class="mono">-90</b> 是左邊、<b class="mono">180</b> 是下面、<b class="mono">0</b> 是上面。先轉向，再移動，碗就往那邊走。</div>
+      <div class="note check"><b class="h">為什麼要放在「重複無限次」裡？</b>電腦要<b>一直檢查</b>你有沒有按鍵。如果只檢查一次，按綠旗那一下沒按鍵，之後再按都沒用。</div>
+      <div class="note warn"><b class="h">碗倒過來了？</b>程式開頭的「迴轉方式設為 左-右」不能拿掉。少了它，碗往左走的時候會整個倒立。</div>
+    </div>
+    <div class="fig">
+      <figure class="blocks"><div data-script="bowlMove"></div><figcaption>碗的程式 ②：黃框＋「新」是新積木</figcaption></figure>
+      <figure><div data-fig="dir"></div><figcaption>面朝幾度＝往哪邊走</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="part"><span class="tag">水晶</span><h2>從企鵝身上掉、接到有聲音</h2></div>
+
+<section class="step" id="s3" data-t="從企鵝掉" data-g="水晶">
+  <div class="shead"><span class="num">3</span><h2>水晶從企鵝身上掉下來</h2><span class="chip">6 分鐘</span><span class="chip old">學過的積木，新選項</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>點 <b>水晶</b>。<span class="cat c-motion">動作</span> 拖出學過的 <b>定位到（鼠標）位置</b>。</span></li>
+        <li><span>點下拉選單，這次選 <b>企鵝</b>：水晶會跳到企鵝身上。</span></li>
+        <li><span>放 <b>3 個</b>「定位到 企鵝 位置」：<br>① 綠旗下面（一開始）<br>② 「碰到 碗」的嘴巴裡，接在「得分 改變 1」下面（接到了，回去重掉）<br>③ 「碰到 地板線」的嘴巴裡（沒接到，回去重掉）</span></li>
+        <li><span>按綠旗試試看：企鵝走到哪裡，水晶就從哪裡掉下來。</span></li>
+      </ol>
+      <div class="tbl"><table class="debug">
+        <thead><tr><th style="white-space:nowrap">如果少了…</th><th>會發生什麼事</th></tr></thead>
+        <tbody>
+          <tr><td style="white-space:nowrap">② 碰到碗的那一塊</td><td>水晶穿過碗的那一小段時間，「重複無限次」跑了好多圈，每一圈都碰到碗，<b>接一次加二十幾分</b>。</td></tr>
+          <tr><td style="white-space:nowrap">③ 碰到地板線的那一塊</td><td>沒接到的水晶<b>卡在舞台最下面</b>，再也不會掉下來。</td></tr>
+          <tr><td style="white-space:nowrap">① 綠旗下面那一塊</td><td>第二次按綠旗時，水晶從上一次停住的地方開始掉。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="note check"><b class="h">讓學生自己發現</b>勾上方預覽的兩個「示範」，看分數怎麼跳、水晶卡在哪裡；再取消勾選比較。</div>
+    </div>
+    <div class="fig">
+      <figure class="blocks"><div data-script="crystal3"></div><figcaption>水晶的程式：加上 3 個「定位到 企鵝 位置」</figcaption></figure>
+      <figure><div data-fig="gotoMenu"></div><figcaption>同一個積木，下拉選單換成「企鵝」</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="step" id="s4" data-t="接到有聲音" data-g="水晶">
+  <div class="shead"><span class="num">4</span><h2>接到水晶「叮」一聲</h2><span class="chip">4 分鐘</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>一樣在水晶。點 <span class="cat c-sound">音效</span>，拖出 <b>播放音效（ ）</b><span class="nb">新</span>。</span></li>
+        <li><span>放進「碰到 碗」的嘴巴裡，最上面。</span></li>
+        <li><span>點下拉選單，選 <b>collect</b>（水晶本來就有這個音效）。</span></li>
+        <li><span>按綠旗，接到水晶時會發出聲音。</span></li>
+      </ol>
+      <div class="note warn"><b class="h">不要選「直到結束」那一塊</b>「播放音效 直到結束」會等聲音播完才往下做，這段時間水晶停在碗裡，又會一直加分。選上面那塊<b>沒有「直到結束」</b>的。</div>
+      <div class="note tip"><b class="h">想換別的聲音？</b>到上方的 <span class="ui">音效</span> 分頁，左下角 <span class="ui">選個音效</span> 可以加別的音效，例如 Pop。</div>
+    </div>
+    <div class="fig"><figure class="blocks"><div data-script="crystal4"></div><figcaption>水晶的程式：完成！</figcaption></figure></div>
+  </div>
+</section>
+
+<div class="part"><span class="tag">碗</span><h2>時間到說話</h2></div>
+
+<section class="step" id="s5" data-t="時間到說話" data-g="碗">
+  <div class="shead"><span class="num">5</span><h2>時間到，碗說「時間到！」</h2><span class="chip">4 分鐘</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>回到 <b>碗</b>，找到程式 ①（倒數的那段）。</span></li>
+        <li><span><span class="cat c-looks">外觀</span> 拖出 <b>說出（Hello!）持續（2）秒</b><span class="nb">新</span>。</span></li>
+        <li><span>放進「如果 時間 = 0」的嘴巴裡，<b>停止全部的上面</b>。</span></li>
+        <li><span>把 Hello! 改成 <b>時間到！</b></span></li>
+        <li><span>按綠旗，等 30 秒，碗會說話 2 秒後才停止。</span></li>
+      </ol>
+      <div class="note warn"><b class="h">放在停止全部的下面會怎樣？</b>「停止全部」一做，所有程式都停了，下面的積木永遠輪不到，碗一句話也不會說。</div>
+      <div class="note tip"><b class="h">說出 和 說出…持續…秒</b>外觀裡有兩塊很像的積木。「說出 Hello!」會一直說；「說出 Hello! 持續 2 秒」說 2 秒就收起來。這裡用<b>持續 2 秒</b>那塊。</div>
+    </div>
+    <div class="fig"><figure class="blocks"><div data-script="bowlGame"></div><figcaption>碗的程式 ①：說完再停止</figcaption></figure></div>
+  </div>
+</section>
+
+<div class="part"><span class="tag">應用</span><h2>第二種水晶</h2></div>
+
+<section class="step quick" id="s6" data-t="紫水晶" data-g="應用">
+  <div class="shead"><span class="num">6</span><h2>複製出紫水晶（2 分、比較快）</h2><span class="chip">5 分鐘</span><span class="chip old">學過，直接照著做</span></div>
+  <p class="goal">水晶上按右鍵 → <b>複製</b>，改名叫 <b>紫水晶</b>。到 <span class="ui">造型</span> 分頁點 <b>crystal-b</b>（紫色那個）。回到程式，改 3 個地方：移動 <b class="mono">8</b> 點、得分改變 <b class="mono">2</b>、音效換成 <b>Magic Spell</b>。</p>
+  <div class="qgrid"><figure><div data-fig="dup"></div><figcaption>右鍵複製：程式、造型、音效全部一起複製</figcaption></figure><figure class="blocks"><div data-script="blue"></div><figcaption>紫水晶的程式：改 3 個數字或選項</figcaption></figure></div>
+  <div class="note tip newb"><b class="h">想一想</b>紫水晶比較快、分數比較多。如果想讓它一開始晚 1 秒才掉，要加什麼積木？（提示：學過的「等待 1 秒」）</div>
+</section>
+
+<div class="part"><span class="tag">整合</span><h2>測試、挑戰、存檔</h2></div>
+
+<section class="step" id="s7" data-t="除錯" data-g="整合">
+  <div class="shead"><span class="num">7</span><h2>測試與除錯</h2><span class="chip">3 分鐘</span></div>
+  <div class="tbl"><table class="debug">
+    <thead><tr><th>看到的狀況</th><th>可能原因</th><th>怎麼修</th></tr></thead>
+    <tbody>
+      <tr><td>按方向鍵碗不會動</td><td>下拉選單沒有選向右／向左；或程式寫在別的角色</td><td>檢查六角形裡選的是「向右」「向左」；確認是寫在碗身上</td></tr>
+      <tr><td>按右鍵，碗往左走</td><td>兩個如果的方向放反了</td><td>向右配 90，向左配 -90</td></tr>
+      <tr><td>按了方向鍵，碗沒反應，要先點一下舞台</td><td>鍵盤正在打別的地方的字</td><td>先用滑鼠點一下舞台，再按方向鍵</td></tr>
+      <tr><td>碗往左走時倒立</td><td>少了「迴轉方式設為 左-右」</td><td>加在重複無限次前面</td></tr>
+      <tr><td>接一次加好多分</td><td>「碰到 碗」裡沒有「定位到 企鵝 位置」</td><td>接在「得分 改變 1」下面</td></tr>
+      <tr><td>沒接到的水晶卡在最下面</td><td>「碰到 地板線」裡是空的</td><td>放「定位到 企鵝 位置」</td></tr>
+      <tr><td>下拉選單裡沒有「企鵝」</td><td>程式寫在企鵝自己身上（角色不能選自己）</td><td>點水晶再寫</td></tr>
+      <tr><td>接到時聲音之後分數一直跳</td><td>用了「播放音效 直到結束」</td><td>換成沒有「直到結束」的那塊</td></tr>
+      <tr><td>時間到碗沒說話</td><td>說出放在停止全部下面</td><td>移到停止全部上面</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="step" id="s8" data-t="挑戰" data-g="整合">
+  <div class="shead"><span class="num">8</span><h2>挑戰任務（先做完的同學）</h2><span class="chip">做得快再做</span></div>
+  <div class="lv">
+    <div>
+      <span class="stars">★☆☆</span>
+      <h3>① 玩 60 秒</h3>
+      <p>到碗的程式 ①，把「時間 設為 30」改成 <b class="mono">60</b>。也可以把企鵝的「移動 5 點」改快一點。</p>
+      <figure class="blocks"><div data-script="ch1"></div></figure>
+    </div>
+    <div>
+      <span class="stars">★★☆</span>
+      <h3>② 小心石頭 −1 分</h3>
+      <p>再複製一次水晶，改名 <b>石頭</b>。到 <span class="ui">造型</span> 分頁按 <span class="ui">選個造型</span>，選 <b>Rocks</b>。把「得分 改變 1」改成 <b class="mono">-1</b>。</p>
+      <figure class="blocks"><div data-script="ch2"></div></figure>
+    </div>
+    <div>
+      <span class="stars">★★★</span>
+      <h3>③ 越接越快</h3>
+      <p>建立變數 <b>速度</b>。開始時 速度 設為 5，「移動 5 點」改成「移動（速度）點」，每接到一次 速度 改變 1。</p>
+      <figure class="blocks"><div data-script="ch3"></div></figure>
+    </div>
+  </div>
+</section>
+
+<section class="step" id="s9" data-t="存檔" data-g="整合">
+  <div class="shead"><span class="num">9</span><h2>存檔</h2><span class="chip">2 分鐘</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>點左上角 <span class="ui">檔案</span> → <span class="ui">下載到你的電腦</span>。</span></li>
+        <li><span>檔名改成 <b class="mono">接水晶_座號姓名.sb3</b>，例如 <b class="mono">接水晶_12王小明.sb3</b>。</span></li>
+        <li><span>依老師指定的方式上傳。</span></li>
+      </ol>
+    </div>
+    <div class="note check"><b class="h">下課前確認</b>
+      <span>☐ 按 ← → 碗會左右走、不會倒立　☐ 水晶從企鵝身上掉下來　☐ 接到加 1 分、有聲音　☐ 沒接到的水晶會回去重掉　☐ 紫水晶加 2 分、比較快　☐ 時間到碗說「時間到！」再停止　☐ 檔案已上傳</span></div>
+  </div>
+</section>
+
+</div>
+<div id="tabSkills" hidden>
+  <section class="blk">
+    <div class="sumrow" id="sumrow"></div>
+  </section>
+  <section class="blk">
+    <div class="shead"><span class="num re">◎</span><h2>學習歷程：每一課學了什麼</h2></div>
+    <div class="road" id="road"></div>
+  </section>
+  <section class="blk">
+    <div class="shead"><span class="num">新</span><h2 id="newestTitle">最新一課新學的</h2></div>
+    <div class="kgrid" id="newGrid"></div>
+    <h3 class="sub">新的操作技能</h3>
+    <ul class="ops" id="newOps"></ul>
+  </section>
+  <section class="blk">
+    <div class="shead"><span class="num re">全</span><h2>到目前為止學會的全部積木</h2></div>
+    <div class="filters" id="filters" role="group" aria-label="依課次篩選"></div>
+    <div id="allCats"></div>
+  </section>
+  <section class="blk">
+    <div class="shead"><span class="num re">技</span><h2>全部操作技能與觀念</h2></div>
+    <div class="two"><div class="list"><h3>操作技能</h3><ul id="allOps"></ul></div><div class="list"><h3>重要觀念</h3><ul id="allIdeas"></ul></div></div>
+  </section>
+</div>
+
+<footer><span>北極接水晶 教學步驟 · v1.0 · 2026-10-19</span><span>課程修改自 老師提供的「接水晶」範例</span></footer>
+</div>
+
+<div class="pbar" id="pbar" hidden>
+  <button class="btn" id="prev" type="button">← 上一步</button>
+  <span class="mono" id="pcount">1 / 10</span>
+  <button class="btn solid" id="next" type="button">下一步 →</button>
+  <button class="btn" id="exitP" type="button">離開投影</button>
+</div>
+
+<script src="assets/scratch-blocks.js"></script>
+<script>
+/* 北極接水晶 教學頁程式 v1.0 · 2026-10-19（需先載入 assets/scratch-blocks.js） */
+const IMG={bowl:"https://cdn.assets.scratch.mit.edu/internalapi/asset/d147f16e3e2583719c073ac5b55fe3ca.svg/get/",c1:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjUiIGhlaWdodD0iMjIuMDU2MDQzNjI0ODc3OTMiIHZpZXdCb3g9IjIuNSA0LjA0Mzk1Njc1NjU5MTc5NyAyNSAyMi4wNTYwNDM2MjQ4Nzc5MyIgdmVyc2lvbj0iMS4xIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5LjMgKDUxMTY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICA8ZGVmcy8+CiAgPGc+CiAgICA8dGl0bGU+Y3J5c3RhbC1hPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9ImNyeXN0YWwtYSIgc3Ryb2tlPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICA8ZyBpZD0iQmx1ZS1DcnlzdGFsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgIDxwYXRoIGQ9Ik0gMyAxMi4zIEMgMyAxMi4zIDUuOSA3LjEgMTAgNS42IEMgMTAgNS42IDE3LjkgMy44IDIwLjUgNC45IEMgMjAuNSA0LjkgMjUuNyA4LjUgMjcgMTAuNSBDIDI3IDEwLjUgMjAgMjMuNSAxNi43IDI1LjUgQyAxNi43IDI1LjYgNC4zIDE3LjcgMyAxMi4zIFogIiBpZD0iU2hhcGUiIGZpbGw9IiM3RkNDRUYiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMjcgMTAuNSBDIDI2LjggMTAuMiAyNi41IDkuOCAyNi4xIDkuNSBMIDIwLjYgMTIuOSBMIDE1LjggMTguNyBMIDE2LjcgMjUuNiBDIDIwLjEgMjMuNSAyNyAxMC41IDI3IDEwLjUgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzY3OEZFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAxMS4zIDEzLjkgQyAxMS4zIDEzLjkgMTMuOCAyMi42IDE2LjcgMjUuNiBDIDE2LjcgMjUuNiAyMC40IDE2LjEgMjAuNiAxMi45IEwgMTMuOCA5LjcgTCAxMS4zIDEzLjkgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzczQjVFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAyMC41IDQuOSBDIDE3LjggMy44IDEwIDUuNiAxMCA1LjYgQyA2IDcuMiAzIDEyLjMgMyAxMi4zIEMgMyAxMi4zIDkuNSAxMy45IDExLjMgMTMuOSBDIDExLjMgMTMuOSAxNyAxNCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjUuNyA4LjUgMjAuNSA0LjkgMjAuNSA0LjkgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzkyRDdFRiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAxNy4yIDQuNiBDIDE1LjggNC43IDE0LjMgNC44IDEzIDUuMSBMIDExLjggNy41IEwgMTEuNCAxNCBDIDExLjQgMTQgMTcuMSAxNC4xIDIwLjcgMTMgTCAxOCA2LjkgTCAxNy4yIDQuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0ZDQ0VGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjIgOS42IEMgMTAuNCA5LjYgNi4yIDEwLjkgMy4zIDExLjggQyAzLjEgMTIuMSAzIDEyLjMgMyAxMi4zIEMgMyAxMi4zIDkuNSAxMy45IDExLjMgMTMuOSBDIDExLjMgMTMuOSAxNyAxNCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjYuOSAxMC40IDI2LjkgMTAuMyAyNi44IDEwLjIgQyAyNC40IDkuNyAyMC4yIDguOCAxOS43IDguOCBDIDE5IDguOSAxMi40IDkuNiAxMS4yIDkuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjODNDREVGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjggNy40IEwgMTguMSA3IEMgMTguMSA3IDE5LjkgNi44IDIwLjYgNSBDIDE3LjggMy44IDEwIDUuNiAxMCA1LjYgQyAxMCA1LjYgMTAuNiA2LjUgMTEuOCA3LjQgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0JFRTZGMSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAyMC41IDQuOSBDIDIwLjMgNC44IDIwIDQuNyAxOS43IDQuNyBMIDE4IDYuOSBMIDIwLjYgMTIuOCBDIDIzIDEyLjEgMjQuNSAxMS44IDI3IDEwLjQgQyAyNS43IDguNSAyMC41IDQuOSAyMC41IDQuOSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNzNCNUU0IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDI3IDEwLjUgQyAyNyAxMC41IDI2LjkgMTAuOCAyNi43IDExLjIgQyAyNi41IDExLjcgMjYuMiAxMi4zIDI1LjkgMTMuMSBDIDI1LjcgMTMuNSAyNS41IDEzLjkgMjUuMyAxNC4zIEMgMjUuMSAxNC43IDI0LjggMTUuMiAyNC41IDE1LjcgQyAyNCAxNi42IDIzLjMgMTcuNiAyMi43IDE4LjYgQyAyMiAxOS41IDIxLjMgMjAuNSAyMC43IDIxLjMgQyAyMCAyMi4xIDE5LjQgMjIuOSAxOC44IDIzLjUgQyAxNy42IDI0LjggMTYuOCAyNS41IDE2LjggMjUuNSBDIDE2LjggMjUuNSAxNy42IDI0LjYgMTguNiAyMy4zIEMgMTkuMSAyMi42IDE5LjcgMjEuOCAyMC40IDIxIEMgMjEgMjAuMSAyMS43IDE5LjIgMjIuNCAxOC4zIEMgMjMuMSAxNy40IDIzLjcgMTYuNCAyNC4yIDE1LjUgQyAyNC44IDE0LjYgMjUuMyAxMy43IDI1LjcgMTMgQyAyNi4xIDEyLjMgMjYuNSAxMS42IDI2LjcgMTEuMiBDIDI2LjkgMTAuOCAyNyAxMC41IDI3IDEwLjUgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzNCNzNFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAzIDEyLjMgQyAzIDEyLjMgMy41IDEyLjMgNC4yIDEyLjQgQyA0LjkgMTIuNSA1LjggMTIuNiA2LjcgMTIuOCBDIDcuNiAxMyA4LjUgMTMuMiA5LjIgMTMuNCBDIDkuOSAxMy42IDEwLjMgMTMuNyAxMC4zIDEzLjcgQyAxMC4zIDEzLjcgOS44IDEzLjggOS4xIDEzLjcgQyA4LjQgMTMuNiA3LjUgMTMuNSA2LjYgMTMuMyBDIDUuNyAxMy4xIDQuOCAxMi45IDQuMSAxMi43IEMgMy40IDEyLjUgMyAxMi4zIDMgMTIuMyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjQkVFNkYxIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjUgMTQuOSBDIDExLjUgMTQuOSAxMS44IDE1LjUgMTIuMSAxNi4zIEMgMTIuNSAxNy4yIDEyLjkgMTguMyAxMy40IDE5LjQgQyAxMy44IDIwLjUgMTQuMyAyMS43IDE0LjYgMjIuNSBDIDE0LjggMjIuOSAxNC45IDIzLjMgMTUuMSAyMy41IEMgMTUuMyAyMy43IDE1LjMgMjMuOCAxNS4zIDIzLjggQyAxNS4zIDIzLjggMTUuMiAyMy43IDE1IDIzLjUgQyAxNC44IDIzLjMgMTQuNiAyMyAxNC4zIDIyLjYgQyAxMy44IDIxLjggMTMuMyAyMC43IDEyLjggMTkuNSBDIDEyLjMgMTguMyAxMiAxNy4yIDExLjcgMTYuMyBDIDExLjcgMTUuNSAxMS41IDE0LjkgMTEuNSAxNC45IFogIiBpZD0iU2hhcGUiIGZpbGw9IiNCRUU2RjEiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMTguOSA4LjkgTCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjYuOSAxMC40IDI2LjkgMTAuMyAyNi44IDEwLjIgQyAyNC40IDkuNyAyMC4yIDguOCAxOS43IDguOCBDIDE5LjYgOC45IDE5LjMgOC45IDE4LjkgOC45IFogIiBpZD0iU2hhcGUiIGZpbGw9IiM2NzlGRTQiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMTEuNiA5LjYgTCAxMS4zIDEzLjkgQyAxMS4zIDEzLjkgMTcgMTQgMjAuNiAxMi45IEwgMTguOSA4LjkgQyAxNy4yIDkuMSAxMy4yIDkuNSAxMS42IDkuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0NCRkVGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+",c2:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTkuNDkwNjI1MzgxNDY5NzI3IiBoZWlnaHQ9IjQ3LjI5OTk5OTIzNzA2MDU1IiB2aWV3Qm94PSIyLjIwOTM3NDkwNDYzMjU2ODQgMC40MDAwMDAwMzU3NjI3ODY4NyAxOS40OTA2MjUzODE0Njk3MjcgNDcuMjk5OTk5MjM3MDYwNTUiIHZlcnNpb249IjEuMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CiAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0OS4zICg1MTE2NykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgPGRlZnMvPgogIDxnPgogICAgPHRpdGxlPmNyeXN0YWwtYjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJjcnlzdGFsLWIiIHN0cm9rZT0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgPGcgaWQ9IlB1cnBsZS1DcnlzdGFsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgIDxnIGlkPSJHcm91cCI+CiAgICAgICAgICA8cGF0aCBkPSJNIDMuMSA0NC40IEMgMy4xIDQ0LjQgMi4xIDE0LjcgMy4zIDEwLjYgQyAzLjMgMTAuNiA3LjYgMy42IDE0LjQgMC45IEMgMTQuNCAwLjkgMTkuMiA3LjcgMjEuMiAxMy43IEMgMjEuMiAxMy43IDEyIDQzLjEgMTAuNiA0NS4xIEMgMTAuNiA0NS4xIDcuNSA0Ni44IDUuNSA0NyBDIDUuNiA0Ny4xIDMuMSA0NS45IDMuMSA0NC40IFogIiBpZD0iU2hhcGUiIGZpbGw9IiM4NjQ0QjMiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgICAgPHBhdGggZD0iTSAzLjQgMTAuNyBDIDMuNCAxMC43IDUuNiAxNS44IDkgMTcuNyBMIDE0LjQgMS4xIEMgNy43IDMuNyAzLjQgMTAuNyAzLjQgMTAuNyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRUE4QkU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy40IDEwLjcgQyAzLjQgMTAuNyA1LjYgMTUuOCA5IDE3LjcgTCAxNC40IDEuMSBDIDcuNyAzLjcgMy40IDEwLjcgMy40IDEwLjcgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0VBOEJFNSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDIxLjIgMTMuOCBDIDE5LjMgNy44IDE0LjUgMSAxNC41IDEgQyAxNC41IDEgMTQuNCAxIDE0LjQgMS4xIEwgOC45IDE3LjcgQyA4LjkgMTcuNyAxNC43IDE2LjUgMjEgMTQuNiBDIDIxLjIgMTQgMjEuMiAxMy44IDIxLjIgMTMuOCBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjQUQ1OUMyIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy40IDEwLjcgQyAyLjIgMTQuOCAzLjIgNDQuNSAzLjIgNDQuNSBDIDMuMiA0NS45IDUuNiA0Ny4yIDUuNiA0Ny4yIEwgOSAxNy44IEwgMy40IDEwLjcgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0FENTlDMiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDguOSAxNy43IEMgOC45IDE3LjcgOC44IDE5LjMgOC42IDIxLjcgQyA4LjUgMjIuOSA4LjMgMjQuMyA4LjIgMjUuOCBDIDggMjcuMyA3LjkgMjguOSA3LjcgMzAuNCBDIDcuNSAzMiA3LjMgMzMuNiA3LjEgMzUgQyA2LjkgMzYuNSA2LjcgMzcuOSA2LjYgMzkgQyA2LjIgNDEuMyA2IDQyLjkgNiA0Mi45IEMgNiA0Mi45IDYuMSA0MS4zIDYuMyAzOC45IEMgNi40IDM3LjcgNi42IDM2LjMgNi43IDM0LjggQyA2LjkgMzMuMyA3IDMxLjcgNy4yIDMwLjIgQyA3LjQgMjguNiA3LjYgMjcgNy44IDI1LjYgQyA4IDI0LjEgOC4yIDIyLjcgOC4zIDIxLjYgQyA4LjcgMTkuMiA4LjkgMTcuNyA4LjkgMTcuNyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRUE4QkU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy4xIDQ0LjQgQyAzLjEgNDUuOCA1LjUgNDcuMSA1LjUgNDcuMSBMIDUuOSA0My44IEMgNC43IDQ0LjEgMy4xIDQ0LjQgMy4xIDQ0LjQgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0E1NDZCRCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDcuMiA0My42IEMgNyA0My42IDYuNSA0My43IDUuOSA0My44IEwgNS41IDQ3LjEgQyA3LjQgNDYuOSAxMC42IDQ1LjIgMTAuNiA0NS4yIEMgMTAuNiA0NS4yIDggNDMuNSA3LjIgNDMuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0MzNkFCIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gNS42IDQ3LjEgQyA2LjUgNDYuOSA3LjQgNDYuNiA4LjIgNDYuMyBDIDkgNDYgOS44IDQ1LjYgMTAuNSA0NSBMIDEwLjQgNDUuMSBDIDExIDQzLjEgMTEuNyA0MS4xIDEyLjQgMzkuMSBDIDEzLjEgMzcuMSAxMy43IDM1LjEgMTQuNCAzMy4yIEMgMTUuOCAyOS4yIDE3LjIgMjUuMyAxOC43IDIxLjQgQyAxNy41IDI1LjQgMTYuMiAyOS40IDE0LjggMzMuNCBDIDE0LjEgMzUuNCAxMy40IDM3LjQgMTIuOCAzOS4zIEMgMTIuMSA0MS4zIDExLjQgNDMuMyAxMC43IDQ1LjIgQyA5LjkgNDUuNyA5LjEgNDYuMSA4LjIgNDYuNCBDIDcuMyA0Ni44IDYuNSA0NyA1LjYgNDcuMSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNkIzNDhGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gOC45IDE3LjcgTCAxMS4zIDEwLjMgQyA3LjkgMTAuMyAzLjMgMTAuNyAzLjMgMTAuNyBDIDMuMyAxMC43IDUuNiAxNS43IDguOSAxNy43IFogIiBpZD0iU2hhcGUiIGZpbGw9IiNFMTdERTMiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgICAgPHBhdGggZD0iTSAxMS4zIDEwLjMgTCA4LjkgMTcuNyBDIDguOSAxNy43IDE0LjcgMTYuNSAyMSAxNC42IEMgMjEuMSAxNC4xIDIxLjIgMTMuOSAyMS4yIDEzLjkgQyAyMS4yIDEzLjggMjEuMSAxMy42IDIxLjEgMTMuNSBDIDE4LjkgMTIuNCAxNS42IDEwLjkgMTQuNyAxMC42IEMgMTQuMyAxMC4zIDEyLjkgMTAuMyAxMS4zIDEwLjMgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzlCNERBRSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDIxIDE0LjUgQyAyMSAxNC41IDIwLjQgMTQuOCAxOS42IDE1LjEgQyAxOC43IDE1LjQgMTcuNiAxNS44IDE2LjQgMTYuMiBDIDE1LjIgMTYuNSAxNCAxNi44IDEzLjEgMTcgQyAxMi4yIDE3LjIgMTEuNiAxNy4yIDExLjYgMTcuMiBDIDExLjYgMTcuMiAxMS43IDE3LjIgMTIgMTcuMSBDIDEyLjMgMTcgMTIuNiAxNi45IDEzLjEgMTYuOCBDIDE0IDE2LjUgMTUuMSAxNi4yIDE2LjMgMTUuOCBDIDE3LjUgMTUuNSAxOC43IDE1LjEgMTkuNiAxNC45IEMgMjAuNCAxNC42IDIxIDE0LjUgMjEgMTQuNSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNkIzNDhGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8L2c+CiAgICAgICAgPHBhdGggZD0iTSAxNC40IDEuMSBDIDE0LjQgMS4xIDE0LjIgMS45IDEzLjkgMy4xIEMgMTMuNiA0LjMgMTMuMSA1LjkgMTIuNiA3LjUgQyAxMi4xIDkuMSAxMS41IDEwLjcgMTEgMTEuOSBDIDEwLjUgMTMuMSAxMC4yIDEzLjkgMTAuMiAxMy45IEMgMTAuMiAxMy45IDEwLjQgMTMuMSAxMC43IDExLjkgQyAxMSAxMC42IDExLjUgOC45IDEyIDcuNCBDIDEyLjUgNS44IDEzLjEgNC4yIDEzLjYgMyBDIDE0IDEuOCAxNC40IDEuMSAxNC40IDEuMSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRkZCQ0ZDIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+",peng:"https://cdn.assets.scratch.mit.edu/internalapi/asset/428772307d90f4b347d6cc3c0d8e76ef.svg/get/"};
+const HAT={t:'hat',c:'event',p:['當',{flag:1},'被點擊']};
+const FOREVER=(inn)=>({t:'c',c:'control',cap:1,p:['重複無限次'],in:inn});
+const IF=(cond,inn)=>({t:'c',c:'control',p:['如果',cond,'那麼'],in:inn});
+const T=v=>({rep:{c:'data',p:[v]}});
+const EMPTY={bool:{c:'control',p:['　　']}};
+const KEY=(k,nw)=>({bool:{c:'sensing',nw:nw?1:0,p:[{dd:k},'鍵被按下？']}});
+const TOUCH=n=>({bool:{c:'sensing',p:['碰到',{dd:n},'？']}});
+const MOVE=n=>({t:'s',c:'motion',p:['移動',{n:String(n)},'點']});
+const FACE=(d,hl)=>({t:'s',c:'motion',hl:hl?1:0,p:['面朝',{n:String(d)},'度']});
+const GOTO=n=>({t:'s',c:'motion',p:['定位到',{dd:n},'位置']});
+const SCORE=n=>({t:'s',c:'data',p:['變數',{dd:'得分'},'改變',{n:String(n)}]});
+const SOUND=(n,hl)=>({t:'s',c:'sound',hl:hl?1:0,p:['播放音效',{dd:n}]});
+const ROT={t:'s',c:'motion',p:['迴轉方式設為',{dd:'左-右'}]};
+const STOP={t:'s',c:'control',cap:1,p:['停止',{dd:'全部'}]};
+const SAY=hl=>({t:'s',c:'looks',hl:hl?1:0,p:['說出',{n:'時間到！'},'持續',{n:'2'},'秒']});
+const timer=end=>[HAT,{t:'s',c:'data',p:['變數',{dd:'得分'},'設為',{n:'0'}]},{t:'s',c:'data',p:['變數',{dd:'時間'},'設為',{n:'30'}]},
+  FOREVER([{t:'s',c:'control',p:['等待',{n:'1'},'秒']},{t:'s',c:'data',p:['變數',{dd:'時間'},'改變',{n:'-1'}]},IF({bool:{c:'operators',p:[T('時間'),'=',{n:'0'}]}},end)])];
+const crystal=(sp,pts,snd,o)=>[HAT].concat(o.g1?[GOTO('企鵝')]:[]).concat([FOREVER([MOVE(sp),IF(TOUCH('碗'),(o.snd?[SOUND(snd,o.hl)]:[]).concat([SCORE(pts)]).concat(o.g2?[GOTO('企鵝')]:[])),IF(TOUCH('地板線'),o.g3?[GOTO('企鵝')]:[])])]);
+const SCRIPTS={
+  penguin:[HAT,ROT,FOREVER([MOVE(5),{t:'s',c:'motion',p:['碰到邊緣就反彈']}])],
+  bowlGame0:timer([STOP]),
+  bowlGame:timer([SAY(1),STOP]),
+  bowlMove0:[HAT,ROT,FOREVER([IF(EMPTY,[]),IF(EMPTY,[])])],
+  bowlMove:[HAT,ROT,FOREVER([IF(KEY('向右',1),[FACE(90,1),MOVE(10)]),IF(KEY('向左',1),[FACE(-90,1),MOVE(10)])])],
+  crystal0:crystal(5,1,'collect',{}),
+  crystal3:crystal(5,1,'collect',{g1:1,g2:1,g3:1}),
+  crystal4:crystal(5,1,'collect',{g1:1,g2:1,g3:1,snd:1,hl:1}),
+  blue:crystal(8,2,'Magic Spell',{g1:1,g2:1,g3:1,snd:1}),
+  ch1:[{t:'s',c:'data',p:['變數',{dd:'時間'},'設為',{n:'60'}]}],
+  ch2:[IF(TOUCH('碗'),[SOUND('collect'),SCORE(-1),GOTO('企鵝')])],
+  ch3:[HAT,{t:'s',c:'data',p:['變數',{dd:'速度'},'設為',{n:'5'}]},GOTO('企鵝'),FOREVER([{t:'s',c:'motion',p:['移動',T('速度'),'點']},IF(TOUCH('碗'),[SOUND('collect'),SCORE(1),{t:'s',c:'data',p:['變數',{dd:'速度'},'改變',{n:'1'}]},GOTO('企鵝')]),IF(TOUCH('地板線'),[GOTO('企鵝')])])]
+};
+document.querySelectorAll('[data-script]').forEach(el=>{el.innerHTML=renderScript(SCRIPTS[el.dataset.script]);});
+
+const TX=(x,y,s,o='')=>`<text x="${x}" y="${y}" font-family="Noto Sans TC, sans-serif" ${o}>${s}</text>`;
+const CO=(n,x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="7" fill="none" stroke="#E5323E" stroke-width="3"/><circle cx="${x}" cy="${y}" r="11" fill="#E5323E"/>`+TX(x,y+5,n,'text-anchor="middle" font-size="13" font-weight="700" fill="#fff"');
+const ARW=(id,c)=>`<defs><marker id="${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="${c}"/></marker></defs>`;
+const menu=(x,y,w,items,on)=>`<rect x="${x}" y="${y}" width="${w}" height="${items.length*28+8}" rx="6" fill="#fff" stroke="#C9CED6"/>`+items.map((m,i)=>{const yy=y+4+i*28;return (i===on?`<rect x="${x+2}" y="${yy}" width="${w-4}" height="28" rx="4" fill="#E9F1FC"/>`:'')+TX(x+14,yy+19,m,`font-size="14" fill="#575E75"${i===on?' font-weight="700"':''}`);}).join('');
+const FIGS={
+  open(){
+    let s=`<svg viewBox="0 0 560 230" role="img" aria-label="檔案選單：從你的電腦挑選"><rect width="560" height="230" rx="10" fill="#E9F1FC"/>`;
+    s+=`<rect width="560" height="40" rx="10" fill="#4C97FF"/><rect y="20" width="560" height="20" fill="#4C97FF"/><circle cx="22" cy="20" r="9" fill="none" stroke="#fff" stroke-width="2"/>`+TX(56,26,'檔案','font-size="14" fill="#fff" font-weight="700"')+TX(104,26,'編輯　教程','font-size="14" fill="#fff"');
+    s+=CO('①',50,8,44,26);
+    s+=`<rect x="44" y="44" width="220" height="120" rx="6" fill="#4C97FF"/>`+['新建專案','從你的電腦挑選','下載到你的電腦'].map((m,i)=>(i===1?`<rect x="46" y="${84}" width="216" height="36" fill="#3373CC"/>`:'')+TX(62,72+i*38,m,`font-size="15" fill="#fff"${i===1?' font-weight="700"':''}`)).join('');
+    s+=CO('②',46,84,216,36);
+    s+=`<rect x="300" y="60" width="240" height="150" rx="8" fill="#fff" stroke="#C9CED6"/>`+TX(316,86,'開啟檔案','font-size="14" fill="#575E75" font-weight="700"');
+    s+=`<rect x="316" y="100" width="208" height="34" rx="5" fill="#E9F1FC" stroke="#855CD6" stroke-width="2"/>`+TX(328,122,'北極接水晶_起始檔.sb3','font-size="13" fill="#575E75"');
+    s+=TX(420,178,'選老師給的檔案 → 開啟','text-anchor="middle" font-size="13" fill="#B4532A" font-weight="700"');
+    return s+'</svg>';
+  },
+  flow(){
+    let s=`<svg viewBox="0 0 640 300" role="img" aria-label="遊戲怎麼動：企鵝走、水晶掉、碗接、地板線"><rect width="640" height="300" rx="10" fill="#fff"/>`+ARW('fa','#B4532A')+ARW('fb','#2C7A4B');
+    s+=`<rect x="20" y="16" width="360" height="270" rx="6" fill="#DCEBF5" stroke="#575E75" stroke-width="2"/>`;
+    s+=`<image href="${IMG.peng}" x="150" y="22" width="54" height="60"/><path d="M110 50h-40M244 50h40" stroke="#B4532A" stroke-width="3" marker-end="url(#fa)"/>`;
+    s+=`<image href="${IMG.c1}" x="164" y="110" width="30" height="27"/><path d="M179 142v40" stroke="#B4532A" stroke-width="3" stroke-dasharray="6 5" marker-end="url(#fa)"/>`;
+    s+=`<image href="${IMG.bowl}" x="146" y="190" width="66" height="66"/><path d="M134 232h-40M224 232h40" stroke="#2C7A4B" stroke-width="3" marker-end="url(#fb)"/>`;
+    s+=`<rect x="30" y="272" width="340" height="7" rx="3" fill="#575E75"/>`;
+    s+=`<image href="${IMG.c2}" x="300" y="200" width="22" height="54" opacity=".9"/><path d="M311 258v10" stroke="#B4532A" stroke-width="3" marker-end="url(#fa)"/>`;
+    const lb=(y,t,c,d)=>`<circle cx="402" cy="${y}" r="7" fill="${c}"/>`+TX(418,y+5,t,`font-size="14" font-weight="700" fill="${c}"`)+TX(418,y+24,d,'font-size="12.5" fill="#6B5F55"');
+    s+=lb(42,'企鵝：上面左右走','#B4532A','移動＋碰到邊緣就反彈')+lb(110,'水晶：從企鵝身上往下掉','#B4532A','定位到 企鵝 → 一直移動')+lb(178,'碗：方向鍵左右走','#2C7A4B','接到 → 加分、叮一聲、回企鵝')+lb(246,'地板線：最下面一條線','#575E75','碰到 → 沒接到，回企鵝重掉');
+    return s+'</svg>';
+  },
+  dir(){
+    let s=`<svg viewBox="0 0 520 260" role="img" aria-label="面朝的度數"><rect width="520" height="260" rx="10" fill="#fff"/>`+ARW('da','#4C97FF');
+    s+=`<circle cx="260" cy="130" r="92" fill="#F2F5FA" stroke="#C9CED6" stroke-width="2"/><image href="${IMG.bowl}" x="230" y="100" width="60" height="60"/>`;
+    const ar=(x2,y2,t,tx,ty,c)=>`<path d="M260 130L${x2} ${y2}" stroke="${c}" stroke-width="4" marker-end="url(#da)"/>`+TX(tx,ty,t,`text-anchor="middle" font-size="16" font-weight="700" fill="${c}" font-family="JetBrains Mono, monospace"`);
+    s+=ar(380,130,'90 右',440,136,'#4C97FF')+ar(140,130,'-90 左',80,136,'#4C97FF')+ar(260,240,'180 下',332,246,'#9AA5B5')+ar(260,20,'0 上',310,30,'#9AA5B5');
+    return s+'</svg>';
+  },
+  gotoMenu(){
+    let s=`<svg viewBox="0 0 520 220" role="img" aria-label="定位到的下拉選單選企鵝"><rect width="520" height="220" rx="10" fill="#fff"/>`;
+    s+=`<g transform="translate(16 14)">`+layout([GOTO('企鵝')],0,0).svg+`</g>`;
+    const x0=16+12+tw('定位到')+6;
+    s+=menu(x0,62,150,['隨機位置','鼠標','企鵝','碗','地板線'],2)+CO('選',x0+2,122,146,28);
+    s+=TX(260,92,'以前選「鼠標」：跟著滑鼠','font-size="13" fill="#6B5F55"')+TX(260,122,'這次選「企鵝」：跳到企鵝身上','font-size="13" fill="#B4532A" font-weight="700"')+TX(260,152,'清單裡沒有自己（水晶）','font-size="13" fill="#6B5F55"');
+    return s+'</svg>';
+  },
+  dup(){
+    let s=`<svg viewBox="0 0 560 230" role="img" aria-label="複製水晶變成紫水晶"><rect width="560" height="200" rx="10" fill="#fff"/>`+ARW('dm','#2C7A4B');
+    const tile=(x,n,img,on,h)=>`<rect x="${x}" y="20" width="84" height="92" rx="8" fill="${on?'#E9F1FC':'#fff'}" stroke="${on?'#855CD6':'#D9E0EA'}" stroke-width="${on?2.5:1}"/><image href="${img}" x="${x+(h?30:20)}" y="${h?26:34}" width="${h?24:44}" height="${h?58:40}"/>`+TX(x+42,104,n,'text-anchor="middle" font-size="12" fill="#575E75"');
+    s+=tile(20,'水晶',IMG.c1,1);
+    s+=`<rect x="80" y="60" width="96" height="96" rx="6" fill="#fff" stroke="#C9CED6"/>`+['複製','匯出','刪除'].map((m,i)=>{const y=64+i*30;return (i===0?`<rect x="82" y="${y}" width="92" height="28" fill="#E9F1FC"/>`:'')+TX(94,y+20,m,`font-size="14" fill="${i===2?'#E5323E':'#575E75'}"${i===0?' font-weight="700"':''}`);}).join('');
+    s+=CO('①',80,62,96,30);
+    s+=`<path d="M186 66h24" stroke="#2C7A4B" stroke-width="3" marker-end="url(#dm)"/>`+tile(220,'紫水晶',IMG.c2,0,1)+CO('②',222,96,80,20);
+    s+=`<path d="M314 66h24" stroke="#2C7A4B" stroke-width="3" marker-end="url(#dm)"/>`;
+    s+=`<rect x="350" y="20" width="190" height="92" rx="8" fill="#F2F5FA"/>`+TX(362,40,'造型分頁','font-size="12" fill="#575E75" font-weight="700"');
+    s+=`<rect x="362" y="48" width="70" height="56" rx="6" fill="#fff" stroke="#D9E0EA"/><image href="${IMG.c1}" x="380" y="54" width="34" height="30"/>`+TX(397,98,'crystal-a','text-anchor="middle" font-size="10" fill="#575E75"');
+    s+=`<rect x="442" y="48" width="70" height="56" rx="6" fill="#fff" stroke="#855CD6" stroke-width="2.5"/><image href="${IMG.c2}" x="466" y="52" width="20" height="40"/>`+TX(477,98,'crystal-b','text-anchor="middle" font-size="10" fill="#575E75"')+CO('③',442,48,70,56);
+    s+=TX(20,186,'① 右鍵複製　② 改名「紫水晶」　③ 造型點 crystal-b','font-size="13" font-weight="700" fill="#2C7A4B"');
+    s+=TX(20,212,'程式也一起複製了，只要改 移動 8、改變 2、音效 Magic Spell','font-size="13" fill="#6B5F55"');
+    return s+'</svg>';
+  }
+};
+document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.dataset.fig]();});
+
+/* ---------- 成品預覽（模擬 Scratch 30fps） ---------- */
+(function(){
+  const $=id=>document.getElementById(id);
+  const stage=$('stage'),inner=$('inner'),scoreV=$('scoreV'),timeV=$('timeV'),status=$('status'),bub=$('bub');
+  let scale=1;function fit(){scale=stage.clientWidth/480;inner.style.transform=`scale(${scale})`;}
+  new ResizeObserver(fit).observe(stage);fit();
+  // 造型尺寸（svg 原始寬高、旋轉中心、角色尺寸 %）
+  const SP={
+    peng:{el:$('pengIm'),w:108,h:122,cx:54,cy:61,k:.7,x:0,y:135,dir:90},
+    c1:{el:$('c1Im'),w:25,h:22.06,cx:15,cy:15,k:2,x:0,y:135,sp:5,pts:1},
+    c2:{el:$('c2Im'),w:19.49,h:47.3,cx:12,cy:24,k:2,x:0,y:135,sp:8,pts:2},
+    bowl:{el:$('bowlIm'),w:60,h:30,cx:30,cy:15,k:1.5,x:0,y:-130},
+    line:{el:$('lineIm'),w:478,h:14,cx:239,cy:7,k:1,x:0,y:-175}
+  };
+  // 企鵝、地板線是 Scratch 角色庫的圖：載入後用真正的尺寸；載不到就用替代圖
+  const real=(s)=>{const im=s.el;const set=()=>{if(im.naturalWidth){const r=s.w/s.h;s.w=im.naturalWidth;s.h=im.naturalHeight;if(s!==SP.line){s.cx=s.w/2;s.cy=s.h/2;}draw();}};
+    if(im.complete)set();im.addEventListener('load',set);
+    im.addEventListener('error',()=>{im.src=s===SP.bowl?'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="60" height="30"><path d="M2 4h56q-4 24-28 24T2 4z" fill="#4C97FF" stroke="#2E6FC4" stroke-width="3"/></svg>'):s===SP.peng?'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="108" height="122"><ellipse cx="54" cy="70" rx="40" ry="50" fill="#222"/><ellipse cx="54" cy="80" rx="27" ry="38" fill="#fff"/><circle cx="44" cy="40" r="5" fill="#fff"/><circle cx="64" cy="40" r="5" fill="#fff"/><path d="M46 52h16l-8 9z" fill="#F7A21B"/></svg>'):'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="478" height="14"><rect y="3" width="478" height="8" rx="4" fill="#3D3D3D"/></svg>');},{once:true});};
+  real(SP.peng);real(SP.line);real(SP.bowl);
+  const box=s=>({l:s.x-s.cx*s.k,r:s.x+(s.w-s.cx)*s.k,t:s.y+s.cy*s.k,b:s.y-(s.h-s.cy)*s.k});
+  const hit=(a,b,shrink)=>{const A=box(a),B=box(b);const sh=shrink||0;return A.l<B.r-sh&&A.r>B.l+sh&&A.b<B.t-sh&&A.t>B.b+sh;};
+  function place(s,flip){const im=s.el;im.style.width=s.w*s.k+'px';im.style.height=s.h*s.k+'px';im.style.left=(s.x+240-s.cx*s.k)+'px';im.style.top=(180-s.y-s.cy*s.k)+'px';im.style.transformOrigin=`${s.cx*s.k}px ${s.cy*s.k}px`;im.style.transform=flip?'scaleX(-1)':'';}
+  let score=0,time=30,running=false,tm=null,lastSec=0,sayUntil=0,best=null,L=false,R=false,bowlDir=90;
+  function draw(){place(SP.line);place(SP.peng,SP.peng.dir<0);place(SP.c1);place(SP.c2);place(SP.bowl,bowlDir<0);
+    scoreV.textContent=score;timeV.textContent=time;
+    const b=box(SP.bowl);bub.style.left=(SP.bowl.x+240-10)+'px';bub.style.top=(180-b.t-46)+'px';}
+  draw();
+  const toPeng=c=>{c.x=SP.peng.x;c.y=SP.peng.y;};
+  function tick(){
+    const now=performance.now();
+    // 企鵝：移動 5 點、碰到邊緣就反彈
+    const p=SP.peng,hw=p.w*p.k/2;p.x+=p.dir>0?5:-5;
+    if(p.x+hw>240){p.x=240-hw;p.dir=-90;}else if(p.x-hw<-240){p.x=-240+hw;p.dir=90;}
+    // 碗：方向鍵
+    const bw=SP.bowl;
+    if(R){bowlDir=90;bw.x+=10;} if(L){bowlDir=-90;bw.x-=10;}
+    const bh=bw.w*bw.k/2-4;bw.x=Math.max(-240+bh,Math.min(240-bh,bw.x));
+    // 水晶：往下掉、碰到碗、碰到地板線
+    for(const c of [SP.c1,SP.c2]){
+      c.y-=c.sp;
+      const fence=-180+(c.h-c.cy)*c.k-6;if(c.y<fence)c.y=fence; // Scratch 不讓角色整個跑出舞台
+      if(hit(c,bw,8)){score+=c.pts;if(!$('demoHit').checked)toPeng(c);}
+      if(hit(c,SP.line,0)){if(!$('demoFloor').checked)toPeng(c);}
+    }
+    // 碗 ①：倒數
+    if(sayUntil){if(now>=sayUntil){draw();end('時間 = 0，說完「時間到！」');return;}}
+    else if(now-lastSec>=1000){lastSec+=1000;time--;if(time===0){sayUntil=now+2000;bub.hidden=false;}}
+    draw();
+  }
+  function end(why){running=false;clearInterval(tm);tm=null;bub.hidden=true;sayUntil=0;best=best===null?score:Math.max(best,score);
+    status.innerHTML=`狀態：<b>停止全部</b>（${why}）　得分 <b class="mono">${score}</b>　最佳 <b class="mono">${best}</b>`;}
+  function start(){clearInterval(tm);running=true;score=0;time=30;sayUntil=0;bub.hidden=true;lastSec=performance.now();
+    SP.peng.x=0;SP.peng.dir=90;SP.bowl.x=0;bowlDir=90;toPeng(SP.c1);toPeng(SP.c2);
+    status.innerHTML='狀態：<b>執行中</b>　30 秒內能接到幾分？';tm=setInterval(tick,1000/30);stage.focus&&stage.focus();}
+  const act=(el,fn)=>{el.addEventListener('click',fn);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+  act($('flagBtn'),start);act($('stopBtn'),()=>{if(running)end('按了紅色停止');});
+  window.addEventListener('keydown',e=>{if(!running||document.body.classList.contains('present'))return;if(e.key==='ArrowRight'){R=true;e.preventDefault();}else if(e.key==='ArrowLeft'){L=true;e.preventDefault();}});
+  window.addEventListener('keyup',e=>{if(e.key==='ArrowRight')R=false;else if(e.key==='ArrowLeft')L=false;});
+  const hold=(el,on,off)=>{el.addEventListener('pointerdown',e=>{e.preventDefault();on();});['pointerup','pointerleave','pointercancel'].forEach(t=>el.addEventListener(t,off));};
+  hold($('kL'),()=>L=true,()=>L=false);hold($('kR'),()=>R=true,()=>R=false);
+})();
+/* ---------- 步驟導覽＋投影模式 ---------- */
+(function(){
+  const secs=[...document.querySelectorAll('section.step')],nav=document.getElementById('nav');
+  let g='';
+  secs.forEach((s,i)=>{if(s.dataset.g!==g){g=s.dataset.g;const sp=document.createElement('span');sp.className='sep';sp.textContent=g;nav.appendChild(sp);}
+    const a=document.createElement('a');a.href='#'+s.id;a.innerHTML=`<b>${s.querySelector('.num').textContent}</b>${s.dataset.t}`;nav.appendChild(a);});
+  const links=[...nav.querySelectorAll('a')];
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const i=secs.indexOf(e.target);links.forEach((l,j)=>l.classList.toggle('on',i===j));}})},{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(s=>io.observe(s));
+  let cur=0;const pbar=document.getElementById('pbar'),pc=document.getElementById('pcount');
+  function show(i){cur=Math.max(0,Math.min(secs.length-1,i));secs.forEach((s,j)=>s.classList.toggle('cur',j===cur));pc.textContent=`${cur+1} / ${secs.length}`;window.scrollTo(0,0);}
+  function enter(){document.body.classList.add('present');pbar.hidden=false;show(cur);}
+  function exit(){document.body.classList.remove('present');pbar.hidden=true;secs[cur].scrollIntoView();}
+  document.getElementById('presentBtn').onclick=enter;
+  document.getElementById('exitP').onclick=exit;
+  document.getElementById('prev').onclick=()=>show(cur-1);
+  document.getElementById('next').onclick=()=>show(cur+1);
+  document.addEventListener('keydown',e=>{if(!document.body.classList.contains('present'))return;
+    if(e.key==='ArrowRight'||e.key==='PageDown')show(cur+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);else if(e.key==='Escape')exit();});
+})();
+</script>
+<script src="assets/skills.js"></script>
+</body></html>
