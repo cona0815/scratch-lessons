@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 北極接水晶 教學步驟 v1.1 · 2026-10-20 · 大橋國小 資訊課 · 四年級（課程修改自老師提供的「接水晶」範例） -->
+<!-- 北極接水晶 教學步驟 v1.2 · 2026-10-20 · 大橋國小 資訊課 · 四年級（課程修改自老師提供的「接水晶」範例） -->
 <title>北極接水晶</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -279,7 +279,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
         <span class="mono">5 分</span><span>試玩成品、開啟起始檔、看懂已經寫好的程式</span><span>步驟 0–1</span>
         <span class="mono">22 分</span><span>碗左右走、水晶從企鵝身上掉、接到有聲音、時間到說話</span><span>步驟 2–5</span>
         <span class="mono">5 分</span><span>複製出紫水晶</span><span>步驟 6</span>
-        <span class="mono">8 分</span><span>除錯、挑戰、存檔</span><span>步驟 7–9</span>
+        <span class="mono">8 分</span><span>對照完整程式、除錯、挑戰、存檔</span><span>步驟 7–10</span>
       </div>
       <p style="font-size:14px;color:var(--muted);margin-top:8px">學過的程式已經寫在<b>起始檔</b>裡，這節課只教新積木。新積木在積木圖上用黃框和 <span class="nb">新</span> 標出。</p>
       <p style="font-size:14px;color:var(--muted);margin-top:8px">管整場遊戲的程式（得分歸零＋30 秒倒數）寫在<b>碗</b>身上；加分寫在水晶身上（只有水晶知道自己有沒有被接到）。</p>
@@ -427,8 +427,28 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 
 <div class="part"><span class="tag">整合</span><h2>測試、挑戰、存檔</h2></div>
 
-<section class="step" id="s7" data-t="除錯" data-g="整合">
-  <div class="shead"><span class="num">7</span><h2>測試與除錯</h2><span class="chip">3 分鐘</span></div>
+<section class="step" id="s7" data-t="完整程式" data-g="整合">
+  <div class="shead"><span class="num">7</span><h2>對答案：每個角色的完整程式</h2><span class="chip">做完再看</span></div>
+  <p class="goal" style="margin-bottom:14px">做完後，<b>一個角色一個角色</b>對照：先在角色區點那個角色，再看它的程式是不是跟下面一樣。程式段數也要一樣（碗有 2 段，其他角色 1 段）。</p>
+  <div class="sprbox" data-spr="peng"><div class="sprbody">
+    <figure class="blocks"><div data-script="penguin"></div><figcaption>企鵝：上面左右來回走</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="bowl"><div class="sprbody">
+    <figure class="blocks"><div data-script="bowlGame"></div><figcaption>碗 ①：得分歸零、30 秒倒數、時間到說話再停止</figcaption></figure>
+    <figure class="blocks"><div data-script="bowlMove"></div><figcaption>碗 ②：方向鍵左右走</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="c1"><div class="sprbody">
+    <figure class="blocks"><div data-script="crystal4"></div><figcaption>水晶：從企鵝身上掉、接到加 1 分</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="c2"><div class="sprbody">
+    <figure class="blocks"><div data-script="blue"></div><figcaption>紫水晶：移動 8、加 2 分、音效 Magic Spell</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="line"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">地板線<b>沒有程式</b>。</p></div></div>
+  <div class="note warn"><b class="h">最常見的錯</b>程式拼對了，卻放在<b>別的角色</b>身上。例如方向鍵的程式放到水晶上，結果水晶在動、碗不動。看角色區哪個角色被選起來（有藍框），再看程式。</div>
+</section>
+
+<section class="step" id="s8" data-t="除錯" data-g="整合">
+  <div class="shead"><span class="num">8</span><h2>測試與除錯</h2><span class="chip">3 分鐘</span></div>
   <div class="tbl"><table class="debug">
     <thead><tr><th>看到的狀況</th><th>可能原因</th><th>怎麼修</th></tr></thead>
     <tbody>
@@ -445,8 +465,8 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </table></div>
 </section>
 
-<section class="step" id="s8" data-t="挑戰" data-g="整合">
-  <div class="shead"><span class="num">8</span><h2>挑戰任務（先做完的同學）</h2><span class="chip">做得快再做</span></div>
+<section class="step" id="s9" data-t="挑戰" data-g="整合">
+  <div class="shead"><span class="num">9</span><h2>挑戰任務（先做完的同學）</h2><span class="chip">做得快再做</span></div>
   <div class="lv">
     <div>
       <span class="stars">★☆☆</span>
@@ -469,8 +489,8 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
 </section>
 
-<section class="step" id="s9" data-t="存檔" data-g="整合">
-  <div class="shead"><span class="num">9</span><h2>存檔</h2><span class="chip">2 分鐘</span></div>
+<section class="step" id="s10" data-t="存檔" data-g="整合">
+  <div class="shead"><span class="num">10</span><h2>存檔</h2><span class="chip">2 分鐘</span></div>
   <div class="cols">
     <div class="how stack">
       <ol>
@@ -510,19 +530,19 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </section>
 </div>
 
-<footer><span>北極接水晶 教學步驟 · v1.1 · 2026-10-20</span><span>課程修改自 老師提供的「接水晶」範例</span></footer>
+<footer><span>北極接水晶 教學步驟 · v1.2 · 2026-10-20</span><span>課程修改自 老師提供的「接水晶」範例</span></footer>
 </div>
 
 <div class="pbar" id="pbar" hidden>
   <button class="btn" id="prev" type="button">← 上一步</button>
-  <span class="mono" id="pcount">1 / 10</span>
+  <span class="mono" id="pcount">1 / 11</span>
   <button class="btn solid" id="next" type="button">下一步 →</button>
   <button class="btn" id="exitP" type="button">離開投影</button>
 </div>
 
 <script src="assets/scratch-blocks.js"></script>
 <script>
-/* 北極接水晶 教學頁程式 v1.1 · 2026-10-20（需先載入 assets/scratch-blocks.js） */
+/* 北極接水晶 教學頁程式 v1.2 · 2026-10-20（需先載入 assets/scratch-blocks.js） */
 const IMG={bowl:"https://cdn.assets.scratch.mit.edu/internalapi/asset/d147f16e3e2583719c073ac5b55fe3ca.svg/get/",c1:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjUiIGhlaWdodD0iMjIuMDU2MDQzNjI0ODc3OTMiIHZpZXdCb3g9IjIuNSA0LjA0Mzk1Njc1NjU5MTc5NyAyNSAyMi4wNTYwNDM2MjQ4Nzc5MyIgdmVyc2lvbj0iMS4xIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5LjMgKDUxMTY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICA8ZGVmcy8+CiAgPGc+CiAgICA8dGl0bGU+Y3J5c3RhbC1hPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9ImNyeXN0YWwtYSIgc3Ryb2tlPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICA8ZyBpZD0iQmx1ZS1DcnlzdGFsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgIDxwYXRoIGQ9Ik0gMyAxMi4zIEMgMyAxMi4zIDUuOSA3LjEgMTAgNS42IEMgMTAgNS42IDE3LjkgMy44IDIwLjUgNC45IEMgMjAuNSA0LjkgMjUuNyA4LjUgMjcgMTAuNSBDIDI3IDEwLjUgMjAgMjMuNSAxNi43IDI1LjUgQyAxNi43IDI1LjYgNC4zIDE3LjcgMyAxMi4zIFogIiBpZD0iU2hhcGUiIGZpbGw9IiM3RkNDRUYiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMjcgMTAuNSBDIDI2LjggMTAuMiAyNi41IDkuOCAyNi4xIDkuNSBMIDIwLjYgMTIuOSBMIDE1LjggMTguNyBMIDE2LjcgMjUuNiBDIDIwLjEgMjMuNSAyNyAxMC41IDI3IDEwLjUgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzY3OEZFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAxMS4zIDEzLjkgQyAxMS4zIDEzLjkgMTMuOCAyMi42IDE2LjcgMjUuNiBDIDE2LjcgMjUuNiAyMC40IDE2LjEgMjAuNiAxMi45IEwgMTMuOCA5LjcgTCAxMS4zIDEzLjkgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzczQjVFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAyMC41IDQuOSBDIDE3LjggMy44IDEwIDUuNiAxMCA1LjYgQyA2IDcuMiAzIDEyLjMgMyAxMi4zIEMgMyAxMi4zIDkuNSAxMy45IDExLjMgMTMuOSBDIDExLjMgMTMuOSAxNyAxNCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjUuNyA4LjUgMjAuNSA0LjkgMjAuNSA0LjkgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzkyRDdFRiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAxNy4yIDQuNiBDIDE1LjggNC43IDE0LjMgNC44IDEzIDUuMSBMIDExLjggNy41IEwgMTEuNCAxNCBDIDExLjQgMTQgMTcuMSAxNC4xIDIwLjcgMTMgTCAxOCA2LjkgTCAxNy4yIDQuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0ZDQ0VGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjIgOS42IEMgMTAuNCA5LjYgNi4yIDEwLjkgMy4zIDExLjggQyAzLjEgMTIuMSAzIDEyLjMgMyAxMi4zIEMgMyAxMi4zIDkuNSAxMy45IDExLjMgMTMuOSBDIDExLjMgMTMuOSAxNyAxNCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjYuOSAxMC40IDI2LjkgMTAuMyAyNi44IDEwLjIgQyAyNC40IDkuNyAyMC4yIDguOCAxOS43IDguOCBDIDE5IDguOSAxMi40IDkuNiAxMS4yIDkuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjODNDREVGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjggNy40IEwgMTguMSA3IEMgMTguMSA3IDE5LjkgNi44IDIwLjYgNSBDIDE3LjggMy44IDEwIDUuNiAxMCA1LjYgQyAxMCA1LjYgMTAuNiA2LjUgMTEuOCA3LjQgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0JFRTZGMSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAyMC41IDQuOSBDIDIwLjMgNC44IDIwIDQuNyAxOS43IDQuNyBMIDE4IDYuOSBMIDIwLjYgMTIuOCBDIDIzIDEyLjEgMjQuNSAxMS44IDI3IDEwLjQgQyAyNS43IDguNSAyMC41IDQuOSAyMC41IDQuOSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNzNCNUU0IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDI3IDEwLjUgQyAyNyAxMC41IDI2LjkgMTAuOCAyNi43IDExLjIgQyAyNi41IDExLjcgMjYuMiAxMi4zIDI1LjkgMTMuMSBDIDI1LjcgMTMuNSAyNS41IDEzLjkgMjUuMyAxNC4zIEMgMjUuMSAxNC43IDI0LjggMTUuMiAyNC41IDE1LjcgQyAyNCAxNi42IDIzLjMgMTcuNiAyMi43IDE4LjYgQyAyMiAxOS41IDIxLjMgMjAuNSAyMC43IDIxLjMgQyAyMCAyMi4xIDE5LjQgMjIuOSAxOC44IDIzLjUgQyAxNy42IDI0LjggMTYuOCAyNS41IDE2LjggMjUuNSBDIDE2LjggMjUuNSAxNy42IDI0LjYgMTguNiAyMy4zIEMgMTkuMSAyMi42IDE5LjcgMjEuOCAyMC40IDIxIEMgMjEgMjAuMSAyMS43IDE5LjIgMjIuNCAxOC4zIEMgMjMuMSAxNy40IDIzLjcgMTYuNCAyNC4yIDE1LjUgQyAyNC44IDE0LjYgMjUuMyAxMy43IDI1LjcgMTMgQyAyNi4xIDEyLjMgMjYuNSAxMS42IDI2LjcgMTEuMiBDIDI2LjkgMTAuOCAyNyAxMC41IDI3IDEwLjUgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzNCNzNFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAzIDEyLjMgQyAzIDEyLjMgMy41IDEyLjMgNC4yIDEyLjQgQyA0LjkgMTIuNSA1LjggMTIuNiA2LjcgMTIuOCBDIDcuNiAxMyA4LjUgMTMuMiA5LjIgMTMuNCBDIDkuOSAxMy42IDEwLjMgMTMuNyAxMC4zIDEzLjcgQyAxMC4zIDEzLjcgOS44IDEzLjggOS4xIDEzLjcgQyA4LjQgMTMuNiA3LjUgMTMuNSA2LjYgMTMuMyBDIDUuNyAxMy4xIDQuOCAxMi45IDQuMSAxMi43IEMgMy40IDEyLjUgMyAxMi4zIDMgMTIuMyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjQkVFNkYxIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjUgMTQuOSBDIDExLjUgMTQuOSAxMS44IDE1LjUgMTIuMSAxNi4zIEMgMTIuNSAxNy4yIDEyLjkgMTguMyAxMy40IDE5LjQgQyAxMy44IDIwLjUgMTQuMyAyMS43IDE0LjYgMjIuNSBDIDE0LjggMjIuOSAxNC45IDIzLjMgMTUuMSAyMy41IEMgMTUuMyAyMy43IDE1LjMgMjMuOCAxNS4zIDIzLjggQyAxNS4zIDIzLjggMTUuMiAyMy43IDE1IDIzLjUgQyAxNC44IDIzLjMgMTQuNiAyMyAxNC4zIDIyLjYgQyAxMy44IDIxLjggMTMuMyAyMC43IDEyLjggMTkuNSBDIDEyLjMgMTguMyAxMiAxNy4yIDExLjcgMTYuMyBDIDExLjcgMTUuNSAxMS41IDE0LjkgMTEuNSAxNC45IFogIiBpZD0iU2hhcGUiIGZpbGw9IiNCRUU2RjEiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMTguOSA4LjkgTCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjYuOSAxMC40IDI2LjkgMTAuMyAyNi44IDEwLjIgQyAyNC40IDkuNyAyMC4yIDguOCAxOS43IDguOCBDIDE5LjYgOC45IDE5LjMgOC45IDE4LjkgOC45IFogIiBpZD0iU2hhcGUiIGZpbGw9IiM2NzlGRTQiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMTEuNiA5LjYgTCAxMS4zIDEzLjkgQyAxMS4zIDEzLjkgMTcgMTQgMjAuNiAxMi45IEwgMTguOSA4LjkgQyAxNy4yIDkuMSAxMy4yIDkuNSAxMS42IDkuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0NCRkVGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+",c2:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTkuNDkwNjI1MzgxNDY5NzI3IiBoZWlnaHQ9IjQ3LjI5OTk5OTIzNzA2MDU1IiB2aWV3Qm94PSIyLjIwOTM3NDkwNDYzMjU2ODQgMC40MDAwMDAwMzU3NjI3ODY4NyAxOS40OTA2MjUzODE0Njk3MjcgNDcuMjk5OTk5MjM3MDYwNTUiIHZlcnNpb249IjEuMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CiAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0OS4zICg1MTE2NykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgPGRlZnMvPgogIDxnPgogICAgPHRpdGxlPmNyeXN0YWwtYjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJjcnlzdGFsLWIiIHN0cm9rZT0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgPGcgaWQ9IlB1cnBsZS1DcnlzdGFsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgIDxnIGlkPSJHcm91cCI+CiAgICAgICAgICA8cGF0aCBkPSJNIDMuMSA0NC40IEMgMy4xIDQ0LjQgMi4xIDE0LjcgMy4zIDEwLjYgQyAzLjMgMTAuNiA3LjYgMy42IDE0LjQgMC45IEMgMTQuNCAwLjkgMTkuMiA3LjcgMjEuMiAxMy43IEMgMjEuMiAxMy43IDEyIDQzLjEgMTAuNiA0NS4xIEMgMTAuNiA0NS4xIDcuNSA0Ni44IDUuNSA0NyBDIDUuNiA0Ny4xIDMuMSA0NS45IDMuMSA0NC40IFogIiBpZD0iU2hhcGUiIGZpbGw9IiM4NjQ0QjMiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgICAgPHBhdGggZD0iTSAzLjQgMTAuNyBDIDMuNCAxMC43IDUuNiAxNS44IDkgMTcuNyBMIDE0LjQgMS4xIEMgNy43IDMuNyAzLjQgMTAuNyAzLjQgMTAuNyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRUE4QkU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy40IDEwLjcgQyAzLjQgMTAuNyA1LjYgMTUuOCA5IDE3LjcgTCAxNC40IDEuMSBDIDcuNyAzLjcgMy40IDEwLjcgMy40IDEwLjcgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0VBOEJFNSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDIxLjIgMTMuOCBDIDE5LjMgNy44IDE0LjUgMSAxNC41IDEgQyAxNC41IDEgMTQuNCAxIDE0LjQgMS4xIEwgOC45IDE3LjcgQyA4LjkgMTcuNyAxNC43IDE2LjUgMjEgMTQuNiBDIDIxLjIgMTQgMjEuMiAxMy44IDIxLjIgMTMuOCBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjQUQ1OUMyIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy40IDEwLjcgQyAyLjIgMTQuOCAzLjIgNDQuNSAzLjIgNDQuNSBDIDMuMiA0NS45IDUuNiA0Ny4yIDUuNiA0Ny4yIEwgOSAxNy44IEwgMy40IDEwLjcgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0FENTlDMiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDguOSAxNy43IEMgOC45IDE3LjcgOC44IDE5LjMgOC42IDIxLjcgQyA4LjUgMjIuOSA4LjMgMjQuMyA4LjIgMjUuOCBDIDggMjcuMyA3LjkgMjguOSA3LjcgMzAuNCBDIDcuNSAzMiA3LjMgMzMuNiA3LjEgMzUgQyA2LjkgMzYuNSA2LjcgMzcuOSA2LjYgMzkgQyA2LjIgNDEuMyA2IDQyLjkgNiA0Mi45IEMgNiA0Mi45IDYuMSA0MS4zIDYuMyAzOC45IEMgNi40IDM3LjcgNi42IDM2LjMgNi43IDM0LjggQyA2LjkgMzMuMyA3IDMxLjcgNy4yIDMwLjIgQyA3LjQgMjguNiA3LjYgMjcgNy44IDI1LjYgQyA4IDI0LjEgOC4yIDIyLjcgOC4zIDIxLjYgQyA4LjcgMTkuMiA4LjkgMTcuNyA4LjkgMTcuNyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRUE4QkU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy4xIDQ0LjQgQyAzLjEgNDUuOCA1LjUgNDcuMSA1LjUgNDcuMSBMIDUuOSA0My44IEMgNC43IDQ0LjEgMy4xIDQ0LjQgMy4xIDQ0LjQgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0E1NDZCRCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDcuMiA0My42IEMgNyA0My42IDYuNSA0My43IDUuOSA0My44IEwgNS41IDQ3LjEgQyA3LjQgNDYuOSAxMC42IDQ1LjIgMTAuNiA0NS4yIEMgMTAuNiA0NS4yIDggNDMuNSA3LjIgNDMuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0MzNkFCIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gNS42IDQ3LjEgQyA2LjUgNDYuOSA3LjQgNDYuNiA4LjIgNDYuMyBDIDkgNDYgOS44IDQ1LjYgMTAuNSA0NSBMIDEwLjQgNDUuMSBDIDExIDQzLjEgMTEuNyA0MS4xIDEyLjQgMzkuMSBDIDEzLjEgMzcuMSAxMy43IDM1LjEgMTQuNCAzMy4yIEMgMTUuOCAyOS4yIDE3LjIgMjUuMyAxOC43IDIxLjQgQyAxNy41IDI1LjQgMTYuMiAyOS40IDE0LjggMzMuNCBDIDE0LjEgMzUuNCAxMy40IDM3LjQgMTIuOCAzOS4zIEMgMTIuMSA0MS4zIDExLjQgNDMuMyAxMC43IDQ1LjIgQyA5LjkgNDUuNyA5LjEgNDYuMSA4LjIgNDYuNCBDIDcuMyA0Ni44IDYuNSA0NyA1LjYgNDcuMSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNkIzNDhGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gOC45IDE3LjcgTCAxMS4zIDEwLjMgQyA3LjkgMTAuMyAzLjMgMTAuNyAzLjMgMTAuNyBDIDMuMyAxMC43IDUuNiAxNS43IDguOSAxNy43IFogIiBpZD0iU2hhcGUiIGZpbGw9IiNFMTdERTMiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgICAgPHBhdGggZD0iTSAxMS4zIDEwLjMgTCA4LjkgMTcuNyBDIDguOSAxNy43IDE0LjcgMTYuNSAyMSAxNC42IEMgMjEuMSAxNC4xIDIxLjIgMTMuOSAyMS4yIDEzLjkgQyAyMS4yIDEzLjggMjEuMSAxMy42IDIxLjEgMTMuNSBDIDE4LjkgMTIuNCAxNS42IDEwLjkgMTQuNyAxMC42IEMgMTQuMyAxMC4zIDEyLjkgMTAuMyAxMS4zIDEwLjMgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzlCNERBRSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDIxIDE0LjUgQyAyMSAxNC41IDIwLjQgMTQuOCAxOS42IDE1LjEgQyAxOC43IDE1LjQgMTcuNiAxNS44IDE2LjQgMTYuMiBDIDE1LjIgMTYuNSAxNCAxNi44IDEzLjEgMTcgQyAxMi4yIDE3LjIgMTEuNiAxNy4yIDExLjYgMTcuMiBDIDExLjYgMTcuMiAxMS43IDE3LjIgMTIgMTcuMSBDIDEyLjMgMTcgMTIuNiAxNi45IDEzLjEgMTYuOCBDIDE0IDE2LjUgMTUuMSAxNi4yIDE2LjMgMTUuOCBDIDE3LjUgMTUuNSAxOC43IDE1LjEgMTkuNiAxNC45IEMgMjAuNCAxNC42IDIxIDE0LjUgMjEgMTQuNSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNkIzNDhGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8L2c+CiAgICAgICAgPHBhdGggZD0iTSAxNC40IDEuMSBDIDE0LjQgMS4xIDE0LjIgMS45IDEzLjkgMy4xIEMgMTMuNiA0LjMgMTMuMSA1LjkgMTIuNiA3LjUgQyAxMi4xIDkuMSAxMS41IDEwLjcgMTEgMTEuOSBDIDEwLjUgMTMuMSAxMC4yIDEzLjkgMTAuMiAxMy45IEMgMTAuMiAxMy45IDEwLjQgMTMuMSAxMC43IDExLjkgQyAxMSAxMC42IDExLjUgOC45IDEyIDcuNCBDIDEyLjUgNS44IDEzLjEgNC4yIDEzLjYgMyBDIDE0IDEuOCAxNC40IDEuMSAxNC40IDEuMSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRkZCQ0ZDIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+",peng:"https://cdn.assets.scratch.mit.edu/internalapi/asset/428772307d90f4b347d6cc3c0d8e76ef.svg/get/"};
 const HAT={t:'hat',c:'event',p:['當',{flag:1},'被點擊']};
 const FOREVER=(inn)=>({t:'c',c:'control',cap:1,p:['重複無限次'],in:inn});
