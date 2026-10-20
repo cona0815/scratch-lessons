@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 北極接水晶 教學步驟 v1.0 · 2026-10-19 · 大橋國小 資訊課 · 四年級（課程修改自老師提供的「接水晶」範例） -->
+<!-- 北極接水晶 教學步驟 v1.1 · 2026-10-20 · 大橋國小 資訊課 · 四年級（課程修改自老師提供的「接水晶」範例） -->
 <title>北極接水晶</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,6 +206,14 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 .keys .btn{min-width:96px;touch-action:none;user-select:none}
 .ctl{grid-template-columns:auto 1fr}
 .ctl > span:empty{display:none}
+.sprbox{border:2px solid var(--sc);border-radius:12px;background:var(--panel);margin-bottom:14px;overflow:hidden}
+.sprhead{display:flex;gap:10px;align-items:center;background:var(--sc);color:#fff;padding:8px 14px;font-weight:700;font-size:17px}
+.sprhead img{height:34px;width:auto;max-width:60px;background:#fff;border-radius:6px;padding:2px}
+.sprhead small{margin-left:auto;font-weight:500;font-size:13px;opacity:.9}
+.sprbody{display:flex;flex-wrap:wrap;gap:14px;padding:12px;align-items:flex-start}
+.sprbody figure{min-width:0;max-width:100%}
+.who{display:inline-flex;align-items:center;gap:8px;background:var(--sc);color:#fff;font-weight:700;font-size:14px;border-radius:999px;padding:3px 12px 3px 4px;margin-bottom:8px}
+.who img{height:24px;width:auto;max-width:40px;background:#fff;border-radius:50%;padding:2px}
 </style>
 <div class="wrap">
 <header class="top">
@@ -301,13 +309,18 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 
 <section class="step quick" id="s1" data-t="看懂起始檔" data-g="開始">
   <div class="shead"><span class="num">1</span><h2>看懂已經寫好的程式</h2><span class="chip">3 分鐘</span><span class="chip old">學過，已經寫好</span></div>
-  <p class="goal">先按一次綠旗：企鵝會走、水晶會往下掉、時間會倒數，但碗不會動、水晶掉下去就不見了。這節課要把缺的積木補上。點每個角色，看看它身上已經有哪些程式。</p>
-  <div class="qgrid">
-    <figure class="blocks"><div data-script="penguin"></div><figcaption>企鵝：在上面左右來回走（完整，不用改）</figcaption></figure>
-    <figure class="blocks"><div data-script="bowlGame0"></div><figcaption>碗的程式 ①：得分歸零、30 秒倒數、時間到停止全部</figcaption></figure>
+  <p class="goal">先按一次綠旗：企鵝會走、水晶會往下掉、時間會倒數，但碗不會動、水晶掉下去就不見了。這節課要把缺的積木補上。<br><b>程式是分開寫在每個角色身上的。</b>先在右下角的角色區<b>點一下角色</b>，程式區才會出現那個角色的程式。下面用顏色框分好：</p>
+  <div class="sprbox" data-spr="peng"><div class="sprbody">
+    <figure class="blocks"><div data-script="penguin"></div><figcaption>企鵝的程式：在上面左右來回走（完整，不用改）</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="bowl"><div class="sprbody">
+    <figure class="blocks"><div data-script="bowlGame0"></div><figcaption>碗的程式 ①：得分歸零、30 秒倒數、時間到停止全部（步驟 5 再補）</figcaption></figure>
     <figure class="blocks"><div data-script="bowlMove0"></div><figcaption>碗的程式 ②：兩個「如果」還是空的 → 步驟 2</figcaption></figure>
-    <figure class="blocks"><div data-script="crystal0"></div><figcaption>水晶：往下掉，碰到碗加 1 分（還缺好幾塊 → 步驟 3、4）</figcaption></figure>
-  </div>
+  </div></div>
+  <div class="sprbox" data-spr="c1"><div class="sprbody">
+    <figure class="blocks"><div data-script="crystal0"></div><figcaption>水晶的程式：往下掉，碰到碗加 1 分（還缺好幾塊 → 步驟 3、4）</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="line"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">地板線<b>沒有程式</b>，它只是放在舞台最下面，讓水晶「碰到」用的。</p></div></div>
   <div class="qgrid one" style="margin-top:14px"><figure><div data-fig="flow"></div><figcaption>整個遊戲怎麼動</figcaption></figure></div>
   <div class="note tip newb"><b class="h">水晶為什麼會往下掉？</b>水晶的「方向」已經設成 <b class="mono">180</b>（朝下），所以「移動 5 點」就是往下走 5 點。點水晶的 <span class="ui">方向</span> 可以看到轉盤指向下面。</div>
 </section>
@@ -331,7 +344,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
       <div class="note warn"><b class="h">碗倒過來了？</b>程式開頭的「迴轉方式設為 左-右」不能拿掉。少了它，碗往左走的時候會整個倒立。</div>
     </div>
     <div class="fig">
-      <figure class="blocks"><div data-script="bowlMove"></div><figcaption>碗的程式 ②：黃框＋「新」是新積木</figcaption></figure>
+      <figure class="blocks" data-who="bowl"><div data-script="bowlMove"></div><figcaption>碗的程式 ②：黃框＋「新」是新積木</figcaption></figure>
       <figure><div data-fig="dir"></div><figcaption>面朝幾度＝往哪邊走</figcaption></figure>
     </div>
   </div>
@@ -360,7 +373,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
       <div class="note check"><b class="h">讓學生自己發現</b>勾上方預覽的兩個「示範」，看分數怎麼跳、水晶卡在哪裡；再取消勾選比較。</div>
     </div>
     <div class="fig">
-      <figure class="blocks"><div data-script="crystal3"></div><figcaption>水晶的程式：加上 3 個「定位到 企鵝 位置」</figcaption></figure>
+      <figure class="blocks" data-who="c1"><div data-script="crystal3"></div><figcaption>水晶的程式：加上 3 個「定位到 企鵝 位置」</figcaption></figure>
       <figure><div data-fig="gotoMenu"></div><figcaption>同一個積木，下拉選單換成「企鵝」</figcaption></figure>
     </div>
   </div>
@@ -379,7 +392,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
       <div class="note warn"><b class="h">不要選「直到結束」那一塊</b>「播放音效 直到結束」會等聲音播完才往下做，這段時間水晶停在碗裡，又會一直加分。選上面那塊<b>沒有「直到結束」</b>的。</div>
       <div class="note tip"><b class="h">想換別的聲音？</b>到上方的 <span class="ui">音效</span> 分頁，左下角 <span class="ui">選個音效</span> 可以加別的音效，例如 Pop。</div>
     </div>
-    <div class="fig"><figure class="blocks"><div data-script="crystal4"></div><figcaption>水晶的程式：完成！</figcaption></figure></div>
+    <div class="fig"><figure class="blocks" data-who="c1"><div data-script="crystal4"></div><figcaption>水晶的程式：完成！</figcaption></figure></div>
   </div>
 </section>
 
@@ -399,7 +412,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
       <div class="note warn"><b class="h">放在停止全部的下面會怎樣？</b>「停止全部」一做，所有程式都停了，下面的積木永遠輪不到，碗一句話也不會說。</div>
       <div class="note tip"><b class="h">說出 和 說出…持續…秒</b>外觀裡有兩塊很像的積木。「說出 Hello!」會一直說；「說出 Hello! 持續 2 秒」說 2 秒就收起來。這裡用<b>持續 2 秒</b>那塊。</div>
     </div>
-    <div class="fig"><figure class="blocks"><div data-script="bowlGame"></div><figcaption>碗的程式 ①：說完再停止</figcaption></figure></div>
+    <div class="fig"><figure class="blocks" data-who="bowl"><div data-script="bowlGame"></div><figcaption>碗的程式 ①：說完再停止</figcaption></figure></div>
   </div>
 </section>
 
@@ -408,7 +421,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 <section class="step quick" id="s6" data-t="紫水晶" data-g="應用">
   <div class="shead"><span class="num">6</span><h2>複製出紫水晶（2 分、比較快）</h2><span class="chip">5 分鐘</span><span class="chip old">學過，直接照著做</span></div>
   <p class="goal">水晶上按右鍵 → <b>複製</b>，改名叫 <b>紫水晶</b>。到 <span class="ui">造型</span> 分頁點 <b>crystal-b</b>（紫色那個）。回到程式，改 3 個地方：移動 <b class="mono">8</b> 點、得分改變 <b class="mono">2</b>、音效換成 <b>Magic Spell</b>。</p>
-  <div class="qgrid"><figure><div data-fig="dup"></div><figcaption>右鍵複製：程式、造型、音效全部一起複製</figcaption></figure><figure class="blocks"><div data-script="blue"></div><figcaption>紫水晶的程式：改 3 個數字或選項</figcaption></figure></div>
+  <div class="qgrid"><figure><div data-fig="dup"></div><figcaption>右鍵複製：程式、造型、音效全部一起複製</figcaption></figure><figure class="blocks" data-who="c2"><div data-script="blue"></div><figcaption>紫水晶的程式：改 3 個數字或選項</figcaption></figure></div>
   <div class="note tip newb"><b class="h">想一想</b>紫水晶比較快、分數比較多。如果想讓它一開始晚 1 秒才掉，要加什麼積木？（提示：學過的「等待 1 秒」）</div>
 </section>
 
@@ -439,19 +452,19 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
       <span class="stars">★☆☆</span>
       <h3>① 玩 60 秒</h3>
       <p>到碗的程式 ①，把「時間 設為 30」改成 <b class="mono">60</b>。也可以把企鵝的「移動 5 點」改快一點。</p>
-      <figure class="blocks"><div data-script="ch1"></div></figure>
+      <figure class="blocks" data-who="bowl"><div data-script="ch1"></div></figure>
     </div>
     <div>
       <span class="stars">★★☆</span>
       <h3>② 小心石頭 −1 分</h3>
       <p>再複製一次水晶，改名 <b>石頭</b>。到 <span class="ui">造型</span> 分頁按 <span class="ui">選個造型</span>，選 <b>Rocks</b>。把「得分 改變 1」改成 <b class="mono">-1</b>。</p>
-      <figure class="blocks"><div data-script="ch2"></div></figure>
+      <figure class="blocks" data-who="rock"><div data-script="ch2"></div></figure>
     </div>
     <div>
       <span class="stars">★★★</span>
       <h3>③ 越接越快</h3>
       <p>建立變數 <b>速度</b>。開始時 速度 設為 5，「移動 5 點」改成「移動（速度）點」，每接到一次 速度 改變 1。</p>
-      <figure class="blocks"><div data-script="ch3"></div></figure>
+      <figure class="blocks" data-who="c1"><div data-script="ch3"></div></figure>
     </div>
   </div>
 </section>
@@ -497,7 +510,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </section>
 </div>
 
-<footer><span>北極接水晶 教學步驟 · v1.0 · 2026-10-19</span><span>課程修改自 老師提供的「接水晶」範例</span></footer>
+<footer><span>北極接水晶 教學步驟 · v1.1 · 2026-10-20</span><span>課程修改自 老師提供的「接水晶」範例</span></footer>
 </div>
 
 <div class="pbar" id="pbar" hidden>
@@ -509,7 +522,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 
 <script src="assets/scratch-blocks.js"></script>
 <script>
-/* 北極接水晶 教學頁程式 v1.0 · 2026-10-19（需先載入 assets/scratch-blocks.js） */
+/* 北極接水晶 教學頁程式 v1.1 · 2026-10-20（需先載入 assets/scratch-blocks.js） */
 const IMG={bowl:"https://cdn.assets.scratch.mit.edu/internalapi/asset/d147f16e3e2583719c073ac5b55fe3ca.svg/get/",c1:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjUiIGhlaWdodD0iMjIuMDU2MDQzNjI0ODc3OTMiIHZpZXdCb3g9IjIuNSA0LjA0Mzk1Njc1NjU5MTc5NyAyNSAyMi4wNTYwNDM2MjQ4Nzc5MyIgdmVyc2lvbj0iMS4xIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5LjMgKDUxMTY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICA8ZGVmcy8+CiAgPGc+CiAgICA8dGl0bGU+Y3J5c3RhbC1hPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9ImNyeXN0YWwtYSIgc3Ryb2tlPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICA8ZyBpZD0iQmx1ZS1DcnlzdGFsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgIDxwYXRoIGQ9Ik0gMyAxMi4zIEMgMyAxMi4zIDUuOSA3LjEgMTAgNS42IEMgMTAgNS42IDE3LjkgMy44IDIwLjUgNC45IEMgMjAuNSA0LjkgMjUuNyA4LjUgMjcgMTAuNSBDIDI3IDEwLjUgMjAgMjMuNSAxNi43IDI1LjUgQyAxNi43IDI1LjYgNC4zIDE3LjcgMyAxMi4zIFogIiBpZD0iU2hhcGUiIGZpbGw9IiM3RkNDRUYiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMjcgMTAuNSBDIDI2LjggMTAuMiAyNi41IDkuOCAyNi4xIDkuNSBMIDIwLjYgMTIuOSBMIDE1LjggMTguNyBMIDE2LjcgMjUuNiBDIDIwLjEgMjMuNSAyNyAxMC41IDI3IDEwLjUgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzY3OEZFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAxMS4zIDEzLjkgQyAxMS4zIDEzLjkgMTMuOCAyMi42IDE2LjcgMjUuNiBDIDE2LjcgMjUuNiAyMC40IDE2LjEgMjAuNiAxMi45IEwgMTMuOCA5LjcgTCAxMS4zIDEzLjkgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzczQjVFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAyMC41IDQuOSBDIDE3LjggMy44IDEwIDUuNiAxMCA1LjYgQyA2IDcuMiAzIDEyLjMgMyAxMi4zIEMgMyAxMi4zIDkuNSAxMy45IDExLjMgMTMuOSBDIDExLjMgMTMuOSAxNyAxNCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjUuNyA4LjUgMjAuNSA0LjkgMjAuNSA0LjkgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzkyRDdFRiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAxNy4yIDQuNiBDIDE1LjggNC43IDE0LjMgNC44IDEzIDUuMSBMIDExLjggNy41IEwgMTEuNCAxNCBDIDExLjQgMTQgMTcuMSAxNC4xIDIwLjcgMTMgTCAxOCA2LjkgTCAxNy4yIDQuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0ZDQ0VGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjIgOS42IEMgMTAuNCA5LjYgNi4yIDEwLjkgMy4zIDExLjggQyAzLjEgMTIuMSAzIDEyLjMgMyAxMi4zIEMgMyAxMi4zIDkuNSAxMy45IDExLjMgMTMuOSBDIDExLjMgMTMuOSAxNyAxNCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjYuOSAxMC40IDI2LjkgMTAuMyAyNi44IDEwLjIgQyAyNC40IDkuNyAyMC4yIDguOCAxOS43IDguOCBDIDE5IDguOSAxMi40IDkuNiAxMS4yIDkuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjODNDREVGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjggNy40IEwgMTguMSA3IEMgMTguMSA3IDE5LjkgNi44IDIwLjYgNSBDIDE3LjggMy44IDEwIDUuNiAxMCA1LjYgQyAxMCA1LjYgMTAuNiA2LjUgMTEuOCA3LjQgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0JFRTZGMSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAyMC41IDQuOSBDIDIwLjMgNC44IDIwIDQuNyAxOS43IDQuNyBMIDE4IDYuOSBMIDIwLjYgMTIuOCBDIDIzIDEyLjEgMjQuNSAxMS44IDI3IDEwLjQgQyAyNS43IDguNSAyMC41IDQuOSAyMC41IDQuOSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNzNCNUU0IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDI3IDEwLjUgQyAyNyAxMC41IDI2LjkgMTAuOCAyNi43IDExLjIgQyAyNi41IDExLjcgMjYuMiAxMi4zIDI1LjkgMTMuMSBDIDI1LjcgMTMuNSAyNS41IDEzLjkgMjUuMyAxNC4zIEMgMjUuMSAxNC43IDI0LjggMTUuMiAyNC41IDE1LjcgQyAyNCAxNi42IDIzLjMgMTcuNiAyMi43IDE4LjYgQyAyMiAxOS41IDIxLjMgMjAuNSAyMC43IDIxLjMgQyAyMCAyMi4xIDE5LjQgMjIuOSAxOC44IDIzLjUgQyAxNy42IDI0LjggMTYuOCAyNS41IDE2LjggMjUuNSBDIDE2LjggMjUuNSAxNy42IDI0LjYgMTguNiAyMy4zIEMgMTkuMSAyMi42IDE5LjcgMjEuOCAyMC40IDIxIEMgMjEgMjAuMSAyMS43IDE5LjIgMjIuNCAxOC4zIEMgMjMuMSAxNy40IDIzLjcgMTYuNCAyNC4yIDE1LjUgQyAyNC44IDE0LjYgMjUuMyAxMy43IDI1LjcgMTMgQyAyNi4xIDEyLjMgMjYuNSAxMS42IDI2LjcgMTEuMiBDIDI2LjkgMTAuOCAyNyAxMC41IDI3IDEwLjUgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzNCNzNFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAzIDEyLjMgQyAzIDEyLjMgMy41IDEyLjMgNC4yIDEyLjQgQyA0LjkgMTIuNSA1LjggMTIuNiA2LjcgMTIuOCBDIDcuNiAxMyA4LjUgMTMuMiA5LjIgMTMuNCBDIDkuOSAxMy42IDEwLjMgMTMuNyAxMC4zIDEzLjcgQyAxMC4zIDEzLjcgOS44IDEzLjggOS4xIDEzLjcgQyA4LjQgMTMuNiA3LjUgMTMuNSA2LjYgMTMuMyBDIDUuNyAxMy4xIDQuOCAxMi45IDQuMSAxMi43IEMgMy40IDEyLjUgMyAxMi4zIDMgMTIuMyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjQkVFNkYxIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjUgMTQuOSBDIDExLjUgMTQuOSAxMS44IDE1LjUgMTIuMSAxNi4zIEMgMTIuNSAxNy4yIDEyLjkgMTguMyAxMy40IDE5LjQgQyAxMy44IDIwLjUgMTQuMyAyMS43IDE0LjYgMjIuNSBDIDE0LjggMjIuOSAxNC45IDIzLjMgMTUuMSAyMy41IEMgMTUuMyAyMy43IDE1LjMgMjMuOCAxNS4zIDIzLjggQyAxNS4zIDIzLjggMTUuMiAyMy43IDE1IDIzLjUgQyAxNC44IDIzLjMgMTQuNiAyMyAxNC4zIDIyLjYgQyAxMy44IDIxLjggMTMuMyAyMC43IDEyLjggMTkuNSBDIDEyLjMgMTguMyAxMiAxNy4yIDExLjcgMTYuMyBDIDExLjcgMTUuNSAxMS41IDE0LjkgMTEuNSAxNC45IFogIiBpZD0iU2hhcGUiIGZpbGw9IiNCRUU2RjEiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMTguOSA4LjkgTCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjYuOSAxMC40IDI2LjkgMTAuMyAyNi44IDEwLjIgQyAyNC40IDkuNyAyMC4yIDguOCAxOS43IDguOCBDIDE5LjYgOC45IDE5LjMgOC45IDE4LjkgOC45IFogIiBpZD0iU2hhcGUiIGZpbGw9IiM2NzlGRTQiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMTEuNiA5LjYgTCAxMS4zIDEzLjkgQyAxMS4zIDEzLjkgMTcgMTQgMjAuNiAxMi45IEwgMTguOSA4LjkgQyAxNy4yIDkuMSAxMy4yIDkuNSAxMS42IDkuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0NCRkVGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+",c2:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTkuNDkwNjI1MzgxNDY5NzI3IiBoZWlnaHQ9IjQ3LjI5OTk5OTIzNzA2MDU1IiB2aWV3Qm94PSIyLjIwOTM3NDkwNDYzMjU2ODQgMC40MDAwMDAwMzU3NjI3ODY4NyAxOS40OTA2MjUzODE0Njk3MjcgNDcuMjk5OTk5MjM3MDYwNTUiIHZlcnNpb249IjEuMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CiAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0OS4zICg1MTE2NykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgPGRlZnMvPgogIDxnPgogICAgPHRpdGxlPmNyeXN0YWwtYjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJjcnlzdGFsLWIiIHN0cm9rZT0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgPGcgaWQ9IlB1cnBsZS1DcnlzdGFsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgIDxnIGlkPSJHcm91cCI+CiAgICAgICAgICA8cGF0aCBkPSJNIDMuMSA0NC40IEMgMy4xIDQ0LjQgMi4xIDE0LjcgMy4zIDEwLjYgQyAzLjMgMTAuNiA3LjYgMy42IDE0LjQgMC45IEMgMTQuNCAwLjkgMTkuMiA3LjcgMjEuMiAxMy43IEMgMjEuMiAxMy43IDEyIDQzLjEgMTAuNiA0NS4xIEMgMTAuNiA0NS4xIDcuNSA0Ni44IDUuNSA0NyBDIDUuNiA0Ny4xIDMuMSA0NS45IDMuMSA0NC40IFogIiBpZD0iU2hhcGUiIGZpbGw9IiM4NjQ0QjMiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgICAgPHBhdGggZD0iTSAzLjQgMTAuNyBDIDMuNCAxMC43IDUuNiAxNS44IDkgMTcuNyBMIDE0LjQgMS4xIEMgNy43IDMuNyAzLjQgMTAuNyAzLjQgMTAuNyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRUE4QkU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy40IDEwLjcgQyAzLjQgMTAuNyA1LjYgMTUuOCA5IDE3LjcgTCAxNC40IDEuMSBDIDcuNyAzLjcgMy40IDEwLjcgMy40IDEwLjcgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0VBOEJFNSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDIxLjIgMTMuOCBDIDE5LjMgNy44IDE0LjUgMSAxNC41IDEgQyAxNC41IDEgMTQuNCAxIDE0LjQgMS4xIEwgOC45IDE3LjcgQyA4LjkgMTcuNyAxNC43IDE2LjUgMjEgMTQuNiBDIDIxLjIgMTQgMjEuMiAxMy44IDIxLjIgMTMuOCBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjQUQ1OUMyIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy40IDEwLjcgQyAyLjIgMTQuOCAzLjIgNDQuNSAzLjIgNDQuNSBDIDMuMiA0NS45IDUuNiA0Ny4yIDUuNiA0Ny4yIEwgOSAxNy44IEwgMy40IDEwLjcgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0FENTlDMiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDguOSAxNy43IEMgOC45IDE3LjcgOC44IDE5LjMgOC42IDIxLjcgQyA4LjUgMjIuOSA4LjMgMjQuMyA4LjIgMjUuOCBDIDggMjcuMyA3LjkgMjguOSA3LjcgMzAuNCBDIDcuNSAzMiA3LjMgMzMuNiA3LjEgMzUgQyA2LjkgMzYuNSA2LjcgMzcuOSA2LjYgMzkgQyA2LjIgNDEuMyA2IDQyLjkgNiA0Mi45IEMgNiA0Mi45IDYuMSA0MS4zIDYuMyAzOC45IEMgNi40IDM3LjcgNi42IDM2LjMgNi43IDM0LjggQyA2LjkgMzMuMyA3IDMxLjcgNy4yIDMwLjIgQyA3LjQgMjguNiA3LjYgMjcgNy44IDI1LjYgQyA4IDI0LjEgOC4yIDIyLjcgOC4zIDIxLjYgQyA4LjcgMTkuMiA4LjkgMTcuNyA4LjkgMTcuNyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRUE4QkU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy4xIDQ0LjQgQyAzLjEgNDUuOCA1LjUgNDcuMSA1LjUgNDcuMSBMIDUuOSA0My44IEMgNC43IDQ0LjEgMy4xIDQ0LjQgMy4xIDQ0LjQgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0E1NDZCRCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDcuMiA0My42IEMgNyA0My42IDYuNSA0My43IDUuOSA0My44IEwgNS41IDQ3LjEgQyA3LjQgNDYuOSAxMC42IDQ1LjIgMTAuNiA0NS4yIEMgMTAuNiA0NS4yIDggNDMuNSA3LjIgNDMuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0MzNkFCIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gNS42IDQ3LjEgQyA2LjUgNDYuOSA3LjQgNDYuNiA4LjIgNDYuMyBDIDkgNDYgOS44IDQ1LjYgMTAuNSA0NSBMIDEwLjQgNDUuMSBDIDExIDQzLjEgMTEuNyA0MS4xIDEyLjQgMzkuMSBDIDEzLjEgMzcuMSAxMy43IDM1LjEgMTQuNCAzMy4yIEMgMTUuOCAyOS4yIDE3LjIgMjUuMyAxOC43IDIxLjQgQyAxNy41IDI1LjQgMTYuMiAyOS40IDE0LjggMzMuNCBDIDE0LjEgMzUuNCAxMy40IDM3LjQgMTIuOCAzOS4zIEMgMTIuMSA0MS4zIDExLjQgNDMuMyAxMC43IDQ1LjIgQyA5LjkgNDUuNyA5LjEgNDYuMSA4LjIgNDYuNCBDIDcuMyA0Ni44IDYuNSA0NyA1LjYgNDcuMSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNkIzNDhGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gOC45IDE3LjcgTCAxMS4zIDEwLjMgQyA3LjkgMTAuMyAzLjMgMTAuNyAzLjMgMTAuNyBDIDMuMyAxMC43IDUuNiAxNS43IDguOSAxNy43IFogIiBpZD0iU2hhcGUiIGZpbGw9IiNFMTdERTMiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgICAgPHBhdGggZD0iTSAxMS4zIDEwLjMgTCA4LjkgMTcuNyBDIDguOSAxNy43IDE0LjcgMTYuNSAyMSAxNC42IEMgMjEuMSAxNC4xIDIxLjIgMTMuOSAyMS4yIDEzLjkgQyAyMS4yIDEzLjggMjEuMSAxMy42IDIxLjEgMTMuNSBDIDE4LjkgMTIuNCAxNS42IDEwLjkgMTQuNyAxMC42IEMgMTQuMyAxMC4zIDEyLjkgMTAuMyAxMS4zIDEwLjMgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzlCNERBRSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDIxIDE0LjUgQyAyMSAxNC41IDIwLjQgMTQuOCAxOS42IDE1LjEgQyAxOC43IDE1LjQgMTcuNiAxNS44IDE2LjQgMTYuMiBDIDE1LjIgMTYuNSAxNCAxNi44IDEzLjEgMTcgQyAxMi4yIDE3LjIgMTEuNiAxNy4yIDExLjYgMTcuMiBDIDExLjYgMTcuMiAxMS43IDE3LjIgMTIgMTcuMSBDIDEyLjMgMTcgMTIuNiAxNi45IDEzLjEgMTYuOCBDIDE0IDE2LjUgMTUuMSAxNi4yIDE2LjMgMTUuOCBDIDE3LjUgMTUuNSAxOC43IDE1LjEgMTkuNiAxNC45IEMgMjAuNCAxNC42IDIxIDE0LjUgMjEgMTQuNSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNkIzNDhGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8L2c+CiAgICAgICAgPHBhdGggZD0iTSAxNC40IDEuMSBDIDE0LjQgMS4xIDE0LjIgMS45IDEzLjkgMy4xIEMgMTMuNiA0LjMgMTMuMSA1LjkgMTIuNiA3LjUgQyAxMi4xIDkuMSAxMS41IDEwLjcgMTEgMTEuOSBDIDEwLjUgMTMuMSAxMC4yIDEzLjkgMTAuMiAxMy45IEMgMTAuMiAxMy45IDEwLjQgMTMuMSAxMC43IDExLjkgQyAxMSAxMC42IDExLjUgOC45IDEyIDcuNCBDIDEyLjUgNS44IDEzLjEgNC4yIDEzLjYgMyBDIDE0IDEuOCAxNC40IDEuMSAxNC40IDEuMSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRkZCQ0ZDIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+",peng:"https://cdn.assets.scratch.mit.edu/internalapi/asset/428772307d90f4b347d6cc3c0d8e76ef.svg/get/"};
 const HAT={t:'hat',c:'event',p:['當',{flag:1},'被點擊']};
 const FOREVER=(inn)=>({t:'c',c:'control',cap:1,p:['重複無限次'],in:inn});
@@ -544,6 +557,17 @@ const SCRIPTS={
   ch3:[HAT,{t:'s',c:'data',p:['變數',{dd:'速度'},'設為',{n:'5'}]},GOTO('企鵝'),FOREVER([{t:'s',c:'motion',p:['移動',T('速度'),'點']},IF(TOUCH('碗'),[SOUND('collect'),SCORE(1),{t:'s',c:'data',p:['變數',{dd:'速度'},'改變',{n:'1'}]},GOTO('企鵝')]),IF(TOUCH('地板線'),[GOTO('企鵝')])])]
 };
 document.querySelectorAll('[data-script]').forEach(el=>{el.innerHTML=renderScript(SCRIPTS[el.dataset.script]);});
+/* ---------- 角色標示：程式寫在哪個角色身上 ---------- */
+const WHO={peng:['企鵝','#3B4252',IMG.peng],bowl:['碗','#2F6FC0',IMG.bowl],c1:['水晶','#0B7F96',IMG.c1],c2:['紫水晶','#7C3AED',IMG.c2],
+  line:['地板線','#6B7280','data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="60" height="20"><rect y="7" width="60" height="6" rx="3" fill="#3D3D3D"/></svg>')],
+  rock:['石頭','#8A6A3A','']};
+const thumb=(src)=>src?`<img alt="" src="${src}">`:'';
+document.querySelectorAll('.sprbox[data-spr]').forEach(el=>{const [n,c,src]=WHO[el.dataset.spr];el.style.setProperty('--sc',c);
+  const cnt=el.querySelectorAll('[data-script]').length;
+  el.insertAdjacentHTML('afterbegin',`<div class="sprhead">${thumb(src)}<span>角色：${n}</span><small>${cnt?cnt+' 段程式':'沒有程式'}</small></div>`);});
+document.querySelectorAll('figure[data-who]').forEach(el=>{const [n,c,src]=WHO[el.dataset.who];
+  el.insertAdjacentHTML('afterbegin',`<div class="who" style="--sc:${c}">${thumb(src)}寫在「${n}」身上</div>`);});
+
 
 const TX=(x,y,s,o='')=>`<text x="${x}" y="${y}" font-family="Noto Sans TC, sans-serif" ${o}>${s}</text>`;
 const CO=(n,x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="7" fill="none" stroke="#E5323E" stroke-width="3"/><circle cx="${x}" cy="${y}" r="11" fill="#E5323E"/>`+TX(x,y+5,n,'text-anchor="middle" font-size="13" font-weight="700" fill="#fff"');
