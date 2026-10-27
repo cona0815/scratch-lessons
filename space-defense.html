@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
+<!-- 太空保衛戰 教學步驟 v1.0 · 2026-10-27 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
+<title>太空保衛戰</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: 一頁長捲軸；上方可玩的成品預覽，下方「上次回顧」與「本次進度」步驟卡（左操作、右圖示），可切投影模式 */
+:root{
+  --bg:#F5F2EE; --panel:#FFFFFF; --ink:#2A231E; --muted:#6B5F55; --line:#E1D8CF;
+  --accent:#B4532A; --accent-soft:#F6E5DA; --ok:#2C7A4B; --ok-soft:#E0EFE5;
+  --tip-bg:#FFF3D1; --tip-ink:#654A00; --warn-bg:#FDE7E5; --warn-ink:#8A2A22;
+  --fig-bg:#EFE9E2;
+  --f-display:"LXGW WenKai TC","Noto Sans TC","PingFang TC","Microsoft JhengHei",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#17130F; --panel:#211B16; --ink:#EDE5DD; --muted:#B3A598; --line:#3A3028;
+  --accent:#F08A5D; --accent-soft:#3A2418; --ok:#5BC488; --ok-soft:#1E3326;
+  --tip-bg:#2D2610; --tip-ink:#F0D27C; --warn-bg:#35191A; --warn-ink:#FFB4AC;
+  --fig-bg:#2A221C; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#17130F; --panel:#211B16; --ink:#EDE5DD; --muted:#B3A598; --line:#3A3028;
+  --accent:#F08A5D; --accent-soft:#3A2418; --ok:#5BC488; --ok-soft:#1E3326;
+  --tip-bg:#2D2610; --tip-ink:#F0D27C; --warn-bg:#35191A; --warn-ink:#FFB4AC;
+  --fig-bg:#2A221C; color-scheme:dark;}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;padding-inline:16px;padding-block:0 96px}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+header.top{padding-block:28px 12px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
+.eyebrow{font-size:13px;letter-spacing:.12em;color:var(--muted)}
+h1{font-size:clamp(30px,5vw,46px);font-weight:700}
+h1 small{font-size:.55em;color:var(--accent);margin-left:.3em}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.btn{font:inherit;font-size:14px;border:1.5px solid var(--accent);background:var(--panel);color:var(--accent);padding:6px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{background:var(--accent-soft)}
+.btn.solid{background:var(--accent);color:var(--panel)}
+.btn:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--ok);outline-offset:2px}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start;padding-block:12px 28px;border-bottom:1px solid var(--line)}
+.stagebox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px}
+.stagebar{display:flex;align-items:center;gap:10px;padding:0 4px 8px;font-size:13px;color:var(--muted)}
+.ib{width:28px;height:28px;border-radius:6px;border:1px solid var(--line);display:grid;place-items:center;background:var(--panel);cursor:pointer;flex:none}
+.stage{position:relative;width:100%;aspect-ratio:4/3;max-width:100%;background:#FCE7C8;border:1px solid #D9D9D9;border-radius:6px;overflow:hidden;cursor:none;touch-action:none}
+.stage .inner{position:absolute;left:0;top:0;width:480px;height:360px;transform-origin:0 0}
+.stage .bd{position:absolute;inset:0;width:480px;height:360px}
+.stage img.sp{position:absolute;pointer-events:none;user-select:none}
+.mon{position:absolute;left:5px;top:5px;background:#F2F2F2;border:1px solid #C4C4C4;border-radius:4px;padding:2px 6px;font:500 12px var(--f-body);color:#575E75;display:flex;gap:6px;align-items:center}
+.mon b{background:#FF8C1A;color:#fff;border-radius:4px;padding:0 6px;font-family:var(--f-mono);min-width:26px;text-align:center}
+.status{font-size:14px;margin-top:8px;padding:6px 10px;border-radius:8px;background:var(--fig-bg)}
+.status b{color:var(--accent)}
+.ctl{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font-size:14px;margin-top:10px}
+.ctl label{color:var(--muted)}
+.ctl select,.ctl input{font:inherit;accent-color:var(--accent)}
+.ctl select{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:2px 6px}
+.goals h2{font-size:22px;margin-bottom:8px}
+.goals ol{margin:0;padding-left:1.4em;display:grid;gap:6px}
+.goals .time{margin-top:16px;border-top:1px dashed var(--line);padding-top:12px}
+.timeline{display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;font-size:14px}
+.timeline span:nth-child(3n){color:var(--muted);text-align:right}
+
+nav.steps{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin}
+nav.steps a{flex:none;text-decoration:none;color:var(--ink);font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--panel);white-space:nowrap}
+nav.steps a b{font-family:var(--f-mono);color:var(--accent);margin-right:4px}
+nav.steps a.on{border-color:var(--accent);background:var(--accent-soft)}
+nav.steps .sep{flex:none;align-self:center;font-size:12px;color:var(--muted);padding-inline:4px}
+
+.part{padding-block:28px 0;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.part h2{font-size:clamp(22px,3vw,28px)}
+.part .tag{font-size:13px;letter-spacing:.1em;color:var(--panel);background:var(--ink);padding:2px 10px;border-radius:4px}
+section.step{padding-block:32px;border-bottom:1px solid var(--line);scroll-margin-top:64px}
+.shead{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;margin-bottom:18px}
+.num{font-family:var(--f-mono);font-weight:700;font-size:15px;color:var(--panel);background:var(--accent);border-radius:8px;padding:2px 10px}
+.num.re{background:var(--muted)}
+.shead h2{font-size:clamp(24px,3.4vw,32px)}
+.shead .chip{margin-left:auto}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:28px;align-items:start}
+.how ol{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:12px}
+.how li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px}
+.how li::before{content:counter(s);font-family:var(--f-mono);font-weight:700;font-size:14px;width:26px;height:26px;border-radius:50%;border:2px solid var(--accent);color:var(--accent);display:grid;place-items:center;margin-top:1px}
+.ui{font-weight:700;background:var(--panel);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;white-space:nowrap}
+.cat{display:inline-flex;align-items:center;gap:4px;font-weight:700;white-space:nowrap}
+.cat::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--c)}
+.c-motion{--c:#4C97FF}.c-looks{--c:#9966FF}.c-sound{--c:#CF63CF}.c-event{--c:#FFBF00}.c-control{--c:#FFAB19}.c-sensing{--c:#5CB1D6}.c-op{--c:#59C059}.c-data{--c:#FF8C1A}
+.fig{display:grid;gap:12px;min-width:0}
+figure{margin:0;background:var(--fig-bg);border-radius:10px;padding:12px;overflow-x:auto}
+figure svg{display:block;width:100%;height:auto}
+figure.blocks svg{width:auto;max-width:100%}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.note{border-radius:10px;padding:12px 14px;font-size:15px}
+.note b.h{display:block;font-family:var(--f-display);font-size:16px;margin-bottom:4px}
+.tip{background:var(--tip-bg);color:var(--tip-ink)}
+.warn{background:var(--warn-bg);color:var(--warn-ink)}
+.check{background:var(--ok-soft);color:var(--ink)}
+.check b.h{color:var(--ok)}
+.stack{display:grid;gap:14px;min-width:0}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:6px;align-content:start;min-width:0}
+.card .pic{height:96px;display:grid;place-items:center;background:var(--fig-bg);border-radius:8px}
+.card .pic img{max-height:84px;width:auto}
+.card h3{font-size:18px}
+.card p{font-size:14px;color:var(--muted)}
+.hid{font-family:var(--f-display);font-size:28px;color:var(--muted);border:2px dashed var(--line);border-radius:8px;padding:4px 14px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid2 figure,.grid3 figure{display:grid;align-content:start}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.quiz{display:grid;gap:8px}
+.quiz details{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.quiz summary{cursor:pointer;font-weight:500}
+.quiz details p{margin-top:6px;color:var(--ok);font-weight:500}
+table.debug{width:100%;border-collapse:collapse;font-size:15px}
+table.debug th,table.debug td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+table.debug th{font-size:13px;color:var(--muted);font-weight:500;letter-spacing:.06em}
+.tbl{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.lv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mini{margin:0;padding-left:1.3em;display:grid;gap:4px;font-size:15px}
+.lv > div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:10px;align-content:start;min-width:0}
+.stars{color:var(--accent);letter-spacing:2px;font-size:14px}
+footer{padding-block:28px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+code.k{font-family:var(--f-mono);background:var(--fig-bg);padding:0 5px;border-radius:4px;white-space:pre}
+
+.pbar{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--panel);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;align-items:center;justify-content:center}
+.pbar[hidden]{display:none}
+body.present header.top,body.present .hero,body.present nav.steps,body.present footer,body.present .part{display:none}
+body.present section.step{display:none;border:0;padding-block:24px}
+body.present section.step.cur{display:block}
+body.present{font-size:19px}
+body.present .wrap{max-width:1280px}
+
+@media (max-width:820px){
+  .hero,.cols,.grid2,.grid3{grid-template-columns:minmax(0,1fr)}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lv{grid-template-columns:minmax(0,1fr)}
+  .shead .chip{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pair figure{text-align:center}
+.pair .lbl{font-size:14px;font-weight:700;margin-top:6px}
+</style>
+<style>
+.credit{font-size:14px;color:var(--muted);margin-top:6px}.credit a{color:inherit;text-decoration:underline;text-underline-offset:3px}footer a{color:inherit}
+.tabbar{display:flex;gap:6px;border-bottom:2px solid var(--line);margin-bottom:8px}
+.tabbar button{font:inherit;font-size:15px;font-weight:700;border:0;background:none;color:var(--muted);padding:10px 16px;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer}
+.tabbar button[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.tabbar button:focus-visible{outline:3px solid var(--ok);outline-offset:2px}
+#tabSkills section.blk{padding-block:26px;border-bottom:1px solid var(--line)}
+.sumrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sumrow div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid}
+.sumrow b{font-family:var(--f-mono);font-size:30px;line-height:1.1}
+.sumrow span{font-size:14px;color:var(--muted)}
+.sumrow .hot{border-color:var(--accent)} .sumrow .hot b{color:var(--accent)}
+.road{display:grid;gap:10px}
+.lesson{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:10px}
+.lesson.now{border:2px solid var(--accent)}
+.lh{display:flex;gap:12px;align-items:center}
+.lh .lt{font-family:var(--f-mono);font-weight:700;font-size:15px;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;padding:0}
+.lh h3{font-size:19px}.lh h3 small{font-size:13px;color:var(--muted);margin-left:8px;font-family:var(--f-body)}
+.lh p{font-size:14px;color:var(--muted)} .lh .acc{color:var(--accent);font-size:16px}
+.minis{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mini svg{display:block;height:auto;max-width:100%;zoom:.8}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.kc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:grid;gap:6px;align-content:start;min-width:0}
+.kc.isnew{border-color:#E5323E}
+.kc .b{overflow-x:auto}.kc .b svg{display:block;max-width:100%;height:auto}
+.kc p{font-size:14px;color:var(--muted)}
+.kc .where{font-size:12.5px;color:var(--accent);font-weight:700}
+.kc[hidden],.catrow[hidden]{display:none}
+.catrow{margin-bottom:18px}.catrow h3{font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.catrow h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--c)}
+.lt{display:inline-block;font-size:11.5px;padding:1px 8px;border-radius:999px;white-space:nowrap;justify-self:start}
+.lt.l1{background:#E1EEF9;color:#20507D}.lt.l2{background:#F3E8D6;color:#7A4E12}.lt.l3{background:#E0EFE5;color:#2C6B45}.lt.lc{background:#ECE6F7;color:#56398F}.lt.l5{background:#FDE2E0;color:#B3261E}
+.sub{font-size:17px;margin:18px 0 8px}
+.ops{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.ops li{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.filters button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:4px 12px;border-radius:999px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.list{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.list h3{font-size:17px;margin-bottom:8px}
+.list ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.list li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:15px}
+@media (max-width:820px){.sumrow{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:minmax(0,1fr)}}
+body.present .tabbar{display:none}
+section.quick .goal{margin-bottom:14px;max-width:70ch}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;align-items:start}
+.qgrid.one{grid-template-columns:minmax(0,760px)}
+.qgrid figure{min-width:0}
+.chip.old{background:var(--ok-soft);color:var(--ok)}
+.shead .chip.old{margin-left:0}
+.newb{margin-top:14px}
+.nb{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#E5323E;color:#fff;font-size:12px;font-weight:700;margin-inline:3px;vertical-align:1px}
+</style>
+<style>
+.bub{position:absolute;background:#fff;border:2px solid #C4C4C4;border-radius:14px;padding:4px 12px;font:700 15px var(--f-body);color:#575E75;white-space:nowrap}
+.bub::after{content:"";position:absolute;left:14px;bottom:-10px;border:8px solid transparent;border-top-color:#C4C4C4;border-bottom:0}
+.keys{display:flex;gap:10px;justify-content:center;margin-top:8px}
+.keys .btn{min-width:96px;touch-action:none;user-select:none}
+.ctl{grid-template-columns:auto 1fr}
+.ctl > span:empty{display:none}
+.lose{position:absolute;inset:0;display:grid;place-items:center;background:rgba(11,11,42,.82);color:#ff4d4d;font:700 64px var(--f-display);z-index:3}
+.lose[hidden]{display:none}
+.sprbox{border:2px solid var(--sc);border-radius:12px;background:var(--panel);margin-bottom:14px;overflow:hidden}
+.sprhead{display:flex;gap:10px;align-items:center;background:var(--sc);color:#fff;padding:8px 14px;font-weight:700;font-size:17px}
+.sprhead img{height:34px;width:auto;max-width:60px;background:#fff;border-radius:6px;padding:2px}
+.sprhead small{margin-left:auto;font-weight:500;font-size:13px;opacity:.9}
+.sprbody{display:flex;flex-wrap:wrap;gap:14px;padding:12px;align-items:flex-start}
+.sprbody figure{min-width:0;max-width:100%}
+.who{display:inline-flex;align-items:center;gap:8px;background:var(--sc);color:#fff;font-weight:700;font-size:14px;border-radius:999px;padding:3px 12px 3px 4px;margin-bottom:8px}
+.who img{height:24px;width:auto;max-width:40px;background:#fff;border-radius:50%;padding:2px}
+</style>
+<div class="wrap">
+<header class="top">
+  <div>
+    <div class="eyebrow">SCRATCH 3 · 資訊課 · 四年級</div>
+    <h1>太空保衛戰<small>空白鍵發射子彈＋你輸了畫面</small></h1>
+    <p class="credit">外星機器人在上面丟幽靈，用 ← → 移動火箭、按空白鍵發射子彈；被幽靈撞到扣 1 分，扣到 −3 分就輸了</p>
+    <p class="credit">北極接水晶改版（課程修改自 老師提供的「接水晶」範例）</p>
+  </div>
+  <div class="meta">
+    <span class="chip">建議 1 節課</span>
+    <span class="chip">角色 7 個・新積木 2 個</span>
+    <button class="btn solid" id="presentBtn" type="button">投影模式（一次一步）</button>
+  </div>
+</header>
+<div class="tabbar" role="tablist"><button type="button" role="tab" data-k="lesson" aria-selected="true">教學步驟</button><button type="button" role="tab" data-k="skills" aria-selected="false">技能統整（累計）</button></div>
+<div id="tabLesson">
+
+<div class="hero">
+  <div class="stagebox">
+    <div class="stagebar">
+      <span class="ib" id="flagBtn" title="綠旗：開始" role="button" tabindex="0" aria-label="綠旗開始">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 22V3" stroke="#45993D" stroke-width="2.4" stroke-linecap="round"/><path d="M6 4c4-3 7 3 12 0v10c-5 3-8-3-12 0z" fill="#4CBF56" stroke="#45993D" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="ib" id="stopBtn" title="停止" role="button" tabindex="0" aria-label="停止">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M7 2h10l5 5v10l-5 5H7l-5-5V7z" fill="#EC5959"/></svg>
+      </span>
+      <span>按綠旗開始：← → 移動火箭，空白鍵發射（手機按下面的按鈕）</span>
+    </div>
+    <div class="stage" id="stage" style="cursor:default;background:#0b0b2a"><div class="inner" id="inner">
+      <img class="bd" id="bdIm" alt="" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/5fab1922f254ae9fd150162c3e392bef.png/get/">
+      <div class="lose" id="lose" hidden>你輸了</div>
+      <img class="sp" id="l1Im" alt="地板線" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/e85305b47cfd92d971704dcb7ad6e17b.svg/get/">
+      <img class="sp" id="l2Im" alt="天花板線" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/e85305b47cfd92d971704dcb7ad6e17b.svg/get/">
+      <img class="sp" id="robIm" alt="外星機器人" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/35070c1078c4eec153ea2769516c922c.svg/get/">
+      <img class="sp" id="g1Im" alt="幽靈" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/f522b08c5757569ad289d67bce290cd0.svg/get/">
+      <img class="sp" id="g2Im" alt="快幽靈" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/634744e3f98bee53e9cb477a63aa9b21.svg/get/">
+      <img class="sp" id="buIm" alt="子彈" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/3c6241985b581284ec191f9d1deffde8.svg/get/" hidden>
+      <img class="sp" id="rkIm" alt="火箭" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/525c06ceb3a351244bcd810c9ba951c7.svg/get/">
+      <div class="bub" id="bub" hidden>時間到！</div>
+      <div class="mon">得分 <b id="scoreV">0</b></div>
+      <div class="mon" style="top:30px">時間 <b id="timeV">30</b></div>
+    </div></div>
+    <div class="keys"><button class="btn" id="kL" type="button" aria-label="向左">◀ 左</button><button class="btn solid" id="kF" type="button" aria-label="發射">發射</button><button class="btn" id="kR" type="button" aria-label="向右">右 ▶</button></div>
+    <div class="status" id="status">狀態：<b>還沒開始</b>（按綠旗）</div>
+    <div class="ctl">
+      <label for="demoHide">示範</label>
+      <span><input id="demoHide" type="checkbox"> 拿掉幽靈被打中後的 <b>隱藏、等待 0.5 秒</b>，看一發子彈加幾分</span>
+      <label for="demoBd">示範</label>
+      <span><input id="demoBd" type="checkbox"> 拿掉火箭開頭的 <b>背景換成 Galaxy</b>，輸了以後再按綠旗看看</span>
+    </div>
+  </div>
+  <div class="goals">
+    <h2>這個遊戲學生會學到</h2>
+    <ol>
+      <li>用 <span class="cat c-event">當按下（空白）鍵</span> 發射子彈：子彈平常<b>隱藏</b>，按下去就<b>定位到火箭</b>再<b>顯示</b>。</li>
+      <li>子彈往上飛，碰到天花板線就隱藏；幽靈被子彈打中就得分。</li>
+      <li>在<b>背景分頁</b>複製背景，用<b>文字工具打字</b>做出「你輸了」畫面。</li>
+      <li>用 <span class="cat c-looks">背景換成（ ）</span>：得分變成 −3 就換成「你輸了」並停止全部。</li>
+    </ol>
+    <div class="time">
+      <div class="timeline">
+        <span class="mono">5 分</span><span>試玩、開學生檔、看懂已經寫好的程式</span><span>步驟 0–1</span>
+        <span class="mono">12 分</span><span>子彈：藏起來、按空白鍵發射、往上飛</span><span>步驟 2–3</span>
+        <span class="mono">5 分</span><span>幽靈被子彈打中就得分</span><span>步驟 4</span>
+        <span class="mono">11 分</span><span>做「你輸了」背景（打字）、扣到 −3 換背景</span><span>步驟 5–6</span>
+        <span class="mono">7 分</span><span>快幽靈、對照完整程式、存檔</span><span>步驟 7–11</span>
+      </div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px">學過的程式已經寫在<b>學生檔</b>裡。新積木在積木圖上用黃框和 <span class="nb">新</span> 標出。每段程式上方都有標籤，寫著要放在<b>哪個角色</b>身上。</p>
+    </div>
+  </div>
+</div>
+
+<nav class="steps" id="nav"></nav>
+
+<div class="part"><span class="tag">開始之前</span><h2>打開學生檔</h2></div>
+
+<section class="step quick" id="s0" data-t="開學生檔" data-g="開始">
+  <div class="shead"><span class="num">0</span><h2>打開老師給的學生檔</h2><span class="chip">2 分鐘</span><span class="chip old">學過</span></div>
+  <p class="goal">開啟 <b>scratch.mit.edu</b> → <span class="ui">創造</span> → <span class="ui">檔案</span> → <span class="ui">從你的電腦挑選</span>，選 <b class="mono">太空保衛戰_學生檔.sb3</b>。角色區有 <b>地板線、天花板線、外星機器人、幽靈、子彈、火箭</b> 6 個角色，背景是 <b>Galaxy</b>（銀河）。</p>
+  <div class="note warn"><b class="h">要用網頁版 Scratch 開</b>角色和背景的圖都是 Scratch 角色庫的，用網頁版打開時才會自動載入。</div>
+</section>
+
+<section class="step quick" id="s1" data-t="看懂學生檔" data-g="開始">
+  <div class="shead"><span class="num">1</span><h2>看懂已經寫好的程式</h2><span class="chip">3 分鐘</span><span class="chip old">學過，已經寫好</span></div>
+  <p class="goal">先按一次綠旗：機器人會飛、幽靈會往下掉、火箭可以左右走、時間會倒數，但按空白鍵沒有子彈。<br><b>程式是分開寫在每個角色身上的。</b>先在角色區<b>點一下角色</b>，程式區才會出現那個角色的程式。下面用顏色框分好：</p>
+  <div class="sprbox" data-spr="rob"><div class="sprbody">
+    <figure class="blocks"><div data-script="robot"></div><figcaption>外星機器人：在上面左右來回飛（完整，不用改）</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="rk"><div class="sprbody">
+    <figure class="blocks"><div data-script="rkGame0"></div><figcaption>火箭 ①：得分歸零、30 秒倒數、時間到說話（步驟 6 開頭再加一塊）</figcaption></figure>
+    <figure class="blocks"><div data-script="rkMove"></div><figcaption>火箭 ②：方向鍵左右走（上一課學過，完整）</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="g1"><div class="sprbody">
+    <figure class="blocks"><div data-script="ghost0"></div><figcaption>幽靈：從機器人身上往下掉；碰到火箭扣 1 分、躲一下再回去（步驟 4 加「碰到子彈」）</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="bu"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">子彈<b>還沒有程式</b>，步驟 2、3 要寫。它的方向已經設成 <b class="mono">0</b>（朝上）。</p></div></div>
+  <div class="sprbox" data-spr="l1"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">地板線<b>沒有程式</b>：放在最下面，幽靈沒被打到、碰到它就回去重掉。</p></div></div>
+  <div class="sprbox" data-spr="l2"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">天花板線<b>沒有程式</b>：放在最上面，子彈碰到它就隱藏。</p></div></div>
+  <div class="qgrid one" style="margin-top:14px"><figure><div data-fig="flow"></div><figcaption>整個遊戲怎麼動</figcaption></figure></div>
+</section>
+
+<div class="part"><span class="tag">子彈</span><h2>按空白鍵發射</h2></div>
+
+<section class="step" id="s2" data-t="發射子彈" data-g="子彈">
+  <div class="shead"><span class="num">2</span><h2>按空白鍵，子彈從火箭射出</h2><span class="chip">7 分鐘</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>點 <b>子彈</b>。先拼程式 ①：<b>當綠旗被點擊 → 隱藏</b>（學過）。一開始看不到子彈。</span></li>
+        <li><span>點 <span class="cat c-event">事件</span>，拖出 <b>當按下（空白）鍵</b><span class="nb">新</span>，放在程式區空白的地方（它是新的一段）。</span></li>
+        <li><span>下面接 <b>定位到（火箭）位置</b>：下拉選單選 <b>火箭</b>。</span></li>
+        <li><span>再接 <b>顯示</b>：子彈出現在火箭身上。</span></li>
+        <li><span>最後接 <span class="cat c-sound">音效</span> 的 <b>播放音效（laser1）</b>。</span></li>
+        <li><span>按綠旗，按空白鍵：子彈出現在火箭上（還不會飛，下一步）。</span></li>
+      </ol>
+      <div class="note tip"><b class="h">當按下（空白）鍵 和 （空白）鍵被按下？</b>上一課的「鍵被按下？」是<b>六角形</b>，要放在「如果」裡、一直檢查，按住會一直做。今天的「當按下 空白 鍵」是<b>帽子</b>，自己就是一段程式的開頭：按一下，做一次。</div>
+      <div class="note check"><b class="h">子彈的祕密</b>只有一顆子彈。平常<b>藏起來</b>；按空白鍵時先<b>跳到火箭身上</b>，再<b>出現</b>。再按一次，又從火箭重新射出去。</div>
+    </div>
+    <div class="fig">
+      <figure class="blocks" data-who="bu"><div data-script="buHide"></div><figcaption>子彈 ①：一開始藏起來</figcaption></figure>
+      <figure class="blocks" data-who="bu"><div data-script="buFire"></div><figcaption>子彈 ②：按空白鍵發射</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="step" id="s3" data-t="子彈往上飛" data-g="子彈">
+  <div class="shead"><span class="num">3</span><h2>子彈往上飛，碰到天花板就隱藏</h2><span class="chip">5 分鐘</span><span class="chip old">學過的積木</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>一樣在 <b>子彈</b>，拼程式 ③：<b>當綠旗被點擊 → 重複無限次</b>。</span></li>
+        <li><span>嘴巴裡放 <b>移動（12）點</b>：子彈方向是 0（朝上），所以會往上飛。</span></li>
+        <li><span>再放 <b>如果 碰到（天花板線）？ 那麼 → 隱藏</b>。</span></li>
+        <li><span>按綠旗，左右移動火箭，按空白鍵發射。</span></li>
+      </ol>
+      <div class="tbl"><table class="debug">
+        <thead><tr><th style="white-space:nowrap">如果少了…</th><th>會發生什麼事</th></tr></thead>
+        <tbody>
+          <tr><td style="white-space:nowrap">程式 ① 的「隱藏」</td><td>還沒按空白鍵，舞台上就有一顆子彈停在那裡。</td></tr>
+          <tr><td style="white-space:nowrap">程式 ③ 的「隱藏」</td><td>子彈飛到最上面<b>卡在那裡</b>，一直看得到。</td></tr>
+          <tr><td style="white-space:nowrap">程式 ② 的「定位到 火箭」</td><td>子彈不會從火箭出發，而是從上次停的地方（最上面）出現。</td></tr>
+        </tbody>
+      </table></div>
+      <div class="note check"><b class="h">隱藏的子彈打得到幽靈嗎？</b>打不到！<b>隱藏的角色碰不到別人</b>，所以子彈飛到天花板藏起來以後，就算停在幽靈出現的地方也不會加分。</div>
+    </div>
+    <div class="fig"><figure class="blocks" data-who="bu"><div data-script="buFly"></div><figcaption>子彈 ③：往上飛</figcaption></figure></div>
+  </div>
+</section>
+
+<div class="part"><span class="tag">幽靈</span><h2>被打中就得分</h2></div>
+
+<section class="step" id="s4" data-t="打中得分" data-g="幽靈">
+  <div class="shead"><span class="num">4</span><h2>幽靈被子彈打中，得 1 分</h2><span class="chip">5 分鐘</span><span class="chip old">學過的積木</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>點 <b>幽靈</b>。看已經寫好的「如果 碰到（火箭）？」那一塊：扣 1 分、隱藏、等待、回機器人、顯示。</span></li>
+        <li><span>在那塊上按<b>右鍵 → 複製</b>，接在它下面（還是在重複無限次裡）。</span></li>
+        <li><span>改 3 個地方：碰到 <b>子彈</b>、改變 <b class="mono">1</b>（不是 −1）、最上面加 <b>播放音效（space ripple）</b>。</span></li>
+        <li><span>按綠旗，射幽靈：打中會「嗚～」一聲、加 1 分。</span></li>
+      </ol>
+      <div class="note tip"><b class="h">「隱藏 → 等待 0.5 秒 → 顯示」在做什麼？</b>和森林打蝙蝠一樣：幽靈被打中先<b>躲起來</b>，子彈穿過去也碰不到它，所以<b>一發子彈只算 1 分</b>。勾上方預覽的「示範」看拿掉會怎樣。</div>
+    </div>
+    <div class="fig"><figure class="blocks" data-who="g1"><div data-script="ghost"></div><figcaption>幽靈的程式：最下面那塊是新加的</figcaption></figure></div>
+  </div>
+</section>
+
+<div class="part"><span class="tag">舞台</span><h2>你輸了</h2></div>
+
+<section class="step" id="s5" data-t="做你輸了背景" data-g="舞台">
+  <div class="shead"><span class="num">5</span><h2>做一張「你輸了」的背景</h2><span class="chip">6 分鐘</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>點右下角的 <b>舞台</b>，再點上方的 <span class="ui">背景</span> 分頁。</span></li>
+        <li><span><span class="nb">新</span>在 <b>Galaxy</b> 上按<b>右鍵 → 複製</b>，多出 <b>Galaxy2</b>。</span></li>
+        <li><span><span class="nb">新</span>把 Galaxy2 的名字改成 <b>你輸了</b>（上方名稱格）。</span></li>
+        <li><span><span class="nb">新</span>點左邊的 <b>文字</b> 工具（T），上方的 <b>填滿</b> 選<b>紅色或白色</b>。</span></li>
+        <li><span>在畫面中間點一下，<b>用注音打「你輸了」</b>：<br><span class="mono">ㄋㄧˇ ㄕㄨ ㄌㄜ˙</span></span></li>
+        <li><span>點左邊的 <b>選取</b> 工具（箭頭），拉字的角把字<b>放大</b>，拖到中間。</span></li>
+        <li><span>最後點回 <b>Galaxy</b>，讓遊戲開始時是銀河背景。</span></li>
+      </ol>
+      <div class="note warn"><b class="h">打不出中文？</b>先按 <span class="ui">Ctrl</span>＋<span class="ui">空白鍵</span>（或 <span class="ui">Shift</span>）切換成注音輸入法，再打字。打完要按 <span class="ui">Enter</span> 或空白鍵選字。</div>
+      <div class="note tip"><b class="h">名字一定要打對</b>等一下積木要選「你輸了」這個背景，名字不一樣就找不到。</div>
+    </div>
+    <div class="fig"><figure><div data-fig="text"></div><figcaption>① 背景分頁　② 右鍵複製 Galaxy　③ 改名「你輸了」　④ 文字工具　⑤ 打字</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="step" id="s6" data-t="扣到 −3 就輸" data-g="舞台">
+  <div class="shead"><span class="num">6</span><h2>扣到 −3 分，換成「你輸了」</h2><span class="chip">5 分鐘</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>點 <b>火箭</b>。拼新的程式 ③：<b>當綠旗被點擊 → 重複無限次 → 如果（得分 = −3）那麼</b>（都學過）。</span></li>
+        <li><span><span class="cat c-looks">外觀</span> 拖出 <b>背景換成（ ）</b><span class="nb">新</span>，放進如果的嘴巴，下拉選 <b>你輸了</b>。</span></li>
+        <li><span>下面接 <b>停止 全部</b>。</span></li>
+        <li><span>回到火箭的程式 ①，<b>綠旗下面</b>也放一塊 <b>背景換成（Galaxy）</b><span class="nb">新</span>。</span></li>
+        <li><span>按綠旗，故意被幽靈撞 3 次：畫面變成「你輸了」。再按綠旗：又變回銀河。</span></li>
+      </ol>
+      <div class="note warn"><b class="h">少了程式 ① 的「背景換成 Galaxy」會怎樣？</b>輸了以後再按綠旗，背景還是「你輸了」，遊戲卻已經開始了！開始時要<b>先把背景換回來</b>。勾上方預覽的「示範」試試看。</div>
+      <div class="note tip"><b class="h">−3 怎麼打？</b>先打減號 <span class="ui">-</span> 再打 <span class="ui">3</span>，中間不要有空白。</div>
+    </div>
+    <div class="fig">
+      <figure class="blocks" data-who="rk"><div data-script="rkLose"></div><figcaption>火箭 ③：輸了換背景</figcaption></figure>
+      <figure class="blocks" data-who="rk"><div data-script="rkGame"></div><figcaption>火箭 ①：開頭加「背景換成 Galaxy」</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="part"><span class="tag">整合</span><h2>快幽靈、對答案、存檔</h2></div>
+
+<section class="step quick" id="s7" data-t="快幽靈" data-g="整合">
+  <div class="shead"><span class="num">7</span><h2>複製出快幽靈（2 分、比較快）</h2><span class="chip">3 分鐘</span><span class="chip old">學過，直接照著做</span></div>
+  <p class="goal">幽靈上按右鍵 → <b>複製</b>，改名 <b>快幽靈</b>。到 <span class="ui">造型</span> 分頁點 <b>ghost-c</b>。程式改 2 個數字：移動 <b class="mono">7</b> 點、碰到子彈時得分改變 <b class="mono">2</b>。</p>
+  <div class="qgrid"><figure class="blocks" data-who="g2"><div data-script="ghost2"></div><figcaption>快幽靈的程式</figcaption></figure></div>
+</section>
+
+<section class="step" id="s8" data-t="完整程式" data-g="整合">
+  <div class="shead"><span class="num">8</span><h2>對答案：每個角色的完整程式</h2><span class="chip">做完再看</span></div>
+  <p class="goal" style="margin-bottom:14px">做完後，<b>一個角色一個角色</b>對照：先在角色區點那個角色，再看它的程式是不是跟下面一樣。程式段數也要一樣（火箭 3 段、子彈 3 段、其他角色 1 段）。</p>
+  <div class="sprbox" data-spr="rk"><div class="sprbody">
+    <figure class="blocks"><div data-script="rkGame"></div><figcaption>火箭 ①：開始換回銀河、得分歸零、倒數</figcaption></figure>
+    <figure class="blocks"><div data-script="rkMove"></div><figcaption>火箭 ②：方向鍵</figcaption></figure>
+    <figure class="blocks"><div data-script="rkLose"></div><figcaption>火箭 ③：扣到 −3 就輸</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="bu"><div class="sprbody">
+    <figure class="blocks"><div data-script="buHide"></div><figcaption>子彈 ①</figcaption></figure>
+    <figure class="blocks"><div data-script="buFire"></div><figcaption>子彈 ②</figcaption></figure>
+    <figure class="blocks"><div data-script="buFly"></div><figcaption>子彈 ③</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="g1"><div class="sprbody">
+    <figure class="blocks"><div data-script="ghost"></div><figcaption>幽靈：打中 +1</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="g2"><div class="sprbody">
+    <figure class="blocks"><div data-script="ghost2"></div><figcaption>快幽靈：移動 7、打中 +2</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="rob"><div class="sprbody">
+    <figure class="blocks"><div data-script="robot"></div><figcaption>外星機器人</figcaption></figure>
+  </div></div>
+  <div class="sprbox" data-spr="l1"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">地板線、天花板線<b>沒有程式</b>。舞台的背景要有 <b>Galaxy</b> 和 <b>你輸了</b> 兩張。</p></div></div>
+  <div class="note warn"><b class="h">最常見的錯</b>程式拼對了，卻放在<b>別的角色</b>身上。例如發射子彈的程式放到火箭上，結果按空白鍵是火箭自己跳來跳去。</div>
+</section>
+
+<section class="step" id="s9" data-t="除錯" data-g="整合">
+  <div class="shead"><span class="num">9</span><h2>測試與除錯</h2><span class="chip">做完再看</span></div>
+  <div class="tbl"><table class="debug">
+    <thead><tr><th>看到的狀況</th><th>可能原因</th><th>怎麼修</th></tr></thead>
+    <tbody>
+      <tr><td>按空白鍵沒有子彈</td><td>「當按下 空白 鍵」寫在別的角色；或少了「顯示」</td><td>寫在子彈身上，定位到火箭後要顯示</td></tr>
+      <tr><td>子彈往旁邊飛</td><td>子彈的方向不是 0</td><td>點子彈的「方向」，轉到 0（朝上）</td></tr>
+      <tr><td>子彈從最上面出現</td><td>少了「定位到 火箭 位置」，或選錯角色</td><td>下拉選單選「火箭」</td></tr>
+      <tr><td>子彈飛到最上面卡住</td><td>「碰到 天花板線」裡沒有「隱藏」</td><td>放進「隱藏」</td></tr>
+      <tr><td>打中幽靈不加分</td><td>碰到的下拉選單沒選「子彈」</td><td>改成碰到 子彈</td></tr>
+      <tr><td>打一下加好幾分</td><td>打中後沒有「隱藏、等待 0.5 秒」</td><td>照幽靈「碰到火箭」那塊一樣放</td></tr>
+      <tr><td>扣到 −3 沒有輸</td><td>等號右邊打成 3、或有空白</td><td>改成 <b>-3</b></td></tr>
+      <tr><td>下拉選單找不到「你輸了」</td><td>背景名字打錯，或忘記改名</td><td>到舞台的背景分頁檢查名字</td></tr>
+      <tr><td>再按綠旗，背景還是你輸了</td><td>火箭程式 ① 開頭沒有「背景換成 Galaxy」</td><td>放在綠旗下面</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="step" id="s10" data-t="挑戰" data-g="整合">
+  <div class="shead"><span class="num">10</span><h2>挑戰任務（先做完的同學）</h2><span class="chip">做得快再做</span></div>
+  <div class="lv">
+    <div>
+      <span class="stars">★☆☆</span>
+      <h3>① 子彈變快</h3>
+      <p>把子彈的「移動 12 點」改成 <b class="mono">20</b>。也可以到造型分頁換一種顏色的球。</p>
+      <figure class="blocks"><div data-script="ch1"></div></figure>
+    </div>
+    <div>
+      <span class="stars">★★☆</span>
+      <h3>② 「你贏了」畫面</h3>
+      <p>再做一張背景「你贏了」。火箭程式 ① 的時間到那塊，在說話下面加 <b>背景換成 你贏了</b>。</p>
+      <figure class="blocks"><div data-script="ch2"></div></figure>
+    </div>
+    <div>
+      <span class="stars">★★★</span>
+      <h3>③ 機器人換造型</h3>
+      <p>外星機器人有 3 個造型。在它的重複無限次裡加 <b>造型換成下一個</b> 和 <b>等待 0.3 秒</b>，做出動畫。</p>
+      <figure class="blocks"><div data-script="ch3"></div></figure>
+    </div>
+  </div>
+</section>
+
+<section class="step" id="s11" data-t="存檔" data-g="整合">
+  <div class="shead"><span class="num">11</span><h2>存檔</h2><span class="chip">2 分鐘</span></div>
+  <div class="cols">
+    <div class="how stack">
+      <ol>
+        <li><span>點左上角 <span class="ui">檔案</span> → <span class="ui">下載到你的電腦</span>。</span></li>
+        <li><span>檔名改成 <b class="mono">太空保衛戰_座號姓名.sb3</b>，例如 <b class="mono">太空保衛戰_12王小明.sb3</b>。</span></li>
+        <li><span>依老師指定的方式上傳。</span></li>
+      </ol>
+    </div>
+    <div class="note check"><b class="h">下課前確認</b>
+      <span>☐ 一開始看不到子彈　☐ 按空白鍵，子彈從火箭往上飛　☐ 打中幽靈加分、有聲音　☐ 被撞扣 1 分　☐ 扣到 −3 出現「你輸了」並停止　☐ 再按綠旗變回銀河　☐ 檔案已上傳</span></div>
+  </div>
+</section>
+
+</div>
+<div id="tabSkills" hidden>
+  <section class="blk">
+    <div class="sumrow" id="sumrow"></div>
+  </section>
+  <section class="blk">
+    <div class="shead"><span class="num re">◎</span><h2>學習歷程：每一課學了什麼</h2></div>
+    <div class="road" id="road"></div>
+  </section>
+  <section class="blk">
+    <div class="shead"><span class="num">新</span><h2 id="newestTitle">最新一課新學的</h2></div>
+    <div class="kgrid" id="newGrid"></div>
+    <h3 class="sub">新的操作技能</h3>
+    <ul class="ops" id="newOps"></ul>
+  </section>
+  <section class="blk">
+    <div class="shead"><span class="num re">全</span><h2>到目前為止學會的全部積木</h2></div>
+    <div class="filters" id="filters" role="group" aria-label="依課次篩選"></div>
+    <div id="allCats"></div>
+  </section>
+  <section class="blk">
+    <div class="shead"><span class="num re">技</span><h2>全部操作技能與觀念</h2></div>
+    <div class="two"><div class="list"><h3>操作技能</h3><ul id="allOps"></ul></div><div class="list"><h3>重要觀念</h3><ul id="allIdeas"></ul></div></div>
+  </section>
+</div>
+
+<footer><span>太空保衛戰 教學步驟 · v1.0 · 2026-10-27</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
+</div>
+
+<div class="pbar" id="pbar" hidden>
+  <button class="btn" id="prev" type="button">← 上一步</button>
+  <span class="mono" id="pcount">1 / 12</span>
+  <button class="btn solid" id="next" type="button">下一步 →</button>
+  <button class="btn" id="exitP" type="button">離開投影</button>
+</div>
+
+<script src="assets/scratch-blocks.js"></script>
+<script>
+/* 太空保衛戰 教學頁程式 v1.0 · 2026-10-27（需先載入 assets/scratch-blocks.js） */
+const CDN=id=>`https://cdn.assets.scratch.mit.edu/internalapi/asset/${id}/get/`;
+const IMG={rk:CDN('525c06ceb3a351244bcd810c9ba951c7.svg'),rob:CDN('35070c1078c4eec153ea2769516c922c.svg'),g1:CDN('f522b08c5757569ad289d67bce290cd0.svg'),g2:CDN('634744e3f98bee53e9cb477a63aa9b21.svg'),bu:CDN('3c6241985b581284ec191f9d1deffde8.svg'),line:CDN('e85305b47cfd92d971704dcb7ad6e17b.svg'),bd:CDN('5fab1922f254ae9fd150162c3e392bef.png')};
+const HAT={t:'hat',c:'event',p:['當',{flag:1},'被點擊']};
+const FOREVER=(inn)=>({t:'c',c:'control',cap:1,p:['重複無限次'],in:inn});
+const IF=(cond,inn)=>({t:'c',c:'control',p:['如果',cond,'那麼'],in:inn});
+const T=v=>({rep:{c:'data',p:[v]}});
+const KEY=k=>({bool:{c:'sensing',p:[{dd:k},'鍵被按下？']}});
+const TOUCH=n=>({bool:{c:'sensing',p:['碰到',{dd:n},'？']}});
+const MOVE=n=>({t:'s',c:'motion',p:['移動',{n:String(n)},'點']});
+const FACE=d=>({t:'s',c:'motion',p:['面朝',{n:String(d)},'度']});
+const GOTO=n=>({t:'s',c:'motion',p:['定位到',{dd:n},'位置']});
+const SCORE=n=>({t:'s',c:'data',p:['變數',{dd:'得分'},'改變',{n:String(n)}]});
+const SOUND=n=>({t:'s',c:'sound',p:['播放音效',{dd:n}]});
+const ROT={t:'s',c:'motion',p:['迴轉方式設為',{dd:'左-右'}]};
+const STOP={t:'s',c:'control',cap:1,p:['停止',{dd:'全部'}]};
+const HIDE={t:'s',c:'looks',p:['隱藏']},SHOW={t:'s',c:'looks',p:['顯示']};
+const WAIT=n=>({t:'s',c:'control',p:['等待',{n:String(n)},'秒']});
+const BD=(n,hl)=>({t:'s',c:'looks',hl:hl?1:0,p:['背景換成',{dd:n}]});
+const SAY={t:'s',c:'looks',p:['說出',{n:'時間到！'},'持續',{n:'2'},'秒']};
+const timer=(first)=>[HAT].concat(first).concat([{t:'s',c:'data',p:['變數',{dd:'得分'},'設為',{n:'0'}]},{t:'s',c:'data',p:['變數',{dd:'時間'},'設為',{n:'30'}]},
+  FOREVER([WAIT(1),{t:'s',c:'data',p:['變數',{dd:'時間'},'改變',{n:'-1'}]},IF({bool:{c:'operators',p:[T('時間'),'=',{n:'0'}]}},[SAY,STOP])])]);
+const back=()=>[HIDE,WAIT(0.5),GOTO('外星機器人'),SHOW];
+const ghost=(sp,pts,hit)=>[HAT,SHOW,GOTO('外星機器人'),FOREVER([MOVE(sp),IF(TOUCH('地板線'),[GOTO('外星機器人')]),IF(TOUCH('火箭'),[SCORE(-1)].concat(back()))].concat(hit?[IF(TOUCH('子彈'),[SOUND('space ripple'),SCORE(pts)].concat(back()))]:[]))];
+const SCRIPTS={
+  robot:[HAT,ROT,FOREVER([MOVE(4),{t:'s',c:'motion',p:['碰到邊緣就反彈']}])],
+  rkGame0:timer([]),
+  rkGame:timer([BD('Galaxy',1)]),
+  rkMove:[HAT,ROT,FOREVER([IF(KEY('向右'),[FACE(90),MOVE(10)]),IF(KEY('向左'),[FACE(-90),MOVE(10)])])],
+  rkLose:[HAT,FOREVER([IF({bool:{c:'operators',p:[T('得分'),'=',{n:'-3'}]}},[BD('你輸了',1),STOP])])],
+  ghost0:ghost(4,1,0),
+  ghost:ghost(4,1,1),
+  ghost2:ghost(7,2,1),
+  buHide:[HAT,HIDE],
+  buFire:[{t:'hat',c:'event',hl:1,p:['當按下',{dd:'空白'},'鍵']},GOTO('火箭'),SHOW,SOUND('laser1')],
+  buFly:[HAT,FOREVER([MOVE(12),IF(TOUCH('天花板線'),[HIDE])])],
+  ch1:[MOVE(20)],
+  ch2:[IF({bool:{c:'operators',p:[T('時間'),'=',{n:'0'}]}},[SAY,BD('你贏了'),STOP])],
+  ch3:[HAT,ROT,FOREVER([MOVE(4),{t:'s',c:'motion',p:['碰到邊緣就反彈']},{t:'s',c:'looks',p:['造型換成下一個']},WAIT(0.3)])]
+};
+document.querySelectorAll('[data-script]').forEach(el=>{el.innerHTML=renderScript(SCRIPTS[el.dataset.script]);});
+
+/* ---------- 角色標示：程式寫在哪個角色身上 ---------- */
+const WHO={rk:['火箭','#B4532A',IMG.rk],rob:['外星機器人','#3B4252',IMG.rob],g1:['幽靈','#0B7F96',IMG.g1],g2:['快幽靈','#7C3AED',IMG.g2],bu:['子彈','#B7791F',IMG.bu],
+  l1:['地板線','#6B7280',IMG.line],l2:['天花板線','#6B7280',IMG.line]};
+const thumb=(src)=>src?`<img alt="" src="${src}">`:'';
+document.querySelectorAll('.sprbox[data-spr]').forEach(el=>{const [n,c,src]=WHO[el.dataset.spr];el.style.setProperty('--sc',c);
+  const cnt=el.querySelectorAll('[data-script]').length;
+  el.insertAdjacentHTML('afterbegin',`<div class="sprhead">${thumb(src)}<span>角色：${n}</span><small>${cnt?cnt+' 段程式':'沒有程式'}</small></div>`);});
+document.querySelectorAll('figure[data-who]').forEach(el=>{const [n,c,src]=WHO[el.dataset.who];
+  el.insertAdjacentHTML('afterbegin',`<div class="who" style="--sc:${c}">${thumb(src)}寫在「${n}」身上</div>`);});
+
+const TX=(x,y,s,o='')=>`<text x="${x}" y="${y}" font-family="Noto Sans TC, sans-serif" ${o}>${s}</text>`;
+const CO=(n,x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="7" fill="none" stroke="#E5323E" stroke-width="3"/><circle cx="${x}" cy="${y}" r="11" fill="#E5323E"/>`+TX(x,y+5,n,'text-anchor="middle" font-size="13" font-weight="700" fill="#fff"');
+const ARW=(id,c)=>`<defs><marker id="${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="${c}"/></marker></defs>`;
+const FIGS={
+  flow(){
+    let s=`<svg viewBox="0 0 660 320" role="img" aria-label="遊戲怎麼動"><rect width="660" height="320" rx="10" fill="#fff"/>`+ARW('fa','#B4532A')+ARW('fb','#2C7A4B')+ARW('fc','#B7791F');
+    s+=`<rect x="20" y="16" width="360" height="290" rx="6" fill="#141436" stroke="#575E75" stroke-width="2"/><rect x="30" y="22" width="340" height="5" rx="2" fill="#9AA5B5"/><rect x="30" y="294" width="340" height="5" rx="2" fill="#9AA5B5"/>`;
+    s+=`<image href="${IMG.rob}" x="150" y="30" width="48" height="66"/><path d="M110 60h-40M240 60h40" stroke="#E8875A" stroke-width="3" marker-end="url(#fa)"/>`;
+    s+=`<image href="${IMG.g1}" x="88" y="120" width="36" height="46"/><path d="M106 172v40" stroke="#E8875A" stroke-width="3" stroke-dasharray="6 5" marker-end="url(#fa)"/>`;
+    s+=`<image href="${IMG.bu}" x="236" y="150" width="14" height="14"/><path d="M243 212v-40" stroke="#F6C343" stroke-width="3" stroke-dasharray="5 4" marker-end="url(#fc)"/>`;
+    s+=`<image href="${IMG.rk}" x="222" y="220" width="44" height="66"/><path d="M212 256h-40M276 256h40" stroke="#5BC488" stroke-width="3" marker-end="url(#fb)"/>`;
+    const lb=(y,t,c,d)=>`<circle cx="402" cy="${y}" r="7" fill="${c}"/>`+TX(418,y+5,t,`font-size="14" font-weight="700" fill="${c}"`)+TX(418,y+24,d,'font-size="12.5" fill="#6B5F55"');
+    s+=lb(36,'外星機器人：上面左右飛','#3B4252','移動＋碰到邊緣就反彈')+lb(94,'幽靈：從機器人身上掉下來','#0B7F96','碰到火箭 −1，被子彈打中 +1')+lb(152,'子彈：按空白鍵從火箭射出','#B7791F','平常隱藏，碰到天花板線又隱藏')+lb(210,'火箭：方向鍵左右走','#B4532A','管倒數；得分 −3 就換「你輸了」')+lb(268,'地板線／天花板線','#6B7280','讓別的角色「碰到」用的');
+    return s+'</svg>';
+  },
+  text(){
+    let s=`<svg viewBox="0 0 600 330" role="img" aria-label="在背景分頁用文字工具打你輸了"><rect width="600" height="330" rx="10" fill="#fff"/>`;
+    s+=`<rect x="12" y="12" width="576" height="34" rx="6" fill="#F2F5FA"/>`+['程式','背景','音效'].map((t,i)=>TX(40+i*80,35,t,`font-size="14" fill="${i===1?'#855CD6':'#575E75'}"${i===1?' font-weight="700"':''}`)).join('')+CO('①',104,16,62,28);
+    s+=`<rect x="12" y="54" width="100" height="264" rx="8" fill="#F2F5FA"/>`;
+    const tile=(y,n,on,dark)=>`<rect x="22" y="${y}" width="80" height="78" rx="8" fill="#fff" stroke="${on?'#855CD6':'#D9E0EA'}" stroke-width="${on?2.5:1}"/><rect x="30" y="${y+8}" width="64" height="44" rx="4" fill="#1b1b4a"/>`+(dark?TX(62,y+36,'你輸了','text-anchor="middle" font-size="12" font-weight="700" fill="#ff5a5a"'):'')+TX(62,y+70,n,'text-anchor="middle" font-size="12" fill="#575E75"');
+    s+=tile(64,'Galaxy')+tile(152,'你輸了',1,1);
+    s+=`<rect x="62" y="96" width="70" height="62" rx="5" fill="#fff" stroke="#C9CED6"/>`+['複製','匯出','刪除'].map((m,i)=>TX(74,115+i*19,m,`font-size="12" fill="${i===2?'#E5323E':'#575E75'}"${i===0?' font-weight="700"':''}`)).join('')+CO('②',62,100,70,22);
+    s+=`<rect x="124" y="54" width="464" height="40" rx="8" fill="#F9F9F9" stroke="#E3E6EC"/>`+TX(136,79,'造型','font-size="12" fill="#575E75"')+`<rect x="172" y="62" width="110" height="24" rx="4" fill="#fff" stroke="#855CD6" stroke-width="2"/>`+TX(182,79,'你輸了','font-size="13" fill="#575E75" font-weight="700"')+CO('③',170,60,114,28);
+    s+=TX(310,79,'填滿','font-size="12" fill="#575E75"')+`<rect x="342" y="64" width="30" height="20" rx="4" fill="#ff4d4d" stroke="#999"/>`;
+    s+=`<rect x="124" y="102" width="56" height="216" rx="8" fill="#F9F9F9" stroke="#E3E6EC"/>`;
+    for(let i=0;i<8;i++){const x=132+(i%2)*22,y=112+Math.floor(i/2)*28;s+=`<rect x="${x}" y="${y}" width="18" height="20" rx="3" fill="${i===5?'#E9F1FC':'#fff'}" stroke="#D9E0EA"/>`;}
+    s+=TX(163,181,'T','text-anchor="middle" font-size="15" font-weight="700" fill="#575E75" font-family="serif"')+CO('④',150,164,26,26);
+    s+=`<rect x="188" y="102" width="400" height="216" rx="8" fill="#1b1b4a"/>`;
+    for(let i=0;i<40;i++){s+=`<circle cx="${196+(i*97)%384}" cy="${110+(i*53)%200}" r="${i%3?1:1.6}" fill="#fff" opacity=".7"/>`;}
+    s+=TX(388,226,'你輸了','text-anchor="middle" font-size="54" font-weight="700" fill="#ff4d4d"')+`<rect x="300" y="180" width="176" height="62" fill="none" stroke="#9AA5B5" stroke-dasharray="4 3"/>`+CO('⑤',300,180,176,62);
+    s+=TX(388,300,'ㄋㄧˇ ㄕㄨ ㄌㄜ˙','text-anchor="middle" font-size="14" fill="#F6C343"');
+    return s+'</svg>';
+  }
+};
+document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.dataset.fig]();});
+
+/* ---------- 成品預覽（模擬 Scratch 30fps） ---------- */
+(function(){
+  const $=id=>document.getElementById(id);
+  const stage=$('stage'),inner=$('inner'),scoreV=$('scoreV'),timeV=$('timeV'),status=$('status'),bub=$('bub'),lose=$('lose');
+  let scale=1;function fit(){scale=stage.clientWidth/480;inner.style.transform=`scale(${scale})`;}
+  new ResizeObserver(fit).observe(stage);fit();
+  const fb=(w,h,body)=>'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">${body}</svg>`);
+  const SP={
+    rob:{el:$('robIm'),w:110,h:170,cx:55,cy:85,k:.55,x:0,y:130,dir:90,fb:fb(110,170,'<rect x="20" y="40" width="70" height="80" rx="12" fill="#9AA5B5"/><rect x="30" y="0" width="50" height="40" rx="8" fill="#C9CED6"/><circle cx="45" cy="20" r="6" fill="#4CBF56"/><circle cx="65" cy="20" r="6" fill="#4CBF56"/><rect x="30" y="120" width="16" height="45" fill="#9AA5B5"/><rect x="64" y="120" width="16" height="45" fill="#9AA5B5"/>')},
+    g1:{el:$('g1Im'),w:74,h:120,cx:37,cy:68,k:.45,x:0,y:130,sp:4,pts:1,fb:fb(74,120,'<path d="M5 60a32 32 0 0 1 64 0v55l-11-9-10 9-11-9-10 9-11-9-11 9z" fill="#fff"/><circle cx="26" cy="50" r="6" fill="#222"/><circle cx="48" cy="50" r="6" fill="#222"/>')},
+    g2:{el:$('g2Im'),w:122,h:144,cx:61,cy:72,k:.45,x:0,y:130,sp:7,pts:2,fb:fb(122,144,'<path d="M10 70a51 51 0 0 1 102 0v68l-17-11-17 11-17-11-17 11-17-11-17 11z" fill="#E9E0FF"/><circle cx="44" cy="60" r="8" fill="#222"/><circle cx="78" cy="60" r="8" fill="#222"/>')},
+    bu:{el:$('buIm'),w:44,h:44,cx:22,cy:22,k:.3,x:0,y:-100,fb:fb(44,44,'<circle cx="22" cy="22" r="20" fill="#F6C343"/>')},
+    rk:{el:$('rkIm'),w:126,h:184,cx:63,cy:92,k:.5,x:0,y:-120,fb:fb(126,184,'<path d="M63 4c30 30 36 70 30 120H33C27 74 33 34 63 4z" fill="#E5E7EB" stroke="#9AA5B5" stroke-width="3"/><circle cx="63" cy="70" r="14" fill="#4C97FF"/><path d="M33 110l-26 40h26zM93 110l26 40H93z" fill="#E5323E"/><path d="M45 124h36l-8 40H53z" fill="#F6A623"/>')},
+    l1:{el:$('l1Im'),w:478,h:14,cx:239,cy:7,k:1,x:0,y:-176,fb:fb(478,14,'<rect y="4" width="478" height="6" rx="3" fill="#9AA5B5"/>')},
+    l2:{el:$('l2Im'),w:478,h:14,cx:239,cy:7,k:1,x:0,y:176,fb:fb(478,14,'<rect y="4" width="478" height="6" rx="3" fill="#9AA5B5"/>')}
+  };
+  for(const s of Object.values(SP)){const im=s.el;const set=()=>{if(im.naturalWidth&&!im.dataset.fb){s.cx=s.cx*im.naturalWidth/s.w;s.cy=s.cy*im.naturalHeight/s.h;s.w=im.naturalWidth;s.h=im.naturalHeight;}draw();};
+    if(im.complete&&im.naturalWidth)set();else im.addEventListener('load',set,{once:true});
+    im.addEventListener('error',()=>{im.dataset.fb=1;im.src=s.fb;},{once:true});}
+  $('bdIm').addEventListener('error',e=>{e.target.src=fb(480,360,'<rect width="480" height="360" fill="#141436"/>'+Array.from({length:60},(_,i)=>`<circle cx="${(i*97)%480}" cy="${(i*53)%360}" r="${i%3?1:1.8}" fill="#fff" opacity=".8"/>`).join(''));},{once:true});
+  const box=s=>({l:s.x-s.cx*s.k,r:s.x+(s.w-s.cx)*s.k,t:s.y+s.cy*s.k,b:s.y-(s.h-s.cy)*s.k});
+  const hit=(a,b,sh)=>{if(a.hidden||b.hidden)return false;const A=box(a),B=box(b);sh=sh||0;return A.l<B.r-sh&&A.r>B.l+sh&&A.b<B.t-sh&&A.t>B.b+sh;};
+  function place(s,flip){const im=s.el;im.style.width=s.w*s.k+'px';im.style.height=s.h*s.k+'px';im.style.left=(s.x+240-s.cx*s.k)+'px';im.style.top=(180-s.y-s.cy*s.k)+'px';im.style.transformOrigin=`${s.cx*s.k}px ${s.cy*s.k}px`;im.style.transform=flip?'scaleX(-1)':'';im.hidden=!!s.hidden;}
+  let score=0,time=30,running=false,tm=null,lastSec=0,sayUntil=0,best=null,L=false,R=false,rkDir=90,lost=false;
+  SP.bu.hidden=true;
+  function draw(){for(const k of ['l1','l2','rob','g1','g2','bu','rk'])place(SP[k],k==='rob'?SP.rob.dir<0:k==='rk'?rkDir<0:false);
+    scoreV.textContent=score;timeV.textContent=time;lose.hidden=!lost;
+    const b=box(SP.rk);bub.style.left=(SP.rk.x+240-10)+'px';bub.style.top=(180-b.t-46)+'px';}
+  draw();
+  const toRob=g=>{g.x=SP.rob.x;g.y=SP.rob.y;};
+  function hitBack(g,now){if($('demoHide').checked)return;g.hidden=true;g.back=now+500;}
+  function fire(){if(!running)return;SP.bu.x=SP.rk.x;SP.bu.y=SP.rk.y;SP.bu.hidden=false;}
+  function tick(){
+    const now=performance.now();
+    const p=SP.rob,hw=p.w*p.k/2;p.x+=p.dir>0?4:-4;if(p.x+hw>240){p.x=240-hw;p.dir=-90;}else if(p.x-hw<-240){p.x=-240+hw;p.dir=90;}
+    const rk=SP.rk;if(R){rkDir=90;rk.x+=10;}if(L){rkDir=-90;rk.x-=10;}const rh=rk.w*rk.k/2-4;rk.x=Math.max(-240+rh,Math.min(240-rh,rk.x));
+    const bu=SP.bu;bu.y+=12;if(bu.y>174)bu.y=174;if(hit(bu,SP.l2))bu.hidden=true;
+    for(const g of [SP.g1,SP.g2]){
+      if(g.hidden){if(now>=g.back){toRob(g);g.hidden=false;}continue;}
+      g.y-=g.sp;const fence=-180+(g.h-g.cy)*g.k-6;if(g.y<fence)g.y=fence;
+      if(hit(g,SP.l1))toRob(g);
+      if(hit(g,rk,6)){score-=1;hitBack(g,now);}
+      if(hit(g,bu)){score+=g.pts;hitBack(g,now);}
+    }
+    if(score===-3){lost=true;draw();end('得分 = −3，背景換成「你輸了」');return;}
+    if(sayUntil){if(now>=sayUntil){draw();end('時間 = 0，說完「時間到！」');return;}}
+    else if(now-lastSec>=1000){lastSec+=1000;time--;if(time===0){sayUntil=now+2000;bub.hidden=false;}}
+    draw();
+  }
+  function end(why){running=false;clearInterval(tm);tm=null;bub.hidden=true;sayUntil=0;best=best===null?score:Math.max(best,score);
+    status.innerHTML=`狀態：<b>停止全部</b>（${why}）　得分 <b class="mono">${score}</b>　最佳 <b class="mono">${best}</b>`;}
+  function start(){clearInterval(tm);running=true;score=0;time=30;sayUntil=0;bub.hidden=true;lastSec=performance.now();
+    if(!$('demoBd').checked)lost=false;
+    SP.rob.x=0;SP.rob.dir=90;SP.rk.x=0;rkDir=90;SP.bu.hidden=true;for(const g of [SP.g1,SP.g2]){g.hidden=false;toRob(g);}
+    status.innerHTML=lost?'狀態：<b>執行中</b>　咦？背景還是「你輸了」，但遊戲已經開始了！':'狀態：<b>執行中</b>　30 秒內能打下幾隻？';tm=setInterval(tick,1000/30);draw();}
+  const act=(el,fn)=>{el.addEventListener('click',fn);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+  act($('flagBtn'),start);act($('stopBtn'),()=>{if(running)end('按了紅色停止');});
+  window.addEventListener('keydown',e=>{if(!running||document.body.classList.contains('present'))return;
+    if(e.key==='ArrowRight'){R=true;e.preventDefault();}else if(e.key==='ArrowLeft'){L=true;e.preventDefault();}else if(e.key===' '){e.preventDefault();if(!e.repeat)fire();}});
+  window.addEventListener('keyup',e=>{if(e.key==='ArrowRight')R=false;else if(e.key==='ArrowLeft')L=false;});
+  const hold=(el,on,off)=>{el.addEventListener('pointerdown',e=>{e.preventDefault();on();});['pointerup','pointerleave','pointercancel'].forEach(t=>el.addEventListener(t,off));};
+  hold($('kL'),()=>L=true,()=>L=false);hold($('kR'),()=>R=true,()=>R=false);
+  $('kF').addEventListener('pointerdown',e=>{e.preventDefault();fire();});
+})();
+/* ---------- 步驟導覽＋投影模式 ---------- */
+(function(){
+  const secs=[...document.querySelectorAll('section.step')],nav=document.getElementById('nav');
+  let g='';
+  secs.forEach((s,i)=>{if(s.dataset.g!==g){g=s.dataset.g;const sp=document.createElement('span');sp.className='sep';sp.textContent=g;nav.appendChild(sp);}
+    const a=document.createElement('a');a.href='#'+s.id;a.innerHTML=`<b>${s.querySelector('.num').textContent}</b>${s.dataset.t}`;nav.appendChild(a);});
+  const links=[...nav.querySelectorAll('a')];
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const i=secs.indexOf(e.target);links.forEach((l,j)=>l.classList.toggle('on',i===j));}})},{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(s=>io.observe(s));
+  let cur=0;const pbar=document.getElementById('pbar'),pc=document.getElementById('pcount');
+  function show(i){cur=Math.max(0,Math.min(secs.length-1,i));secs.forEach((s,j)=>s.classList.toggle('cur',j===cur));pc.textContent=`${cur+1} / ${secs.length}`;window.scrollTo(0,0);}
+  function enter(){document.body.classList.add('present');pbar.hidden=false;show(cur);}
+  function exit(){document.body.classList.remove('present');pbar.hidden=true;secs[cur].scrollIntoView();}
+  document.getElementById('presentBtn').onclick=enter;
+  document.getElementById('exitP').onclick=exit;
+  document.getElementById('prev').onclick=()=>show(cur-1);
+  document.getElementById('next').onclick=()=>show(cur+1);
+  document.addEventListener('keydown',e=>{if(!document.body.classList.contains('present'))return;
+    if(e.key==='ArrowRight'||e.key==='PageDown')show(cur+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);else if(e.key==='Escape')exit();});
+})();
+</script>
+<script src="assets/skills.js"></script>
+</body></html>
