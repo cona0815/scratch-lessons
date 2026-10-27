@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 太空保衛戰 教學步驟 v1.1 · 2026-10-27 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
+<!-- 太空保衛戰 教學步驟 v1.2 · 2026-10-27 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
 <title>太空保衛戰</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,7 +227,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
   <div class="meta">
     <span class="chip">建議 1 節課</span>
-    <span class="chip">角色 6 個・新積木 2 個</span>
+    <span class="chip">角色 6 個・新積木 3 個</span>
     <button class="btn solid" id="presentBtn" type="button">投影模式（一次一步）</button>
   </div>
 </header>
@@ -270,8 +270,8 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   <div class="goals">
     <h2>這個遊戲學生會學到</h2>
     <ol>
-      <li>用 <span class="cat c-event">當按下（空白）鍵</span> 發射子彈：子彈平常<b>隱藏</b>，按下去就<b>定位到火箭</b>再<b>顯示</b>。</li>
-      <li>子彈往上飛，碰到天花板線就隱藏；幽靈被子彈打中就得分。</li>
+      <li>用 <span class="cat c-event">當（空白）鍵被按下</span> 發射子彈：子彈平常<b>隱藏</b>，按下去就<b>定位到火箭</b>再<b>顯示</b>。</li>
+      <li>用 <span class="cat c-control">重複直到 ◇</span> 讓子彈一路往上飛，<b>直到</b>碰到天花板線才停下來隱藏；幽靈被子彈打中就得分。</li>
       <li>在<b>背景分頁</b>複製背景，用<b>文字工具打字</b>做出「你輸了」畫面。</li>
       <li>用 <span class="cat c-looks">背景換成（ ）</span>：得分變成 −3 就換成「你輸了」並停止全部。</li>
     </ol>
@@ -311,7 +311,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   <div class="sprbox" data-spr="g1"><div class="sprbody">
     <figure class="blocks"><div data-script="ghost0"></div><figcaption>幽靈：從機器人身上往下掉；碰到火箭扣 1 分、躲一下再回去（步驟 4 加「碰到子彈」）</figcaption></figure>
   </div></div>
-  <div class="sprbox" data-spr="bu"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">子彈<b>還沒有程式</b>，步驟 2、3 要寫。它的方向已經設成 <b class="mono">0</b>（朝上）。</p></div></div>
+  <div class="sprbox" data-spr="bu"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">子彈<b>還沒有程式</b>，步驟 2、3 要寫（共 2 段）。它的方向已經設成 <b class="mono">0</b>（朝上）。</p></div></div>
   <div class="sprbox" data-spr="l1"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">地板線<b>沒有程式</b>：放在最下面，幽靈沒被打到、碰到它就回去重掉。</p></div></div>
   <div class="sprbox" data-spr="l2"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">天花板線<b>沒有程式</b>：放在最上面，子彈碰到它就隱藏。</p></div></div>
   <div class="qgrid one" style="margin-top:14px"><figure><div data-fig="flow"></div><figcaption>整個遊戲怎麼動</figcaption></figure></div>
@@ -325,13 +325,13 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
     <div class="how stack">
       <ol>
         <li><span>點 <b>子彈</b>。先拼程式 ①：<b>當綠旗被點擊 → 隱藏</b>（學過）。一開始看不到子彈。</span></li>
-        <li><span>點 <span class="cat c-event">事件</span>，拖出 <b>當按下（空白）鍵</b><span class="nb">新</span>，放在程式區空白的地方（它是新的一段）。</span></li>
+        <li><span>點 <span class="cat c-event">事件</span>，拖出 <b>當（空白）鍵被按下</b><span class="nb">新</span>，放在程式區空白的地方（它是新的一段）。</span></li>
         <li><span>下面接 <b>定位到（火箭）位置</b>：下拉選單選 <b>火箭</b>。</span></li>
         <li><span>再接 <b>顯示</b>：子彈出現在火箭身上。</span></li>
         <li><span>最後接 <span class="cat c-sound">音效</span> 的 <b>播放音效（laser1）</b>。</span></li>
-        <li><span>按綠旗，按空白鍵：子彈出現在火箭上（還不會飛，下一步）。</span></li>
+        <li><span>按綠旗，按空白鍵：子彈出現在火箭上（還不會飛，下一步接著寫）。</span></li>
       </ol>
-      <div class="note tip"><b class="h">當按下（空白）鍵 和 （空白）鍵被按下？</b>上一課的「鍵被按下？」是<b>六角形</b>，要放在「如果」裡、一直檢查，按住會一直做。今天的「當按下 空白 鍵」是<b>帽子</b>，自己就是一段程式的開頭：按一下，做一次。</div>
+      <div class="note tip"><b class="h">「當 空白 鍵被按下」和「空白 鍵被按下？」</b>上一課的「鍵被按下？」是<b>六角形</b>，要放在「如果」裡、一直檢查，按住會一直做。今天的「當 空白 鍵被按下」是<b>帽子</b>，自己就是一段程式的開頭：按一下，做一次。</div>
       <div class="note check"><b class="h">子彈的祕密</b>只有一顆子彈。平常<b>藏起來</b>；按空白鍵時先<b>跳到火箭身上</b>，再<b>出現</b>。再按一次，又從火箭重新射出去。</div>
     </div>
     <div class="fig">
@@ -342,26 +342,29 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 </section>
 
 <section class="step" id="s3" data-t="子彈往上飛" data-g="子彈">
-  <div class="shead"><span class="num">3</span><h2>子彈往上飛，碰到天花板就隱藏</h2><span class="chip">5 分鐘</span><span class="chip old">學過的積木</span></div>
+  <div class="shead"><span class="num">3</span><h2>一路往上飛，碰到天花板就隱藏</h2><span class="chip">5 分鐘</span></div>
   <div class="cols">
     <div class="how stack">
+      <p>接在同一段程式（程式 ②）的下面，按一次空白鍵，子彈就<b>從頭飛到尾</b>：</p>
       <ol>
-        <li><span>一樣在 <b>子彈</b>，拼程式 ③：<b>當綠旗被點擊 → 重複無限次</b>。</span></li>
+        <li><span><span class="cat c-control">控制</span> 拖出 <b>重複直到 ◇</b><span class="nb">新</span>，接在「播放音效」下面。</span></li>
+        <li><span>六角形裡放學過的 <b>碰到（天花板線）？</b>。</span></li>
         <li><span>嘴巴裡放 <b>移動（12）點</b>：子彈方向是 0（朝上），所以會往上飛。</span></li>
-        <li><span>再放 <b>如果 碰到（天花板線）？ 那麼 → 隱藏</b>。</span></li>
+        <li><span>「重複直到」的<b>下面</b>接 <b>隱藏</b>：飛到天花板了，藏起來。</span></li>
         <li><span>按綠旗，左右移動火箭，按空白鍵發射。</span></li>
       </ol>
+      <div class="note tip"><b class="h">重複直到 和 重複無限次</b>「重複無限次」永遠不會停，下面不能接積木。「重複直到 碰到天花板線」會一直移動，<b>碰到了就停下來</b>，接著做下面的「隱藏」。念起來就是：<b>一直往上飛，直到碰到天花板，然後藏起來。</b></div>
       <div class="tbl"><table class="debug">
         <thead><tr><th style="white-space:nowrap">如果少了…</th><th>會發生什麼事</th></tr></thead>
         <tbody>
           <tr><td style="white-space:nowrap">程式 ① 的「隱藏」</td><td>還沒按空白鍵，舞台上就有一顆子彈停在那裡。</td></tr>
-          <tr><td style="white-space:nowrap">程式 ③ 的「隱藏」</td><td>子彈飛到最上面<b>卡在那裡</b>，一直看得到。</td></tr>
-          <tr><td style="white-space:nowrap">程式 ② 的「定位到 火箭」</td><td>子彈不會從火箭出發，而是從上次停的地方（最上面）出現。</td></tr>
+          <tr><td style="white-space:nowrap">最後的「隱藏」</td><td>子彈飛到最上面<b>卡在那裡</b>，一直看得到。</td></tr>
+          <tr><td style="white-space:nowrap">「定位到 火箭」</td><td>子彈不會從火箭出發，而是從上次停的地方（最上面）出現。</td></tr>
         </tbody>
       </table></div>
       <div class="note check"><b class="h">隱藏的子彈打得到幽靈嗎？</b>打不到！<b>隱藏的角色碰不到別人</b>，所以子彈飛到天花板藏起來以後，就算停在幽靈出現的地方也不會加分。</div>
     </div>
-    <div class="fig"><figure class="blocks" data-who="bu"><div data-script="buFly"></div><figcaption>子彈 ③：往上飛</figcaption></figure></div>
+    <div class="fig"><figure class="blocks" data-who="bu"><div data-script="buShot"></div><figcaption>子彈 ②：按一次空白鍵，從火箭飛到天花板</figcaption></figure></div>
   </div>
 </section>
 
@@ -430,7 +433,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 
 <section class="step" id="s7" data-t="完整程式" data-g="整合">
   <div class="shead"><span class="num">7</span><h2>對答案：每個角色的完整程式</h2><span class="chip">做完再看</span></div>
-  <p class="goal" style="margin-bottom:14px">做完後，<b>一個角色一個角色</b>對照：先在角色區點那個角色，再看它的程式是不是跟下面一樣。程式段數也要一樣（火箭 3 段、子彈 3 段、幽靈和外星機器人各 1 段）。</p>
+  <p class="goal" style="margin-bottom:14px">做完後，<b>一個角色一個角色</b>對照：先在角色區點那個角色，再看它的程式是不是跟下面一樣。程式段數也要一樣（火箭 3 段、子彈 2 段、幽靈和外星機器人各 1 段）。</p>
   <div class="sprbox" data-spr="rk"><div class="sprbody">
     <figure class="blocks"><div data-script="rkGame"></div><figcaption>火箭 ①：開始換回銀河、得分歸零、倒數</figcaption></figure>
     <figure class="blocks"><div data-script="rkMove"></div><figcaption>火箭 ②：方向鍵</figcaption></figure>
@@ -438,8 +441,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div></div>
   <div class="sprbox" data-spr="bu"><div class="sprbody">
     <figure class="blocks"><div data-script="buHide"></div><figcaption>子彈 ①</figcaption></figure>
-    <figure class="blocks"><div data-script="buFire"></div><figcaption>子彈 ②</figcaption></figure>
-    <figure class="blocks"><div data-script="buFly"></div><figcaption>子彈 ③</figcaption></figure>
+    <figure class="blocks"><div data-script="buShot"></div><figcaption>子彈 ②：按空白鍵發射、飛到天花板</figcaption></figure>
   </div></div>
   <div class="sprbox" data-spr="g1"><div class="sprbody">
     <figure class="blocks"><div data-script="ghost"></div><figcaption>幽靈：打中 +1</figcaption></figure>
@@ -456,10 +458,11 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   <div class="tbl"><table class="debug">
     <thead><tr><th>看到的狀況</th><th>可能原因</th><th>怎麼修</th></tr></thead>
     <tbody>
-      <tr><td>按空白鍵沒有子彈</td><td>「當按下 空白 鍵」寫在別的角色；或少了「顯示」</td><td>寫在子彈身上，定位到火箭後要顯示</td></tr>
+      <tr><td>按空白鍵沒有子彈</td><td>「當 空白 鍵被按下」寫在別的角色；或少了「顯示」</td><td>寫在子彈身上，定位到火箭後要顯示</td></tr>
       <tr><td>子彈往旁邊飛</td><td>子彈的方向不是 0</td><td>點子彈的「方向」，轉到 0（朝上）</td></tr>
       <tr><td>子彈從最上面出現</td><td>少了「定位到 火箭 位置」，或選錯角色</td><td>下拉選單選「火箭」</td></tr>
-      <tr><td>子彈飛到最上面卡住</td><td>「碰到 天花板線」裡沒有「隱藏」</td><td>放進「隱藏」</td></tr>
+      <tr><td>子彈飛到最上面卡住</td><td>「重複直到」下面沒有「隱藏」，或隱藏放進了嘴巴裡</td><td>隱藏要接在「重複直到」的<b>下面</b></td></tr>
+      <tr><td>按空白鍵子彈不會飛</td><td>「移動 12 點」放在重複直到的外面</td><td>放進重複直到的嘴巴裡</td></tr>
       <tr><td>打中幽靈不加分</td><td>碰到的下拉選單沒選「子彈」</td><td>改成碰到 子彈</td></tr>
       <tr><td>打一下加好幾分</td><td>打中後沒有「隱藏、等待 0.5 秒」</td><td>照幽靈「碰到火箭」那塊一樣放</td></tr>
       <tr><td>扣到 −3 沒有輸</td><td>等號右邊打成 3、或有空白</td><td>改成 <b>-3</b></td></tr>
@@ -534,7 +537,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </section>
 </div>
 
-<footer><span>太空保衛戰 教學步驟 · v1.1 · 2026-10-27</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
+<footer><span>太空保衛戰 教學步驟 · v1.2 · 2026-10-27</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
 </div>
 
 <div class="pbar" id="pbar" hidden>
@@ -546,7 +549,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 
 <script src="assets/scratch-blocks.js"></script>
 <script>
-/* 太空保衛戰 教學頁程式 v1.1 · 2026-10-27（需先載入 assets/scratch-blocks.js） */
+/* 太空保衛戰 教學頁程式 v1.2 · 2026-10-27（需先載入 assets/scratch-blocks.js） */
 const CDN=id=>`https://cdn.assets.scratch.mit.edu/internalapi/asset/${id}/get/`;
 const IMG={rk:CDN('525c06ceb3a351244bcd810c9ba951c7.svg'),rob:CDN('35070c1078c4eec153ea2769516c922c.svg'),g1:CDN('f522b08c5757569ad289d67bce290cd0.svg'),g2:CDN('634744e3f98bee53e9cb477a63aa9b21.svg'),bu:CDN('3c6241985b581284ec191f9d1deffde8.svg'),line:CDN('e85305b47cfd92d971704dcb7ad6e17b.svg'),bd:CDN('5fab1922f254ae9fd150162c3e392bef.png')};
 const HAT={t:'hat',c:'event',p:['當',{flag:1},'被點擊']};
@@ -580,8 +583,8 @@ const SCRIPTS={
   ghost:ghost(4,1,1),
   ghost2:ghost(7,2,1),
   buHide:[HAT,HIDE],
-  buFire:[{t:'hat',c:'event',hl:1,p:['當按下',{dd:'空白'},'鍵']},GOTO('火箭'),SHOW,SOUND('laser1')],
-  buFly:[HAT,FOREVER([MOVE(12),IF(TOUCH('天花板線'),[HIDE])])],
+  buFire:[{t:'hat',c:'event',hl:1,p:['當',{dd:'空白'},'鍵被按下']},GOTO('火箭'),SHOW,SOUND('laser1')],
+  buShot:[{t:'hat',c:'event',hl:1,p:['當',{dd:'空白'},'鍵被按下']},GOTO('火箭'),SHOW,SOUND('laser1'),{t:'c',c:'control',hl:1,p:['重複直到',TOUCH('天花板線')],in:[MOVE(12)]},HIDE],
   ch1:[MOVE(20)],
   ch2:[IF({bool:{c:'operators',p:[T('時間'),'=',{n:'0'}]}},[SAY,BD('你贏了'),STOP])],
   ch3:[HAT,ROT,FOREVER([MOVE(4),{t:'s',c:'motion',p:['碰到邊緣就反彈']},{t:'s',c:'looks',p:['造型換成下一個']},WAIT(0.3)])]
