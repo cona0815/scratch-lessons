@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 太空保衛戰 教學步驟 v1.2 · 2026-10-27 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
+<!-- 太空保衛戰 教學步驟 v1.3 · 2026-10-27 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
 <title>太空保衛戰</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,6 +206,11 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 .keys .btn{min-width:96px;touch-action:none;user-select:none}
 .ctl{grid-template-columns:auto 1fr}
 .ctl > span:empty{display:none}
+section.step.sprsec{border-left:10px solid var(--sc);padding-left:20px;padding-right:12px;background:color-mix(in srgb,var(--sc) 9%,var(--bg));border-radius:0 14px 14px 0;margin-block:16px}
+body.present section.step.sprsec{border-left:10px solid var(--sc)}
+.sprban{display:flex;align-items:center;gap:10px;background:var(--sc);color:#fff;font-weight:700;font-size:17px;padding:8px 14px;border-radius:10px;margin:-6px 0 18px;flex-wrap:wrap}
+.sprban img{height:34px;width:auto;max-width:56px;background:#fff;border-radius:8px;padding:2px}
+.sprban b{font-size:20px;background:#fff;color:var(--sc);border-radius:6px;padding:0 8px}
 .lose{position:absolute;inset:0;display:grid;place-items:center;background:rgba(11,11,42,.82);color:#ff4d4d;font:700 64px var(--f-display);z-index:3}
 .lose[hidden]{display:none}
 .sprbox{border:2px solid var(--sc);border-radius:12px;background:var(--panel);margin-bottom:14px;overflow:hidden}
@@ -317,9 +322,9 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   <div class="qgrid one" style="margin-top:14px"><figure><div data-fig="flow"></div><figcaption>整個遊戲怎麼動</figcaption></figure></div>
 </section>
 
-<div class="part"><span class="tag">子彈</span><h2>按空白鍵發射</h2></div>
+<div class="part" data-sp="bu"><span class="tag">子彈</span><h2>按空白鍵發射</h2></div>
 
-<section class="step" id="s2" data-t="發射子彈" data-g="子彈">
+<section class="step" id="s2" data-sp="bu" data-t="發射子彈" data-g="子彈">
   <div class="shead"><span class="num">2</span><h2>按空白鍵，子彈從火箭射出</h2><span class="chip">7 分鐘</span></div>
   <div class="cols">
     <div class="how stack">
@@ -341,7 +346,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
 </section>
 
-<section class="step" id="s3" data-t="子彈往上飛" data-g="子彈">
+<section class="step" id="s3" data-sp="bu" data-t="子彈往上飛" data-g="子彈">
   <div class="shead"><span class="num">3</span><h2>一路往上飛，碰到天花板就隱藏</h2><span class="chip">5 分鐘</span></div>
   <div class="cols">
     <div class="how stack">
@@ -368,9 +373,9 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
 </section>
 
-<div class="part"><span class="tag">幽靈</span><h2>被打中就得分</h2></div>
+<div class="part" data-sp="g1"><span class="tag">幽靈</span><h2>被打中就得分</h2></div>
 
-<section class="step" id="s4" data-t="打中得分" data-g="幽靈">
+<section class="step" id="s4" data-sp="g1" data-t="打中得分" data-g="幽靈">
   <div class="shead"><span class="num">4</span><h2>幽靈被子彈打中，得 1 分</h2><span class="chip">5 分鐘</span><span class="chip old">學過的積木</span></div>
   <div class="cols">
     <div class="how stack">
@@ -386,9 +391,9 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
 </section>
 
-<div class="part"><span class="tag">舞台</span><h2>你輸了</h2></div>
+<div class="part" data-sp="st"><span class="tag">舞台</span><h2>你輸了</h2></div>
 
-<section class="step" id="s5" data-t="做你輸了背景" data-g="舞台">
+<section class="step" id="s5" data-sp="st" data-t="做你輸了背景" data-g="舞台">
   <div class="shead"><span class="num">5</span><h2>做一張「你輸了」的背景</h2><span class="chip">6 分鐘</span></div>
   <div class="cols">
     <div class="how stack">
@@ -408,7 +413,9 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
 </section>
 
-<section class="step" id="s6" data-t="扣到 −3 就輸" data-g="舞台">
+<div class="part" data-sp="rk"><span class="tag">火箭</span><h2>扣到 −3 換背景</h2></div>
+
+<section class="step" id="s6" data-sp="rk" data-t="扣到 −3 就輸" data-g="火箭">
   <div class="shead"><span class="num">6</span><h2>扣到 −3 分，換成「你輸了」</h2><span class="chip">5 分鐘</span></div>
   <div class="cols">
     <div class="how stack">
@@ -537,7 +544,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </section>
 </div>
 
-<footer><span>太空保衛戰 教學步驟 · v1.2 · 2026-10-27</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
+<footer><span>太空保衛戰 教學步驟 · v1.3 · 2026-10-27</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
 </div>
 
 <div class="pbar" id="pbar" hidden>
@@ -549,7 +556,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 
 <script src="assets/scratch-blocks.js"></script>
 <script>
-/* 太空保衛戰 教學頁程式 v1.2 · 2026-10-27（需先載入 assets/scratch-blocks.js） */
+/* 太空保衛戰 教學頁程式 v1.3 · 2026-10-27（需先載入 assets/scratch-blocks.js） */
 const CDN=id=>`https://cdn.assets.scratch.mit.edu/internalapi/asset/${id}/get/`;
 const IMG={rk:CDN('525c06ceb3a351244bcd810c9ba951c7.svg'),rob:CDN('35070c1078c4eec153ea2769516c922c.svg'),g1:CDN('f522b08c5757569ad289d67bce290cd0.svg'),g2:CDN('634744e3f98bee53e9cb477a63aa9b21.svg'),bu:CDN('3c6241985b581284ec191f9d1deffde8.svg'),line:CDN('e85305b47cfd92d971704dcb7ad6e17b.svg'),bd:CDN('5fab1922f254ae9fd150162c3e392bef.png')};
 const HAT={t:'hat',c:'event',p:['當',{flag:1},'被點擊']};
@@ -593,13 +600,20 @@ document.querySelectorAll('[data-script]').forEach(el=>{el.innerHTML=renderScrip
 
 /* ---------- 角色標示：程式寫在哪個角色身上 ---------- */
 const WHO={rk:['火箭','#B4532A',IMG.rk],rob:['外星機器人','#3B4252',IMG.rob],g1:['幽靈','#0B7F96',IMG.g1],g2:['快幽靈','#7C3AED',IMG.g2],bu:['子彈','#B7791F',IMG.bu],
-  l1:['地板線','#6B7280',IMG.line],l2:['天花板線','#6B7280',IMG.line]};
+  l1:['地板線','#6B7280',IMG.line],l2:['天花板線','#6B7280',IMG.line],st:['舞台','#1F6F5C',IMG.bd]};
 const thumb=(src)=>src?`<img alt="" src="${src}">`:'';
 document.querySelectorAll('.sprbox[data-spr]').forEach(el=>{const [n,c,src]=WHO[el.dataset.spr];el.style.setProperty('--sc',c);
   const cnt=el.querySelectorAll('[data-script]').length;
   el.insertAdjacentHTML('afterbegin',`<div class="sprhead">${thumb(src)}<span>角色：${n}</span><small>${cnt?cnt+' 段程式':'沒有程式'}</small></div>`);});
 document.querySelectorAll('figure[data-who]').forEach(el=>{const [n,c,src]=WHO[el.dataset.who];
   el.insertAdjacentHTML('afterbegin',`<div class="who" style="--sc:${c}">${thumb(src)}寫在「${n}」身上</div>`);});
+
+/* ---------- 依角色上色：每一步驟的顏色＝要點的角色 ---------- */
+document.querySelectorAll('section.step[data-sp]').forEach(sec=>{const [n,c,src]=WHO[sec.dataset.sp];sec.classList.add('sprsec');sec.style.setProperty('--sc',c);
+  sec.querySelector('.num').style.background=c;
+  const msg=sec.dataset.sp==='st'?`先點右下角的 <b>舞台</b>，這一步做在舞台上`:`先在角色區點 <b>${n}</b>，這一步的程式都寫在它身上`;
+  sec.querySelector('.shead').insertAdjacentHTML('afterend',`<div class="sprban">${thumb(src)}<span>${msg}</span></div>`);});
+document.querySelectorAll('.part[data-sp]').forEach(p=>{p.querySelector('.tag').style.background=WHO[p.dataset.sp][1];});
 
 const TX=(x,y,s,o='')=>`<text x="${x}" y="${y}" font-family="Noto Sans TC, sans-serif" ${o}>${s}</text>`;
 const CO=(n,x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="7" fill="none" stroke="#E5323E" stroke-width="3"/><circle cx="${x}" cy="${y}" r="11" fill="#E5323E"/>`+TX(x,y+5,n,'text-anchor="middle" font-size="13" font-weight="700" fill="#fff"');
@@ -707,7 +721,7 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
   const secs=[...document.querySelectorAll('section.step')],nav=document.getElementById('nav');
   let g='';
   secs.forEach((s,i)=>{if(s.dataset.g!==g){g=s.dataset.g;const sp=document.createElement('span');sp.className='sep';sp.textContent=g;nav.appendChild(sp);}
-    const a=document.createElement('a');a.href='#'+s.id;a.innerHTML=`<b>${s.querySelector('.num').textContent}</b>${s.dataset.t}`;nav.appendChild(a);});
+    const a=document.createElement('a');a.href='#'+s.id;a.innerHTML=`<b>${s.querySelector('.num').textContent}</b>${s.dataset.t}`;if(s.dataset.sp){a.style.borderLeft='6px solid '+WHO[s.dataset.sp][1];}nav.appendChild(a);});
   const links=[...nav.querySelectorAll('a')];
   const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const i=secs.indexOf(e.target);links.forEach((l,j)=>l.classList.toggle('on',i===j));}})},{rootMargin:'-40% 0px -55% 0px'});
   secs.forEach(s=>io.observe(s));

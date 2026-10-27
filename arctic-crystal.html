@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 北極接水晶 教學步驟 v1.2 · 2026-10-20 · 大橋國小 資訊課 · 四年級（課程修改自老師提供的「接水晶」範例） -->
+<!-- 北極接水晶 教學步驟 v1.3 · 2026-10-27 · 大橋國小 資訊課 · 四年級（課程修改自老師提供的「接水晶」範例） -->
 <title>北極接水晶</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,6 +206,11 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 .keys .btn{min-width:96px;touch-action:none;user-select:none}
 .ctl{grid-template-columns:auto 1fr}
 .ctl > span:empty{display:none}
+section.step.sprsec{border-left:10px solid var(--sc);padding-left:20px;padding-right:12px;background:color-mix(in srgb,var(--sc) 9%,var(--bg));border-radius:0 14px 14px 0;margin-block:16px}
+body.present section.step.sprsec{border-left:10px solid var(--sc)}
+.sprban{display:flex;align-items:center;gap:10px;background:var(--sc);color:#fff;font-weight:700;font-size:17px;padding:8px 14px;border-radius:10px;margin:-6px 0 18px;flex-wrap:wrap}
+.sprban img{height:34px;width:auto;max-width:56px;background:#fff;border-radius:8px;padding:2px}
+.sprban b{font-size:20px;background:#fff;color:var(--sc);border-radius:6px;padding:0 8px}
 .sprbox{border:2px solid var(--sc);border-radius:12px;background:var(--panel);margin-bottom:14px;overflow:hidden}
 .sprhead{display:flex;gap:10px;align-items:center;background:var(--sc);color:#fff;padding:8px 14px;font-weight:700;font-size:17px}
 .sprhead img{height:34px;width:auto;max-width:60px;background:#fff;border-radius:6px;padding:2px}
@@ -325,9 +330,9 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   <div class="note tip newb"><b class="h">水晶為什麼會往下掉？</b>水晶的「方向」已經設成 <b class="mono">180</b>（朝下），所以「移動 5 點」就是往下走 5 點。點水晶的 <span class="ui">方向</span> 可以看到轉盤指向下面。</div>
 </section>
 
-<div class="part"><span class="tag">碗</span><h2>用方向鍵控制</h2></div>
+<div class="part" data-sp="bowl"><span class="tag">碗</span><h2>用方向鍵控制</h2></div>
 
-<section class="step" id="s2" data-t="碗左右走" data-g="碗">
+<section class="step" id="s2" data-sp="bowl" data-t="碗左右走" data-g="碗">
   <div class="shead"><span class="num">2</span><h2>按方向鍵，碗左右走</h2><span class="chip">8 分鐘</span></div>
   <div class="cols">
     <div class="how stack">
@@ -350,9 +355,9 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
 </section>
 
-<div class="part"><span class="tag">水晶</span><h2>從企鵝身上掉、接到有聲音</h2></div>
+<div class="part" data-sp="c1"><span class="tag">水晶</span><h2>從企鵝身上掉、接到有聲音</h2></div>
 
-<section class="step" id="s3" data-t="從企鵝掉" data-g="水晶">
+<section class="step" id="s3" data-sp="c1" data-t="從企鵝掉" data-g="水晶">
   <div class="shead"><span class="num">3</span><h2>水晶從企鵝身上掉下來</h2><span class="chip">6 分鐘</span><span class="chip old">學過的積木，新選項</span></div>
   <div class="cols">
     <div class="how stack">
@@ -379,7 +384,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
 </section>
 
-<section class="step" id="s4" data-t="接到有聲音" data-g="水晶">
+<section class="step" id="s4" data-sp="c1" data-t="接到有聲音" data-g="水晶">
   <div class="shead"><span class="num">4</span><h2>接到水晶「叮」一聲</h2><span class="chip">4 分鐘</span></div>
   <div class="cols">
     <div class="how stack">
@@ -396,9 +401,9 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
 </section>
 
-<div class="part"><span class="tag">碗</span><h2>時間到說話</h2></div>
+<div class="part" data-sp="bowl"><span class="tag">碗</span><h2>時間到說話</h2></div>
 
-<section class="step" id="s5" data-t="時間到說話" data-g="碗">
+<section class="step" id="s5" data-sp="bowl" data-t="時間到說話" data-g="碗">
   <div class="shead"><span class="num">5</span><h2>時間到，碗說「時間到！」</h2><span class="chip">4 分鐘</span></div>
   <div class="cols">
     <div class="how stack">
@@ -418,7 +423,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 
 <div class="part"><span class="tag">應用</span><h2>第二種水晶</h2></div>
 
-<section class="step quick" id="s6" data-t="紫水晶" data-g="應用">
+<section class="step quick" id="s6" data-sp="c2" data-t="紫水晶" data-g="應用">
   <div class="shead"><span class="num">6</span><h2>複製出紫水晶（2 分、比較快）</h2><span class="chip">5 分鐘</span><span class="chip old">學過，直接照著做</span></div>
   <p class="goal">水晶上按右鍵 → <b>複製</b>，改名叫 <b>紫水晶</b>。到 <span class="ui">造型</span> 分頁點 <b>crystal-b</b>（紫色那個）。回到程式，改 3 個地方：移動 <b class="mono">8</b> 點、得分改變 <b class="mono">2</b>、音效換成 <b>Magic Spell</b>。</p>
   <div class="qgrid"><figure><div data-fig="dup"></div><figcaption>右鍵複製：程式、造型、音效全部一起複製</figcaption></figure><figure class="blocks" data-who="c2"><div data-script="blue"></div><figcaption>紫水晶的程式：改 3 個數字或選項</figcaption></figure></div>
@@ -530,7 +535,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </section>
 </div>
 
-<footer><span>北極接水晶 教學步驟 · v1.2 · 2026-10-20</span><span>課程修改自 老師提供的「接水晶」範例</span></footer>
+<footer><span>北極接水晶 教學步驟 · v1.3 · 2026-10-27</span><span>課程修改自 老師提供的「接水晶」範例</span></footer>
 </div>
 
 <div class="pbar" id="pbar" hidden>
@@ -542,7 +547,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
 
 <script src="assets/scratch-blocks.js"></script>
 <script>
-/* 北極接水晶 教學頁程式 v1.2 · 2026-10-20（需先載入 assets/scratch-blocks.js） */
+/* 北極接水晶 教學頁程式 v1.3 · 2026-10-27（需先載入 assets/scratch-blocks.js） */
 const IMG={bowl:"https://cdn.assets.scratch.mit.edu/internalapi/asset/d147f16e3e2583719c073ac5b55fe3ca.svg/get/",c1:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjUiIGhlaWdodD0iMjIuMDU2MDQzNjI0ODc3OTMiIHZpZXdCb3g9IjIuNSA0LjA0Mzk1Njc1NjU5MTc5NyAyNSAyMi4wNTYwNDM2MjQ4Nzc5MyIgdmVyc2lvbj0iMS4xIiB4bWw6c3BhY2U9InByZXNlcnZlIj4KICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5LjMgKDUxMTY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICA8ZGVmcy8+CiAgPGc+CiAgICA8dGl0bGU+Y3J5c3RhbC1hPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9ImNyeXN0YWwtYSIgc3Ryb2tlPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICA8ZyBpZD0iQmx1ZS1DcnlzdGFsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgIDxwYXRoIGQ9Ik0gMyAxMi4zIEMgMyAxMi4zIDUuOSA3LjEgMTAgNS42IEMgMTAgNS42IDE3LjkgMy44IDIwLjUgNC45IEMgMjAuNSA0LjkgMjUuNyA4LjUgMjcgMTAuNSBDIDI3IDEwLjUgMjAgMjMuNSAxNi43IDI1LjUgQyAxNi43IDI1LjYgNC4zIDE3LjcgMyAxMi4zIFogIiBpZD0iU2hhcGUiIGZpbGw9IiM3RkNDRUYiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMjcgMTAuNSBDIDI2LjggMTAuMiAyNi41IDkuOCAyNi4xIDkuNSBMIDIwLjYgMTIuOSBMIDE1LjggMTguNyBMIDE2LjcgMjUuNiBDIDIwLjEgMjMuNSAyNyAxMC41IDI3IDEwLjUgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzY3OEZFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAxMS4zIDEzLjkgQyAxMS4zIDEzLjkgMTMuOCAyMi42IDE2LjcgMjUuNiBDIDE2LjcgMjUuNiAyMC40IDE2LjEgMjAuNiAxMi45IEwgMTMuOCA5LjcgTCAxMS4zIDEzLjkgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzczQjVFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAyMC41IDQuOSBDIDE3LjggMy44IDEwIDUuNiAxMCA1LjYgQyA2IDcuMiAzIDEyLjMgMyAxMi4zIEMgMyAxMi4zIDkuNSAxMy45IDExLjMgMTMuOSBDIDExLjMgMTMuOSAxNyAxNCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjUuNyA4LjUgMjAuNSA0LjkgMjAuNSA0LjkgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzkyRDdFRiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAxNy4yIDQuNiBDIDE1LjggNC43IDE0LjMgNC44IDEzIDUuMSBMIDExLjggNy41IEwgMTEuNCAxNCBDIDExLjQgMTQgMTcuMSAxNC4xIDIwLjcgMTMgTCAxOCA2LjkgTCAxNy4yIDQuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0ZDQ0VGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjIgOS42IEMgMTAuNCA5LjYgNi4yIDEwLjkgMy4zIDExLjggQyAzLjEgMTIuMSAzIDEyLjMgMyAxMi4zIEMgMyAxMi4zIDkuNSAxMy45IDExLjMgMTMuOSBDIDExLjMgMTMuOSAxNyAxNCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjYuOSAxMC40IDI2LjkgMTAuMyAyNi44IDEwLjIgQyAyNC40IDkuNyAyMC4yIDguOCAxOS43IDguOCBDIDE5IDguOSAxMi40IDkuNiAxMS4yIDkuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjODNDREVGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjggNy40IEwgMTguMSA3IEMgMTguMSA3IDE5LjkgNi44IDIwLjYgNSBDIDE3LjggMy44IDEwIDUuNiAxMCA1LjYgQyAxMCA1LjYgMTAuNiA2LjUgMTEuOCA3LjQgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0JFRTZGMSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAyMC41IDQuOSBDIDIwLjMgNC44IDIwIDQuNyAxOS43IDQuNyBMIDE4IDYuOSBMIDIwLjYgMTIuOCBDIDIzIDEyLjEgMjQuNSAxMS44IDI3IDEwLjQgQyAyNS43IDguNSAyMC41IDQuOSAyMC41IDQuOSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNzNCNUU0IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDI3IDEwLjUgQyAyNyAxMC41IDI2LjkgMTAuOCAyNi43IDExLjIgQyAyNi41IDExLjcgMjYuMiAxMi4zIDI1LjkgMTMuMSBDIDI1LjcgMTMuNSAyNS41IDEzLjkgMjUuMyAxNC4zIEMgMjUuMSAxNC43IDI0LjggMTUuMiAyNC41IDE1LjcgQyAyNCAxNi42IDIzLjMgMTcuNiAyMi43IDE4LjYgQyAyMiAxOS41IDIxLjMgMjAuNSAyMC43IDIxLjMgQyAyMCAyMi4xIDE5LjQgMjIuOSAxOC44IDIzLjUgQyAxNy42IDI0LjggMTYuOCAyNS41IDE2LjggMjUuNSBDIDE2LjggMjUuNSAxNy42IDI0LjYgMTguNiAyMy4zIEMgMTkuMSAyMi42IDE5LjcgMjEuOCAyMC40IDIxIEMgMjEgMjAuMSAyMS43IDE5LjIgMjIuNCAxOC4zIEMgMjMuMSAxNy40IDIzLjcgMTYuNCAyNC4yIDE1LjUgQyAyNC44IDE0LjYgMjUuMyAxMy43IDI1LjcgMTMgQyAyNi4xIDEyLjMgMjYuNSAxMS42IDI2LjcgMTEuMiBDIDI2LjkgMTAuOCAyNyAxMC41IDI3IDEwLjUgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzNCNzNFNCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgPHBhdGggZD0iTSAzIDEyLjMgQyAzIDEyLjMgMy41IDEyLjMgNC4yIDEyLjQgQyA0LjkgMTIuNSA1LjggMTIuNiA2LjcgMTIuOCBDIDcuNiAxMyA4LjUgMTMuMiA5LjIgMTMuNCBDIDkuOSAxMy42IDEwLjMgMTMuNyAxMC4zIDEzLjcgQyAxMC4zIDEzLjcgOS44IDEzLjggOS4xIDEzLjcgQyA4LjQgMTMuNiA3LjUgMTMuNSA2LjYgMTMuMyBDIDUuNyAxMy4xIDQuOCAxMi45IDQuMSAxMi43IEMgMy40IDEyLjUgMyAxMi4zIDMgMTIuMyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjQkVFNkYxIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8cGF0aCBkPSJNIDExLjUgMTQuOSBDIDExLjUgMTQuOSAxMS44IDE1LjUgMTIuMSAxNi4zIEMgMTIuNSAxNy4yIDEyLjkgMTguMyAxMy40IDE5LjQgQyAxMy44IDIwLjUgMTQuMyAyMS43IDE0LjYgMjIuNSBDIDE0LjggMjIuOSAxNC45IDIzLjMgMTUuMSAyMy41IEMgMTUuMyAyMy43IDE1LjMgMjMuOCAxNS4zIDIzLjggQyAxNS4zIDIzLjggMTUuMiAyMy43IDE1IDIzLjUgQyAxNC44IDIzLjMgMTQuNiAyMyAxNC4zIDIyLjYgQyAxMy44IDIxLjggMTMuMyAyMC43IDEyLjggMTkuNSBDIDEyLjMgMTguMyAxMiAxNy4yIDExLjcgMTYuMyBDIDExLjcgMTUuNSAxMS41IDE0LjkgMTEuNSAxNC45IFogIiBpZD0iU2hhcGUiIGZpbGw9IiNCRUU2RjEiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMTguOSA4LjkgTCAyMC42IDEyLjkgQyAyMyAxMi4yIDI0LjUgMTEuOSAyNyAxMC41IEMgMjYuOSAxMC40IDI2LjkgMTAuMyAyNi44IDEwLjIgQyAyNC40IDkuNyAyMC4yIDguOCAxOS43IDguOCBDIDE5LjYgOC45IDE5LjMgOC45IDE4LjkgOC45IFogIiBpZD0iU2hhcGUiIGZpbGw9IiM2NzlGRTQiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgIDxwYXRoIGQ9Ik0gMTEuNiA5LjYgTCAxMS4zIDEzLjkgQyAxMS4zIDEzLjkgMTcgMTQgMjAuNiAxMi45IEwgMTguOSA4LjkgQyAxNy4yIDkuMSAxMy4yIDkuNSAxMS42IDkuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0NCRkVGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+",c2:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTkuNDkwNjI1MzgxNDY5NzI3IiBoZWlnaHQ9IjQ3LjI5OTk5OTIzNzA2MDU1IiB2aWV3Qm94PSIyLjIwOTM3NDkwNDYzMjU2ODQgMC40MDAwMDAwMzU3NjI3ODY4NyAxOS40OTA2MjUzODE0Njk3MjcgNDcuMjk5OTk5MjM3MDYwNTUiIHZlcnNpb249IjEuMSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CiAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0OS4zICg1MTE2NykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgPGRlZnMvPgogIDxnPgogICAgPHRpdGxlPmNyeXN0YWwtYjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxnIGlkPSJjcnlzdGFsLWIiIHN0cm9rZT0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgPGcgaWQ9IlB1cnBsZS1DcnlzdGFsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgIDxnIGlkPSJHcm91cCI+CiAgICAgICAgICA8cGF0aCBkPSJNIDMuMSA0NC40IEMgMy4xIDQ0LjQgMi4xIDE0LjcgMy4zIDEwLjYgQyAzLjMgMTAuNiA3LjYgMy42IDE0LjQgMC45IEMgMTQuNCAwLjkgMTkuMiA3LjcgMjEuMiAxMy43IEMgMjEuMiAxMy43IDEyIDQzLjEgMTAuNiA0NS4xIEMgMTAuNiA0NS4xIDcuNSA0Ni44IDUuNSA0NyBDIDUuNiA0Ny4xIDMuMSA0NS45IDMuMSA0NC40IFogIiBpZD0iU2hhcGUiIGZpbGw9IiM4NjQ0QjMiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgICAgPHBhdGggZD0iTSAzLjQgMTAuNyBDIDMuNCAxMC43IDUuNiAxNS44IDkgMTcuNyBMIDE0LjQgMS4xIEMgNy43IDMuNyAzLjQgMTAuNyAzLjQgMTAuNyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRUE4QkU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy40IDEwLjcgQyAzLjQgMTAuNyA1LjYgMTUuOCA5IDE3LjcgTCAxNC40IDEuMSBDIDcuNyAzLjcgMy40IDEwLjcgMy40IDEwLjcgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0VBOEJFNSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDIxLjIgMTMuOCBDIDE5LjMgNy44IDE0LjUgMSAxNC41IDEgQyAxNC41IDEgMTQuNCAxIDE0LjQgMS4xIEwgOC45IDE3LjcgQyA4LjkgMTcuNyAxNC43IDE2LjUgMjEgMTQuNiBDIDIxLjIgMTQgMjEuMiAxMy44IDIxLjIgMTMuOCBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjQUQ1OUMyIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy40IDEwLjcgQyAyLjIgMTQuOCAzLjIgNDQuNSAzLjIgNDQuNSBDIDMuMiA0NS45IDUuNiA0Ny4yIDUuNiA0Ny4yIEwgOSAxNy44IEwgMy40IDEwLjcgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0FENTlDMiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDguOSAxNy43IEMgOC45IDE3LjcgOC44IDE5LjMgOC42IDIxLjcgQyA4LjUgMjIuOSA4LjMgMjQuMyA4LjIgMjUuOCBDIDggMjcuMyA3LjkgMjguOSA3LjcgMzAuNCBDIDcuNSAzMiA3LjMgMzMuNiA3LjEgMzUgQyA2LjkgMzYuNSA2LjcgMzcuOSA2LjYgMzkgQyA2LjIgNDEuMyA2IDQyLjkgNiA0Mi45IEMgNiA0Mi45IDYuMSA0MS4zIDYuMyAzOC45IEMgNi40IDM3LjcgNi42IDM2LjMgNi43IDM0LjggQyA2LjkgMzMuMyA3IDMxLjcgNy4yIDMwLjIgQyA3LjQgMjguNiA3LjYgMjcgNy44IDI1LjYgQyA4IDI0LjEgOC4yIDIyLjcgOC4zIDIxLjYgQyA4LjcgMTkuMiA4LjkgMTcuNyA4LjkgMTcuNyBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRUE4QkU1IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gMy4xIDQ0LjQgQyAzLjEgNDUuOCA1LjUgNDcuMSA1LjUgNDcuMSBMIDUuOSA0My44IEMgNC43IDQ0LjEgMy4xIDQ0LjQgMy4xIDQ0LjQgWiAiIGlkPSJTaGFwZSIgZmlsbD0iI0E1NDZCRCIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDcuMiA0My42IEMgNyA0My42IDYuNSA0My43IDUuOSA0My44IEwgNS41IDQ3LjEgQyA3LjQgNDYuOSAxMC42IDQ1LjIgMTAuNiA0NS4yIEMgMTAuNiA0NS4yIDggNDMuNSA3LjIgNDMuNiBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjN0MzNkFCIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gNS42IDQ3LjEgQyA2LjUgNDYuOSA3LjQgNDYuNiA4LjIgNDYuMyBDIDkgNDYgOS44IDQ1LjYgMTAuNSA0NSBMIDEwLjQgNDUuMSBDIDExIDQzLjEgMTEuNyA0MS4xIDEyLjQgMzkuMSBDIDEzLjEgMzcuMSAxMy43IDM1LjEgMTQuNCAzMy4yIEMgMTUuOCAyOS4yIDE3LjIgMjUuMyAxOC43IDIxLjQgQyAxNy41IDI1LjQgMTYuMiAyOS40IDE0LjggMzMuNCBDIDE0LjEgMzUuNCAxMy40IDM3LjQgMTIuOCAzOS4zIEMgMTIuMSA0MS4zIDExLjQgNDMuMyAxMC43IDQ1LjIgQyA5LjkgNDUuNyA5LjEgNDYuMSA4LjIgNDYuNCBDIDcuMyA0Ni44IDYuNSA0NyA1LjYgNDcuMSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNkIzNDhGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICAgIDxwYXRoIGQ9Ik0gOC45IDE3LjcgTCAxMS4zIDEwLjMgQyA3LjkgMTAuMyAzLjMgMTAuNyAzLjMgMTAuNyBDIDMuMyAxMC43IDUuNiAxNS43IDguOSAxNy43IFogIiBpZD0iU2hhcGUiIGZpbGw9IiNFMTdERTMiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICAgICAgPHBhdGggZD0iTSAxMS4zIDEwLjMgTCA4LjkgMTcuNyBDIDguOSAxNy43IDE0LjcgMTYuNSAyMSAxNC42IEMgMjEuMSAxNC4xIDIxLjIgMTMuOSAyMS4yIDEzLjkgQyAyMS4yIDEzLjggMjEuMSAxMy42IDIxLjEgMTMuNSBDIDE4LjkgMTIuNCAxNS42IDEwLjkgMTQuNyAxMC42IEMgMTQuMyAxMC4zIDEyLjkgMTAuMyAxMS4zIDEwLjMgWiAiIGlkPSJTaGFwZSIgZmlsbD0iIzlCNERBRSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgICAgICA8cGF0aCBkPSJNIDIxIDE0LjUgQyAyMSAxNC41IDIwLjQgMTQuOCAxOS42IDE1LjEgQyAxOC43IDE1LjQgMTcuNiAxNS44IDE2LjQgMTYuMiBDIDE1LjIgMTYuNSAxNCAxNi44IDEzLjEgMTcgQyAxMi4yIDE3LjIgMTEuNiAxNy4yIDExLjYgMTcuMiBDIDExLjYgMTcuMiAxMS43IDE3LjIgMTIgMTcuMSBDIDEyLjMgMTcgMTIuNiAxNi45IDEzLjEgMTYuOCBDIDE0IDE2LjUgMTUuMSAxNi4yIDE2LjMgMTUuOCBDIDE3LjUgMTUuNSAxOC43IDE1LjEgMTkuNiAxNC45IEMgMjAuNCAxNC42IDIxIDE0LjUgMjEgMTQuNSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjNkIzNDhGIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgICA8L2c+CiAgICAgICAgPHBhdGggZD0iTSAxNC40IDEuMSBDIDE0LjQgMS4xIDE0LjIgMS45IDEzLjkgMy4xIEMgMTMuNiA0LjMgMTMuMSA1LjkgMTIuNiA3LjUgQyAxMi4xIDkuMSAxMS41IDEwLjcgMTEgMTEuOSBDIDEwLjUgMTMuMSAxMC4yIDEzLjkgMTAuMiAxMy45IEMgMTAuMiAxMy45IDEwLjQgMTMuMSAxMC43IDExLjkgQyAxMSAxMC42IDExLjUgOC45IDEyIDcuNCBDIDEyLjUgNS44IDEzLjEgNC4yIDEzLjYgMyBDIDE0IDEuOCAxNC40IDEuMSAxNC40IDEuMSBaICIgaWQ9IlNoYXBlIiBmaWxsPSIjRkZCQ0ZDIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+",peng:"https://cdn.assets.scratch.mit.edu/internalapi/asset/428772307d90f4b347d6cc3c0d8e76ef.svg/get/"};
 const HAT={t:'hat',c:'event',p:['當',{flag:1},'被點擊']};
 const FOREVER=(inn)=>({t:'c',c:'control',cap:1,p:['重複無限次'],in:inn});
@@ -587,6 +592,13 @@ document.querySelectorAll('.sprbox[data-spr]').forEach(el=>{const [n,c,src]=WHO[
   el.insertAdjacentHTML('afterbegin',`<div class="sprhead">${thumb(src)}<span>角色：${n}</span><small>${cnt?cnt+' 段程式':'沒有程式'}</small></div>`);});
 document.querySelectorAll('figure[data-who]').forEach(el=>{const [n,c,src]=WHO[el.dataset.who];
   el.insertAdjacentHTML('afterbegin',`<div class="who" style="--sc:${c}">${thumb(src)}寫在「${n}」身上</div>`);});
+
+/* ---------- 依角色上色：每一步驟的顏色＝要點的角色 ---------- */
+document.querySelectorAll('section.step[data-sp]').forEach(sec=>{const [n,c,src]=WHO[sec.dataset.sp];sec.classList.add('sprsec');sec.style.setProperty('--sc',c);
+  sec.querySelector('.num').style.background=c;
+  const msg=sec.dataset.sp==='st'?`先點右下角的 <b>舞台</b>，這一步做在舞台上`:`先在角色區點 <b>${n}</b>，這一步的程式都寫在它身上`;
+  sec.querySelector('.shead').insertAdjacentHTML('afterend',`<div class="sprban">${thumb(src)}<span>${msg}</span></div>`);});
+document.querySelectorAll('.part[data-sp]').forEach(p=>{p.querySelector('.tag').style.background=WHO[p.dataset.sp][1];});
 
 
 const TX=(x,y,s,o='')=>`<text x="${x}" y="${y}" font-family="Noto Sans TC, sans-serif" ${o}>${s}</text>`;
@@ -716,7 +728,7 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
   const secs=[...document.querySelectorAll('section.step')],nav=document.getElementById('nav');
   let g='';
   secs.forEach((s,i)=>{if(s.dataset.g!==g){g=s.dataset.g;const sp=document.createElement('span');sp.className='sep';sp.textContent=g;nav.appendChild(sp);}
-    const a=document.createElement('a');a.href='#'+s.id;a.innerHTML=`<b>${s.querySelector('.num').textContent}</b>${s.dataset.t}`;nav.appendChild(a);});
+    const a=document.createElement('a');a.href='#'+s.id;a.innerHTML=`<b>${s.querySelector('.num').textContent}</b>${s.dataset.t}`;if(s.dataset.sp){a.style.borderLeft='6px solid '+WHO[s.dataset.sp][1];}nav.appendChild(a);});
   const links=[...nav.querySelectorAll('a')];
   const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const i=secs.indexOf(e.target);links.forEach((l,j)=>l.classList.toggle('on',i===j));}})},{rootMargin:'-40% 0px -55% 0px'});
   secs.forEach(s=>io.observe(s));
