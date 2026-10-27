@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 太空保衛戰 教學步驟 v1.0 · 2026-10-27 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
+<!-- 太空保衛戰 教學步驟 v1.1 · 2026-10-27 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
 <title>太空保衛戰</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,7 +227,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
   <div class="meta">
     <span class="chip">建議 1 節課</span>
-    <span class="chip">角色 7 個・新積木 2 個</span>
+    <span class="chip">角色 6 個・新積木 2 個</span>
     <button class="btn solid" id="presentBtn" type="button">投影模式（一次一步）</button>
   </div>
 </header>
@@ -252,7 +252,6 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
       <img class="sp" id="l2Im" alt="天花板線" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/e85305b47cfd92d971704dcb7ad6e17b.svg/get/">
       <img class="sp" id="robIm" alt="外星機器人" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/35070c1078c4eec153ea2769516c922c.svg/get/">
       <img class="sp" id="g1Im" alt="幽靈" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/f522b08c5757569ad289d67bce290cd0.svg/get/">
-      <img class="sp" id="g2Im" alt="快幽靈" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/634744e3f98bee53e9cb477a63aa9b21.svg/get/">
       <img class="sp" id="buIm" alt="子彈" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/3c6241985b581284ec191f9d1deffde8.svg/get/" hidden>
       <img class="sp" id="rkIm" alt="火箭" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/525c06ceb3a351244bcd810c9ba951c7.svg/get/">
       <div class="bub" id="bub" hidden>時間到！</div>
@@ -282,7 +281,7 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
         <span class="mono">12 分</span><span>子彈：藏起來、按空白鍵發射、往上飛</span><span>步驟 2–3</span>
         <span class="mono">5 分</span><span>幽靈被子彈打中就得分</span><span>步驟 4</span>
         <span class="mono">11 分</span><span>做「你輸了」背景（打字）、扣到 −3 換背景</span><span>步驟 5–6</span>
-        <span class="mono">7 分</span><span>快幽靈、對照完整程式、存檔</span><span>步驟 7–11</span>
+        <span class="mono">7 分</span><span>對照完整程式、除錯、存檔（快幽靈留給挑戰）</span><span>步驟 7–10</span>
       </div>
       <p style="font-size:14px;color:var(--muted);margin-top:8px">學過的程式已經寫在<b>學生檔</b>裡。新積木在積木圖上用黃框和 <span class="nb">新</span> 標出。每段程式上方都有標籤，寫著要放在<b>哪個角色</b>身上。</p>
     </div>
@@ -427,17 +426,11 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </div>
 </section>
 
-<div class="part"><span class="tag">整合</span><h2>快幽靈、對答案、存檔</h2></div>
+<div class="part"><span class="tag">整合</span><h2>對答案、除錯、存檔</h2></div>
 
-<section class="step quick" id="s7" data-t="快幽靈" data-g="整合">
-  <div class="shead"><span class="num">7</span><h2>複製出快幽靈（2 分、比較快）</h2><span class="chip">3 分鐘</span><span class="chip old">學過，直接照著做</span></div>
-  <p class="goal">幽靈上按右鍵 → <b>複製</b>，改名 <b>快幽靈</b>。到 <span class="ui">造型</span> 分頁點 <b>ghost-c</b>。程式改 2 個數字：移動 <b class="mono">7</b> 點、碰到子彈時得分改變 <b class="mono">2</b>。</p>
-  <div class="qgrid"><figure class="blocks" data-who="g2"><div data-script="ghost2"></div><figcaption>快幽靈的程式</figcaption></figure></div>
-</section>
-
-<section class="step" id="s8" data-t="完整程式" data-g="整合">
-  <div class="shead"><span class="num">8</span><h2>對答案：每個角色的完整程式</h2><span class="chip">做完再看</span></div>
-  <p class="goal" style="margin-bottom:14px">做完後，<b>一個角色一個角色</b>對照：先在角色區點那個角色，再看它的程式是不是跟下面一樣。程式段數也要一樣（火箭 3 段、子彈 3 段、其他角色 1 段）。</p>
+<section class="step" id="s7" data-t="完整程式" data-g="整合">
+  <div class="shead"><span class="num">7</span><h2>對答案：每個角色的完整程式</h2><span class="chip">做完再看</span></div>
+  <p class="goal" style="margin-bottom:14px">做完後，<b>一個角色一個角色</b>對照：先在角色區點那個角色，再看它的程式是不是跟下面一樣。程式段數也要一樣（火箭 3 段、子彈 3 段、幽靈和外星機器人各 1 段）。</p>
   <div class="sprbox" data-spr="rk"><div class="sprbody">
     <figure class="blocks"><div data-script="rkGame"></div><figcaption>火箭 ①：開始換回銀河、得分歸零、倒數</figcaption></figure>
     <figure class="blocks"><div data-script="rkMove"></div><figcaption>火箭 ②：方向鍵</figcaption></figure>
@@ -451,9 +444,6 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   <div class="sprbox" data-spr="g1"><div class="sprbody">
     <figure class="blocks"><div data-script="ghost"></div><figcaption>幽靈：打中 +1</figcaption></figure>
   </div></div>
-  <div class="sprbox" data-spr="g2"><div class="sprbody">
-    <figure class="blocks"><div data-script="ghost2"></div><figcaption>快幽靈：移動 7、打中 +2</figcaption></figure>
-  </div></div>
   <div class="sprbox" data-spr="rob"><div class="sprbody">
     <figure class="blocks"><div data-script="robot"></div><figcaption>外星機器人</figcaption></figure>
   </div></div>
@@ -461,8 +451,8 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   <div class="note warn"><b class="h">最常見的錯</b>程式拼對了，卻放在<b>別的角色</b>身上。例如發射子彈的程式放到火箭上，結果按空白鍵是火箭自己跳來跳去。</div>
 </section>
 
-<section class="step" id="s9" data-t="除錯" data-g="整合">
-  <div class="shead"><span class="num">9</span><h2>測試與除錯</h2><span class="chip">做完再看</span></div>
+<section class="step" id="s8" data-t="除錯" data-g="整合">
+  <div class="shead"><span class="num">8</span><h2>測試與除錯</h2><span class="chip">做完再看</span></div>
   <div class="tbl"><table class="debug">
     <thead><tr><th>看到的狀況</th><th>可能原因</th><th>怎麼修</th></tr></thead>
     <tbody>
@@ -479,8 +469,8 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </table></div>
 </section>
 
-<section class="step" id="s10" data-t="挑戰" data-g="整合">
-  <div class="shead"><span class="num">10</span><h2>挑戰任務（先做完的同學）</h2><span class="chip">做得快再做</span></div>
+<section class="step" id="s9" data-t="挑戰" data-g="整合">
+  <div class="shead"><span class="num">9</span><h2>挑戰任務（先做完的同學）</h2><span class="chip">做得快再做</span></div>
   <div class="lv">
     <div>
       <span class="stars">★☆☆</span>
@@ -490,21 +480,21 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
     </div>
     <div>
       <span class="stars">★★☆</span>
-      <h3>② 「你贏了」畫面</h3>
-      <p>再做一張背景「你贏了」。火箭程式 ① 的時間到那塊，在說話下面加 <b>背景換成 你贏了</b>。</p>
-      <figure class="blocks"><div data-script="ch2"></div></figure>
+      <h3>② 再來一隻快幽靈（+2 分）</h3>
+      <p>幽靈上按右鍵 → <b>複製</b>，改名 <b>快幽靈</b>。到 <span class="ui">造型</span> 分頁點 <b>ghost-c</b>。程式改 2 個數字：移動 <b class="mono">7</b> 點、碰到子彈時得分改變 <b class="mono">2</b>。</p>
+      <figure class="blocks" data-who="g2"><div data-script="ghost2"></div></figure>
     </div>
     <div>
       <span class="stars">★★★</span>
-      <h3>③ 機器人換造型</h3>
-      <p>外星機器人有 3 個造型。在它的重複無限次裡加 <b>造型換成下一個</b> 和 <b>等待 0.3 秒</b>，做出動畫。</p>
-      <figure class="blocks"><div data-script="ch3"></div></figure>
+      <h3>③ 「你贏了」畫面</h3>
+      <p>再做一張背景「你贏了」。火箭程式 ① 的時間到那塊，在說話下面加 <b>背景換成 你贏了</b>。</p>
+      <figure class="blocks" data-who="rk"><div data-script="ch2"></div></figure>
     </div>
   </div>
 </section>
 
-<section class="step" id="s11" data-t="存檔" data-g="整合">
-  <div class="shead"><span class="num">11</span><h2>存檔</h2><span class="chip">2 分鐘</span></div>
+<section class="step" id="s10" data-t="存檔" data-g="整合">
+  <div class="shead"><span class="num">10</span><h2>存檔</h2><span class="chip">2 分鐘</span></div>
   <div class="cols">
     <div class="how stack">
       <ol>
@@ -544,19 +534,19 @@ section.quick .goal{margin-bottom:14px;max-width:70ch}
   </section>
 </div>
 
-<footer><span>太空保衛戰 教學步驟 · v1.0 · 2026-10-27</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
+<footer><span>太空保衛戰 教學步驟 · v1.1 · 2026-10-27</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
 </div>
 
 <div class="pbar" id="pbar" hidden>
   <button class="btn" id="prev" type="button">← 上一步</button>
-  <span class="mono" id="pcount">1 / 12</span>
+  <span class="mono" id="pcount">1 / 11</span>
   <button class="btn solid" id="next" type="button">下一步 →</button>
   <button class="btn" id="exitP" type="button">離開投影</button>
 </div>
 
 <script src="assets/scratch-blocks.js"></script>
 <script>
-/* 太空保衛戰 教學頁程式 v1.0 · 2026-10-27（需先載入 assets/scratch-blocks.js） */
+/* 太空保衛戰 教學頁程式 v1.1 · 2026-10-27（需先載入 assets/scratch-blocks.js） */
 const CDN=id=>`https://cdn.assets.scratch.mit.edu/internalapi/asset/${id}/get/`;
 const IMG={rk:CDN('525c06ceb3a351244bcd810c9ba951c7.svg'),rob:CDN('35070c1078c4eec153ea2769516c922c.svg'),g1:CDN('f522b08c5757569ad289d67bce290cd0.svg'),g2:CDN('634744e3f98bee53e9cb477a63aa9b21.svg'),bu:CDN('3c6241985b581284ec191f9d1deffde8.svg'),line:CDN('e85305b47cfd92d971704dcb7ad6e17b.svg'),bd:CDN('5fab1922f254ae9fd150162c3e392bef.png')};
 const HAT={t:'hat',c:'event',p:['當',{flag:1},'被點擊']};
@@ -654,12 +644,13 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
   const SP={
     rob:{el:$('robIm'),w:110,h:170,cx:55,cy:85,k:.55,x:0,y:130,dir:90,fb:fb(110,170,'<rect x="20" y="40" width="70" height="80" rx="12" fill="#9AA5B5"/><rect x="30" y="0" width="50" height="40" rx="8" fill="#C9CED6"/><circle cx="45" cy="20" r="6" fill="#4CBF56"/><circle cx="65" cy="20" r="6" fill="#4CBF56"/><rect x="30" y="120" width="16" height="45" fill="#9AA5B5"/><rect x="64" y="120" width="16" height="45" fill="#9AA5B5"/>')},
     g1:{el:$('g1Im'),w:74,h:120,cx:37,cy:68,k:.45,x:0,y:130,sp:4,pts:1,fb:fb(74,120,'<path d="M5 60a32 32 0 0 1 64 0v55l-11-9-10 9-11-9-10 9-11-9-11 9z" fill="#fff"/><circle cx="26" cy="50" r="6" fill="#222"/><circle cx="48" cy="50" r="6" fill="#222"/>')},
-    g2:{el:$('g2Im'),w:122,h:144,cx:61,cy:72,k:.45,x:0,y:130,sp:7,pts:2,fb:fb(122,144,'<path d="M10 70a51 51 0 0 1 102 0v68l-17-11-17 11-17-11-17 11-17-11-17 11z" fill="#E9E0FF"/><circle cx="44" cy="60" r="8" fill="#222"/><circle cx="78" cy="60" r="8" fill="#222"/>')},
+    g2:{el:null,w:122,h:144,cx:61,cy:72,k:.45,x:0,y:130,sp:7,pts:2,fb:fb(122,144,'<path d="M10 70a51 51 0 0 1 102 0v68l-17-11-17 11-17-11-17 11-17-11-17 11z" fill="#E9E0FF"/><circle cx="44" cy="60" r="8" fill="#222"/><circle cx="78" cy="60" r="8" fill="#222"/>')},
     bu:{el:$('buIm'),w:44,h:44,cx:22,cy:22,k:.3,x:0,y:-100,fb:fb(44,44,'<circle cx="22" cy="22" r="20" fill="#F6C343"/>')},
     rk:{el:$('rkIm'),w:126,h:184,cx:63,cy:92,k:.5,x:0,y:-120,fb:fb(126,184,'<path d="M63 4c30 30 36 70 30 120H33C27 74 33 34 63 4z" fill="#E5E7EB" stroke="#9AA5B5" stroke-width="3"/><circle cx="63" cy="70" r="14" fill="#4C97FF"/><path d="M33 110l-26 40h26zM93 110l26 40H93z" fill="#E5323E"/><path d="M45 124h36l-8 40H53z" fill="#F6A623"/>')},
     l1:{el:$('l1Im'),w:478,h:14,cx:239,cy:7,k:1,x:0,y:-176,fb:fb(478,14,'<rect y="4" width="478" height="6" rx="3" fill="#9AA5B5"/>')},
     l2:{el:$('l2Im'),w:478,h:14,cx:239,cy:7,k:1,x:0,y:176,fb:fb(478,14,'<rect y="4" width="478" height="6" rx="3" fill="#9AA5B5"/>')}
   };
+  delete SP.g2;
   for(const s of Object.values(SP)){const im=s.el;const set=()=>{if(im.naturalWidth&&!im.dataset.fb){s.cx=s.cx*im.naturalWidth/s.w;s.cy=s.cy*im.naturalHeight/s.h;s.w=im.naturalWidth;s.h=im.naturalHeight;}draw();};
     if(im.complete&&im.naturalWidth)set();else im.addEventListener('load',set,{once:true});
     im.addEventListener('error',()=>{im.dataset.fb=1;im.src=s.fb;},{once:true});}
@@ -669,7 +660,7 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
   function place(s,flip){const im=s.el;im.style.width=s.w*s.k+'px';im.style.height=s.h*s.k+'px';im.style.left=(s.x+240-s.cx*s.k)+'px';im.style.top=(180-s.y-s.cy*s.k)+'px';im.style.transformOrigin=`${s.cx*s.k}px ${s.cy*s.k}px`;im.style.transform=flip?'scaleX(-1)':'';im.hidden=!!s.hidden;}
   let score=0,time=30,running=false,tm=null,lastSec=0,sayUntil=0,best=null,L=false,R=false,rkDir=90,lost=false;
   SP.bu.hidden=true;
-  function draw(){for(const k of ['l1','l2','rob','g1','g2','bu','rk'])place(SP[k],k==='rob'?SP.rob.dir<0:k==='rk'?rkDir<0:false);
+  function draw(){for(const k of ['l1','l2','rob','g1','bu','rk'])place(SP[k],k==='rob'?SP.rob.dir<0:k==='rk'?rkDir<0:false);
     scoreV.textContent=score;timeV.textContent=time;lose.hidden=!lost;
     const b=box(SP.rk);bub.style.left=(SP.rk.x+240-10)+'px';bub.style.top=(180-b.t-46)+'px';}
   draw();
@@ -681,7 +672,7 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
     const p=SP.rob,hw=p.w*p.k/2;p.x+=p.dir>0?4:-4;if(p.x+hw>240){p.x=240-hw;p.dir=-90;}else if(p.x-hw<-240){p.x=-240+hw;p.dir=90;}
     const rk=SP.rk;if(R){rkDir=90;rk.x+=10;}if(L){rkDir=-90;rk.x-=10;}const rh=rk.w*rk.k/2-4;rk.x=Math.max(-240+rh,Math.min(240-rh,rk.x));
     const bu=SP.bu;bu.y+=12;if(bu.y>174)bu.y=174;if(hit(bu,SP.l2))bu.hidden=true;
-    for(const g of [SP.g1,SP.g2]){
+    for(const g of [SP.g1]){
       if(g.hidden){if(now>=g.back){toRob(g);g.hidden=false;}continue;}
       g.y-=g.sp;const fence=-180+(g.h-g.cy)*g.k-6;if(g.y<fence)g.y=fence;
       if(hit(g,SP.l1))toRob(g);
@@ -697,7 +688,7 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
     status.innerHTML=`狀態：<b>停止全部</b>（${why}）　得分 <b class="mono">${score}</b>　最佳 <b class="mono">${best}</b>`;}
   function start(){clearInterval(tm);running=true;score=0;time=30;sayUntil=0;bub.hidden=true;lastSec=performance.now();
     if(!$('demoBd').checked)lost=false;
-    SP.rob.x=0;SP.rob.dir=90;SP.rk.x=0;rkDir=90;SP.bu.hidden=true;for(const g of [SP.g1,SP.g2]){g.hidden=false;toRob(g);}
+    SP.rob.x=0;SP.rob.dir=90;SP.rk.x=0;rkDir=90;SP.bu.hidden=true;for(const g of [SP.g1]){g.hidden=false;toRob(g);}
     status.innerHTML=lost?'狀態：<b>執行中</b>　咦？背景還是「你輸了」，但遊戲已經開始了！':'狀態：<b>執行中</b>　30 秒內能打下幾隻？';tm=setInterval(tick,1000/30);draw();}
   const act=(el,fn)=>{el.addEventListener('click',fn);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
   act($('flagBtn'),start);act($('stopBtn'),()=>{if(running)end('按了紅色停止');});

@@ -22,7 +22,7 @@ Repo：https://github.com/cona0815/scratch-lessons（GitHub Pages，main 分支�
 | 2–3 | `cat-mouse.html` | 貓抓老鼠 計時挑戰（10/06） | 中高年級 | Scratch STEAM 教學 |
 | 4 | `moon-mole.html` | 森林打蝙蝠（月球打老鼠改版 v2.0：背景 Woods、角色 Bat 4 造型拍翅膀；檔名沿用） | **四年級、第一次接觸 Scratch** | 阿玉的 Scratch 教學網 |
 | 5 | `arctic-crystal.html` | 北極接水晶（1 節；學過的程式寫在起始檔 `files/arctic-crystal_starter_v1.1_20261019.sb3`，只教新積木） | 四年級 | 老師提供的「接水晶」範例 |
-| 6 | `space-defense.html` | 太空保衛戰（北極接水晶改版；1 節；學生檔 `files/space-defense_student_v1.0_20261027.sb3`） | 四年級 | 老師提供的「接水晶」範例 |
+| 6 | `space-defense.html` | 太空保衛戰（北極接水晶改版；1 節；學生檔 `files/space-defense_student_v1.1_20261027.sb3`） | 四年級 | 老師提供的「接水晶」範例 |
 
 來源連結：
 - Scratch STEAM 教學：https://steam.oxxostudio.tw/category/scratch/index.html
@@ -248,3 +248,4 @@ node -e "const {chromium}=require('playwright');(async()=>{const b=await chromiu
 - 被撞扣 1 分；火箭程式 ③「如果 得分 = -3 → 背景換成 你輸了 → 停止全部」；火箭程式 ① 開頭「背景換成 Galaxy」。學生在背景分頁複製 Galaxy、改名「你輸了」、用文字工具注音打字。
 - 新積木（l7）：當按下（空白）鍵、背景換成（ ）。老師檔的「你輸了」背景是 svg（深藍底紅字）。
 - 每個角色的程式依角色分框（sprbox / data-who），並有「每個角色的完整程式」對答案步驟（老師要求）。
+- v1.1：主線只有一隻幽靈（老師要求「一開始只要一隻怪」），快幽靈移到挑戰②。
