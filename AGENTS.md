@@ -23,5 +23,7 @@ https://cona0815.github.io/scratch-lessons/
 ## 太空保衛戰系列
 角色、造型、尺寸、位置、方向、音效規格見 **`docs/SPRITE_SPEC.md`**（老師要求：角色規格開給 Codex）。角色名稱不能改。
 
+**待辦任務：`docs/CODEX_TASK_space-art.md`**（老師 2026-11-03 指派：戰機 10、飛彈 10、小兵 10、BOSS 5，全部要是匯入 Scratch 後可編輯的向量 SVG）。檢查工具 `tools/check_svg.py`、打包工具 `tools/make_sprite3.py`。
+
 ## 新增一課的最短流程
 見 `docs/HANDOFF.md` 第 8 節。重點：分析 sb3 → 寫教學頁 → 更新 `assets/skills.js` → 更新 `index.html` 課程卡片 → 放素材到 `files/` → 截圖檢查 → commit & push。
