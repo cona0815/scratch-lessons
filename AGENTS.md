@@ -20,5 +20,8 @@ https://cona0815.github.io/scratch-lessons/
    - 範例與程式碼：`space-defense.html`（WHO 表、sprsec／sprban CSS 與 JS）。
 9. 老師習慣：指令簡短、要你直接做完不要反覆確認；做完回報「改了什麼、網址」即可。
 
+## 太空保衛戰系列
+角色、造型、尺寸、位置、方向、音效規格見 **`docs/SPRITE_SPEC.md`**（老師要求：角色規格開給 Codex）。角色名稱不能改。
+
 ## 新增一課的最短流程
 見 `docs/HANDOFF.md` 第 8 節。重點：分析 sb3 → 寫教學頁 → 更新 `assets/skills.js` → 更新 `index.html` 課程卡片 → 放素材到 `files/` → 截圖檢查 → commit & push。

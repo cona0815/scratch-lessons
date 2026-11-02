@@ -264,3 +264,11 @@ node -e "const {chromium}=require('playwright');(async()=>{const b=await chromiu
 - 第 5 節外型素材：files/space-skin/（戰機.svg、導彈.svg、超級導彈.svg、外星人.svg、魔王.png、星球.png，取自老師的 2025 打擊外星人 sb3）＋ files/space-skin_v1.0_20261102.zip。
 - 每節第一步「看情境影片」連到老師的 Canva 影片（對應見 scratchpad series/videos.py：第1節＝第一堂＋第二堂情境動畫-1、第2節＝第三堂、第3節＝第二堂情境動畫-2、第4節＝第四堂 BOSS、第5節＝第一堂回顧）。
 - 產生腳本：make_series.py（sb3，參數 節數 full|starter）、series/page.js（共用預覽，LESSON 參數）、series/lessons.py（各節步驟）、series/build_pages.py。
+
+## 太空保衛戰 v2.0（2026-11-03）：角色改用老師上傳的圖
+- 老師要求「圖案請用我上傳的」：全系列不再用 Scratch 內建 Rocketship／Ghost／Retro Robot／Ball／Dragon／Galaxy，改用老師 2025 打擊外星人 sb3 的素材（files/space-skin/）。
+- 角色改名：火箭→**戰鬥機**、幽靈→**外星人**、快幽靈→**快外星人**、外星機器人→**外星母艦**（UFO）、補彈星星→**補彈球**；背景 Galaxy→**星球**。
+- 第 2 節補血水晶、第 4 節 BOSS 改成學生上傳 sprite3（files/補血水晶_v2.0_20261103.sprite3、files/BOSS_v2.0_20261103.sprite3）。
+- 超級子彈／快外星人／補彈球用「右鍵複製＋到造型分頁點第二個造型」（造型已預先放在原角色裡）。
+- 第 5 節改成「挑造型＋向量模式設計導彈＋背景音樂」：第 5 節學生檔每個角色多放老師全部造型、舞台多背景與「背景音樂」（Mystery）。外型素材包 zip 已移除。
+- **角色規格給 Codex：`docs/SPRITE_SPEC.md`**。
