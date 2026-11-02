@@ -22,7 +22,7 @@ Repo：https://github.com/cona0815/scratch-lessons（GitHub Pages，main 分支�
 | 2–3 | `cat-mouse.html` | 貓抓老鼠 計時挑戰（10/06） | 中高年級 | Scratch STEAM 教學 |
 | 4 | `moon-mole.html` | 森林打蝙蝠（月球打老鼠改版 v2.0：背景 Woods、角色 Bat 4 造型拍翅膀；檔名沿用） | **四年級、第一次接觸 Scratch** | 阿玉的 Scratch 教學網 |
 | 5 | `arctic-crystal.html` | 北極接水晶（1 節；學過的程式寫在起始檔 `files/arctic-crystal_starter_v1.1_20261019.sb3`，只教新積木） | 四年級 | 老師提供的「接水晶」範例 |
-| 6 | `space-defense.html` | 太空保衛戰（北極接水晶改版；1 節；學生檔 `files/space-defense_student_v1.2_20261027.sb3`） | 四年級 | 老師提供的「接水晶」範例 |
+| 6-1 | `space-defense.html` | 太空保衛戰（北極接水晶改版；1 節；學生檔 `files/space-defense_student_v1.2_20261027.sb3`） | 四年級 | 老師提供的「接水晶」範例 |
 
 來源連結：
 - Scratch STEAM 教學：https://steam.oxxostudio.tw/category/scratch/index.html
@@ -255,3 +255,12 @@ node -e "const {chromium}=require('playwright');(async()=>{const b=await chromiu
 - `section.step[data-sp]` → 加 class `sprsec`：左側 10px 色條＋9% 淡色底；`.shead` 後插入 `.sprban` 橫幅；`.num` 改成角色色；導覽列連結左邊 6px 色標。
 - `.part[data-sp]` 分段標籤改成角色色。`figure[data-who]` 加「寫在『○○』身上」膠囊標籤。`.sprbox[data-spr]` 依角色分框（看懂程式、完整程式步驟）。
 - 一個步驟只能屬於一個角色；程式寫在別的角色時要另開步驟或分段（例：太空保衛戰「扣到 −3」是火箭，另開「火箭」分段）。
+
+## 太空保衛戰系列 第 1～5 節（v1.0 · 2026-11-02）
+- 整合 Cona 老師原本的「打擊外星人」4 堂課（Google 協作平台 conaclass），改成四年級學過的積木為主、一節一節接著做，最後一節才改外型。
+- 頁面：space-defense.html（第1節，原太空保衛戰）、space-defense-2.html（血量與補血，新積木 0）、-3（超級子彈＋快幽靈，新積木 >）、-4（BOSS，新積木 等待直到／廣播訊息／當收到訊息）、-5（改外型＋背景音樂，新積木 播放音效直到結束）。頁首有 `.series` 各節導覽。
+- 原課用的座標、隨機、分身全部換掉：子彈碰到天花板線；敵軍從外星機器人身上掉；多敵軍用右鍵複製（分身留以後）。
+- 第 N 節學生檔＝第 N-1 節完成版（含上一節答案）→ **不放網站**，學生檔、老師檔都只交給老師。
+- 第 5 節外型素材：files/space-skin/（戰機.svg、導彈.svg、超級導彈.svg、外星人.svg、魔王.png、星球.png，取自老師的 2025 打擊外星人 sb3）＋ files/space-skin_v1.0_20261102.zip。
+- 每節第一步「看情境影片」連到老師的 Canva 影片（對應見 scratchpad series/videos.py：第1節＝第一堂＋第二堂情境動畫-1、第2節＝第三堂、第3節＝第二堂情境動畫-2、第4節＝第四堂 BOSS、第5節＝第一堂回顧）。
+- 產生腳本：make_series.py（sb3，參數 節數 full|starter）、series/page.js（共用預覽，LESSON 參數）、series/lessons.py（各節步驟）、series/build_pages.py。

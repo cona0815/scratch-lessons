@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 太空保衛戰 教學步驟 v1.3 · 2026-10-27 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
-<title>太空保衛戰</title>
+<!-- 太空保衛戰 第1節 教學步驟 v1.4 · 2026-11-02 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
+<title>太空保衛戰 第1節</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -213,6 +213,14 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
 .sprban b{font-size:20px;background:#fff;color:var(--sc);border-radius:6px;padding:0 8px}
 .lose{position:absolute;inset:0;display:grid;place-items:center;background:rgba(11,11,42,.82);color:#ff4d4d;font:700 64px var(--f-display);z-index:3}
 .lose[hidden]{display:none}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.vcard{display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:12px;background:var(--panel);border:2px solid var(--accent);color:var(--ink);text-decoration:none}
+.vcard:hover{background:var(--accent-soft)}
+.vcard b{display:block;font-size:17px}.vcard small{display:block;color:var(--muted);font-size:14px}
+.vplay{flex:none;width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--panel);display:grid;place-items:center;font-size:20px}
+.series{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.series a{font-size:13px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none}
+.series a.on{background:var(--accent);border-color:var(--accent);color:var(--panel);font-weight:700}
 .sprbox{border:2px solid var(--sc);border-radius:12px;background:var(--panel);margin-bottom:14px;overflow:hidden}
 .sprhead{display:flex;gap:10px;align-items:center;background:var(--sc);color:#fff;padding:8px 14px;font-weight:700;font-size:17px}
 .sprhead img{height:34px;width:auto;max-width:60px;background:#fff;border-radius:6px;padding:2px}
@@ -225,10 +233,11 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
 <div class="wrap">
 <header class="top">
   <div>
-    <div class="eyebrow">SCRATCH 3 · 資訊課 · 四年級</div>
-    <h1>太空保衛戰<small>空白鍵發射子彈＋你輸了畫面</small></h1>
+    <div class="eyebrow">SCRATCH 3 · 資訊課 · 四年級 · 太空保衛戰系列</div>
+    <h1>太空保衛戰 第1節<small>戰鬥機＋子彈</small></h1>
     <p class="credit">外星機器人在上面丟幽靈，用 ← → 移動火箭、按空白鍵發射子彈；被幽靈撞到扣 1 分，扣到 −3 分就輸了</p>
-    <p class="credit">北極接水晶改版（課程修改自 老師提供的「接水晶」範例）</p>
+    <p class="credit">整合自 Cona 老師「打擊外星人」課程，北極接水晶改版（老師提供的「接水晶」範例）</p>
+    <nav class="series" aria-label="太空保衛戰各節"><a href="space-defense.html" class="on">第1節 戰鬥機＋子彈</a><a href="space-defense-2.html" class="">第2節 血量與補血</a><a href="space-defense-3.html" class="">第3節 超級子彈＋敵軍變多</a><a href="space-defense-4.html" class="">第4節 BOSS 登場</a><a href="space-defense-5.html" class="">第5節 改外型＋背景音樂</a></nav>
   </div>
   <div class="meta">
     <span class="chip">建議 1 節課</span>
@@ -295,7 +304,14 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
 
 <nav class="steps" id="nav"></nav>
 
-<div class="part"><span class="tag">開始之前</span><h2>打開學生檔</h2></div>
+<div class="part"><span class="tag">開始之前</span><h2>情境影片、打開學生檔</h2></div>
+
+<section class="step" id="sVid" data-t="情境影片" data-g="開始">
+  <div class="shead"><span class="num">▶</span><h2>看情境影片</h2><span class="chip">3 分鐘</span></div>
+  <p class="goal" style="margin-bottom:12px">先看影片，想一想：戰機要怎麼動？飛彈要怎麼發射？</p>
+  <div class="vgrid"><a class="vcard" href="https://www.canva.com/design/DAGSn-G6R2I/6AZzjClmHiWBF-nxTUfrZA/watch?utm_content=DAGSn-G6R2I&utm_campaign=designshare&utm_medium=link&utm_source=editor" target="_blank" rel="noopener"><span class="vplay">▶</span><span><b>第一堂 情境影片</b><small>外星人來了！開著戰機保衛地球</small></span></a><a class="vcard" href="https://www.canva.com/design/DAGSnpN3rmQ/S_LSnH-i0h3WEdTWu3VQjg/watch?utm_content=DAGSnpN3rmQ&utm_campaign=designshare&utm_medium=link&utm_source=editor" target="_blank" rel="noopener"><span class="vplay">▶</span><span><b>第二堂 情境動畫-1（飛彈）</b><small>按空白鍵發射飛彈</small></span></a></div>
+  <p style="font-size:13px;color:var(--muted);margin-top:8px">影片在 Canva 開啟（新分頁）。</p>
+</section>
 
 <section class="step quick" id="s0" data-t="開學生檔" data-g="開始">
   <div class="shead"><span class="num">0</span><h2>打開老師給的學生檔</h2><span class="chip">2 分鐘</span><span class="chip old">學過</span></div>
@@ -544,12 +560,12 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
   </section>
 </div>
 
-<footer><span>太空保衛戰 教學步驟 · v1.3 · 2026-10-27</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
+<footer><span>太空保衛戰 第1節 教學步驟 · v1.4 · 2026-11-02</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
 </div>
 
 <div class="pbar" id="pbar" hidden>
   <button class="btn" id="prev" type="button">← 上一步</button>
-  <span class="mono" id="pcount">1 / 11</span>
+  <span class="mono" id="pcount">1 / 12</span>
   <button class="btn solid" id="next" type="button">下一步 →</button>
   <button class="btn" id="exitP" type="button">離開投影</button>
 </div>
