@@ -1,6 +1,8 @@
 # 太空保衛戰 角色規格（給 Codex）
 
-版本 v1.0 · 2026-11-03　｜　課程：太空保衛戰 第 1～5 節（space-defense*.html）　｜　圖檔：`files/space-skin/`（來源：Cona 老師 2025 打擊外星人 sb3）
+版本 v1.1 · 2026-11-03　｜　課程：太空保衛戰 第 1～5 節（space-defense*.html）　｜　圖檔：`files/space-skin/`（來源：Cona 老師 2025 打擊外星人 sb3）
+
+> **v1.1 重要**：第 1～4 節角色一律用 **Scratch 內建圖**（Rocketship、Retro Robot、Ghost、Ball、Crystal、Beachball、Dragon、Line，背景 Galaxy，音效 laser1／space ripple／collect／Magic Spell）；**第 5 節「改外型」才換成下表的老師素材與 Codex 新造型**。角色名稱全系列不變。
 
 > 用途：新增或修改太空保衛戰任何一節時，角色名稱、造型、尺寸、位置、方向、程式行為一律以這份為準。**角色名稱不能改**（程式下拉選單靠名字）。
 

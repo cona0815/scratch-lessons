@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 太空保衛戰 第1節 教學步驟 v1.4 · 2026-11-02 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
+<!-- 太空保衛戰 第1節 教學步驟 v3.0 · 2026-11-03 · 大橋國小 資訊課 · 四年級（北極接水晶改版；課程修改自老師提供的「接水晶」範例） -->
 <title>太空保衛戰 第1節</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -260,14 +260,14 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
       <span>按綠旗開始：← → 移動戰鬥機，空白鍵發射（手機按下面的按鈕）</span>
     </div>
     <div class="stage" id="stage" style="cursor:default;background:#0b0b2a"><div class="inner" id="inner">
-      <img class="bd" id="bdIm" alt="" src="files/space-skin/星球.png">
+      <img class="bd" id="bdIm" alt="" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/5fab1922f254ae9fd150162c3e392bef.png/get/">
       <div class="lose" id="lose" hidden>你輸了</div>
       <img class="sp" id="l1Im" alt="地板線" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/e85305b47cfd92d971704dcb7ad6e17b.svg/get/">
       <img class="sp" id="l2Im" alt="天花板線" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/e85305b47cfd92d971704dcb7ad6e17b.svg/get/">
-      <img class="sp" id="robIm" alt="外星母艦" src="files/space-skin/母艦.svg">
-      <img class="sp" id="g1Im" alt="外星人" src="files/space-skin/外星人.svg">
-      <img class="sp" id="buIm" alt="子彈" src="files/space-skin/導彈.svg" hidden>
-      <img class="sp" id="rkIm" alt="戰鬥機" src="files/space-skin/戰機.svg">
+      <img class="sp" id="robIm" alt="外星母艦" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/35070c1078c4eec153ea2769516c922c.svg/get/">
+      <img class="sp" id="g1Im" alt="外星人" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/f522b08c5757569ad289d67bce290cd0.svg/get/">
+      <img class="sp" id="buIm" alt="子彈" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/3c6241985b581284ec191f9d1deffde8.svg/get/" hidden>
+      <img class="sp" id="rkIm" alt="戰鬥機" src="https://cdn.assets.scratch.mit.edu/internalapi/asset/525c06ceb3a351244bcd810c9ba951c7.svg/get/">
       <div class="bub" id="bub" hidden>時間到！</div>
       <div class="mon">得分 <b id="scoreV">0</b></div>
       <div class="mon" style="top:30px">時間 <b id="timeV">30</b></div>
@@ -278,7 +278,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
       <label for="demoHide">示範</label>
       <span><input id="demoHide" type="checkbox"> 拿掉外星人被打中後的 <b>隱藏、等待 0.5 秒</b>，看一發子彈加幾分</span>
       <label for="demoBd">示範</label>
-      <span><input id="demoBd" type="checkbox"> 拿掉戰鬥機開頭的 <b>背景換成 星球</b>，輸了以後再按綠旗看看</span>
+      <span><input id="demoBd" type="checkbox"> 拿掉戰鬥機開頭的 <b>背景換成 Galaxy</b>，輸了以後再按綠旗看看</span>
     </div>
   </div>
   <div class="goals">
@@ -315,7 +315,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
 
 <section class="step quick" id="s0" data-t="開學生檔" data-g="開始">
   <div class="shead"><span class="num">0</span><h2>打開老師給的學生檔</h2><span class="chip">2 分鐘</span><span class="chip old">學過</span></div>
-  <p class="goal">開啟 <b>scratch.mit.edu</b> → <span class="ui">創造</span> → <span class="ui">檔案</span> → <span class="ui">從你的電腦挑選</span>，選 <b class="mono">太空保衛戰_學生檔.sb3</b>。角色區有 <b>地板線、天花板線、外星母艦、外星人、子彈、戰鬥機</b> 6 個角色，背景是 <b>星球</b>。</p>
+  <p class="goal">開啟 <b>scratch.mit.edu</b> → <span class="ui">創造</span> → <span class="ui">檔案</span> → <span class="ui">從你的電腦挑選</span>，選 <b class="mono">太空保衛戰_學生檔.sb3</b>。角色區有 <b>地板線、天花板線、外星母艦、外星人、子彈、戰鬥機</b> 6 個角色，背景是 <b>Galaxy</b>（銀河）。</p>
   <div class="note warn"><b class="h">要用網頁版 Scratch 開</b>角色和背景的圖都是 Scratch 角色庫的，用網頁版打開時才會自動載入。</div>
 </section>
 
@@ -349,7 +349,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
         <li><span>點 <span class="cat c-event">事件</span>，拖出 <b>當（空白）鍵被按下</b><span class="nb">新</span>，放在程式區空白的地方（它是新的一段）。</span></li>
         <li><span>下面接 <b>定位到（戰鬥機）位置</b>：下拉選單選 <b>戰鬥機</b>。</span></li>
         <li><span>再接 <b>顯示</b>：子彈出現在戰鬥機身上。</span></li>
-        <li><span>最後接 <span class="cat c-sound">音效</span> 的 <b>播放音效（發射）</b>。</span></li>
+        <li><span>最後接 <span class="cat c-sound">音效</span> 的 <b>播放音效（laser1）</b>。</span></li>
         <li><span>按綠旗，按空白鍵：子彈出現在戰鬥機上（還不會飛，下一步接著寫）。</span></li>
       </ol>
       <div class="note tip"><b class="h">「當 空白 鍵被按下」和「空白 鍵被按下？」</b>上一課的「鍵被按下？」是<b>六角形</b>，要放在「如果」裡、一直檢查，按住會一直做。今天的「當 空白 鍵被按下」是<b>帽子</b>，自己就是一段程式的開頭：按一下，做一次。</div>
@@ -398,7 +398,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
       <ol>
         <li><span>點 <b>外星人</b>。看已經寫好的「如果 碰到（戰鬥機）？」那一塊：扣 1 分、隱藏、等待、回機器人、顯示。</span></li>
         <li><span>在那塊上按<b>右鍵 → 複製</b>，接在它下面（還是在重複無限次裡）。</span></li>
-        <li><span>改 3 個地方：碰到 <b>子彈</b>、改變 <b class="mono">1</b>（不是 −1）、最上面加 <b>播放音效（爆炸）</b>。</span></li>
+        <li><span>改 3 個地方：碰到 <b>子彈</b>、改變 <b class="mono">1</b>（不是 −1）、最上面加 <b>播放音效（space ripple）</b>。</span></li>
         <li><span>按綠旗，射外星人：打中會「嗚～」一聲、加 1 分。</span></li>
       </ol>
       <div class="note tip"><b class="h">「隱藏 → 等待 0.5 秒 → 顯示」在做什麼？</b>和森林打蝙蝠一樣：外星人被打中先<b>躲起來</b>，子彈穿過去也碰不到它，所以<b>一發子彈只算 1 分</b>。勾上方預覽的「示範」看拿掉會怎樣。</div>
@@ -415,17 +415,17 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
     <div class="how stack">
       <ol>
         <li><span>點右下角的 <b>舞台</b>，再點上方的 <span class="ui">背景</span> 分頁。</span></li>
-        <li><span><span class="nb">新</span>在 <b>星球</b> 上按<b>右鍵 → 複製</b>，多出 <b>星球2</b>。</span></li>
-        <li><span><span class="nb">新</span>把 星球2 的名字改成 <b>你輸了</b>（上方名稱格）。</span></li>
+        <li><span><span class="nb">新</span>在 <b>Galaxy</b> 上按<b>右鍵 → 複製</b>，多出 <b>Galaxy2</b>。</span></li>
+        <li><span><span class="nb">新</span>把 Galaxy2 的名字改成 <b>你輸了</b>（上方名稱格）。</span></li>
         <li><span><span class="nb">新</span>點左邊的 <b>文字</b> 工具（T），上方的 <b>填滿</b> 選<b>紅色或白色</b>。</span></li>
         <li><span>在畫面中間點一下，<b>用注音打「你輸了」</b>：<br><span class="mono">ㄋㄧˇ ㄕㄨ ㄌㄜ˙</span></span></li>
         <li><span>點左邊的 <b>選取</b> 工具（箭頭），拉字的角把字<b>放大</b>，拖到中間。</span></li>
-        <li><span>最後點回 <b>星球</b>，讓遊戲開始時是星球背景。</span></li>
+        <li><span>最後點回 <b>Galaxy</b>，讓遊戲開始時是銀河背景。</span></li>
       </ol>
       <div class="note warn"><b class="h">打不出中文？</b>先按 <span class="ui">Ctrl</span>＋<span class="ui">空白鍵</span>（或 <span class="ui">Shift</span>）切換成注音輸入法，再打字。打完要按 <span class="ui">Enter</span> 或空白鍵選字。</div>
       <div class="note tip"><b class="h">名字一定要打對</b>等一下積木要選「你輸了」這個背景，名字不一樣就找不到。</div>
     </div>
-    <div class="fig"><figure><div data-fig="text"></div><figcaption>① 背景分頁　② 右鍵複製 星球　③ 改名「你輸了」　④ 文字工具　⑤ 打字</figcaption></figure></div>
+    <div class="fig"><figure><div data-fig="text"></div><figcaption>① 背景分頁　② 右鍵複製 Galaxy　③ 改名「你輸了」　④ 文字工具　⑤ 打字</figcaption></figure></div>
   </div>
 </section>
 
@@ -439,15 +439,15 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
         <li><span>點 <b>戰鬥機</b>。拼新的程式 ③：<b>當綠旗被點擊 → 重複無限次 → 如果（得分 = −3）那麼</b>（都學過）。</span></li>
         <li><span><span class="cat c-looks">外觀</span> 拖出 <b>背景換成（ ）</b><span class="nb">新</span>，放進如果的嘴巴，下拉選 <b>你輸了</b>。</span></li>
         <li><span>下面接 <b>停止 全部</b>。</span></li>
-        <li><span>回到戰鬥機的程式 ①，<b>綠旗下面</b>也放一塊 <b>背景換成（星球）</b><span class="nb">新</span>。</span></li>
-        <li><span>按綠旗，故意被外星人撞 3 次：畫面變成「你輸了」。再按綠旗：又變回星球。</span></li>
+        <li><span>回到戰鬥機的程式 ①，<b>綠旗下面</b>也放一塊 <b>背景換成（Galaxy）</b><span class="nb">新</span>。</span></li>
+        <li><span>按綠旗，故意被外星人撞 3 次：畫面變成「你輸了」。再按綠旗：又變回銀河。</span></li>
       </ol>
-      <div class="note warn"><b class="h">少了程式 ① 的「背景換成 星球」會怎樣？</b>輸了以後再按綠旗，背景還是「你輸了」，遊戲卻已經開始了！開始時要<b>先把背景換回來</b>。勾上方預覽的「示範」試試看。</div>
+      <div class="note warn"><b class="h">少了程式 ① 的「背景換成 Galaxy」會怎樣？</b>輸了以後再按綠旗，背景還是「你輸了」，遊戲卻已經開始了！開始時要<b>先把背景換回來</b>。勾上方預覽的「示範」試試看。</div>
       <div class="note tip"><b class="h">−3 怎麼打？</b>先打減號 <span class="ui">-</span> 再打 <span class="ui">3</span>，中間不要有空白。</div>
     </div>
     <div class="fig">
       <figure class="blocks" data-who="rk"><div data-script="rkLose"></div><figcaption>戰鬥機 ③：輸了換背景</figcaption></figure>
-      <figure class="blocks" data-who="rk"><div data-script="rkGame"></div><figcaption>戰鬥機 ①：開頭加「背景換成 星球」</figcaption></figure>
+      <figure class="blocks" data-who="rk"><div data-script="rkGame"></div><figcaption>戰鬥機 ①：開頭加「背景換成 Galaxy」</figcaption></figure>
     </div>
   </div>
 </section>
@@ -458,7 +458,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
   <div class="shead"><span class="num">7</span><h2>對答案：每個角色的完整程式</h2><span class="chip">做完再看</span></div>
   <p class="goal" style="margin-bottom:14px">做完後，<b>一個角色一個角色</b>對照：先在角色區點那個角色，再看它的程式是不是跟下面一樣。程式段數也要一樣（戰鬥機 3 段、子彈 2 段、外星人和外星母艦各 1 段）。</p>
   <div class="sprbox" data-spr="rk"><div class="sprbody">
-    <figure class="blocks"><div data-script="rkGame"></div><figcaption>戰鬥機 ①：開始換回星球、得分歸零、倒數</figcaption></figure>
+    <figure class="blocks"><div data-script="rkGame"></div><figcaption>戰鬥機 ①：開始換回銀河、得分歸零、倒數</figcaption></figure>
     <figure class="blocks"><div data-script="rkMove"></div><figcaption>戰鬥機 ②：方向鍵</figcaption></figure>
     <figure class="blocks"><div data-script="rkLose"></div><figcaption>戰鬥機 ③：扣到 −3 就輸</figcaption></figure>
   </div></div>
@@ -472,7 +472,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
   <div class="sprbox" data-spr="rob"><div class="sprbody">
     <figure class="blocks"><div data-script="robot"></div><figcaption>外星母艦</figcaption></figure>
   </div></div>
-  <div class="sprbox" data-spr="l1"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">地板線、天花板線<b>沒有程式</b>。舞台的背景要有 <b>星球</b> 和 <b>你輸了</b> 兩張。</p></div></div>
+  <div class="sprbox" data-spr="l1"><div class="sprbody"><p style="font-size:15px;color:var(--muted)">地板線、天花板線<b>沒有程式</b>。舞台的背景要有 <b>Galaxy</b> 和 <b>你輸了</b> 兩張。</p></div></div>
   <div class="note warn"><b class="h">最常見的錯</b>程式拼對了，卻放在<b>別的角色</b>身上。例如發射子彈的程式放到戰鬥機上，結果按空白鍵是戰鬥機自己跳來跳去。</div>
 </section>
 
@@ -490,7 +490,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
       <tr><td>打一下加好幾分</td><td>打中後沒有「隱藏、等待 0.5 秒」</td><td>照外星人「碰到戰鬥機」那塊一樣放</td></tr>
       <tr><td>扣到 −3 沒有輸</td><td>等號右邊打成 3、或有空白</td><td>改成 <b>-3</b></td></tr>
       <tr><td>下拉選單找不到「你輸了」</td><td>背景名字打錯，或忘記改名</td><td>到舞台的背景分頁檢查名字</td></tr>
-      <tr><td>再按綠旗，背景還是你輸了</td><td>戰鬥機程式 ① 開頭沒有「背景換成 星球」</td><td>放在綠旗下面</td></tr>
+      <tr><td>再按綠旗，背景還是你輸了</td><td>戰鬥機程式 ① 開頭沒有「背景換成 Galaxy」</td><td>放在綠旗下面</td></tr>
     </tbody>
   </table></div>
 </section>
@@ -501,13 +501,13 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
     <div>
       <span class="stars">★☆☆</span>
       <h3>① 子彈變快</h3>
-      <p>把子彈的「移動 12 點」改成 <b class="mono">20</b>。也可以到造型分頁換一種導彈。</p>
+      <p>把子彈的「移動 12 點」改成 <b class="mono">20</b>。也可以到造型分頁換一種顏色的球。</p>
       <figure class="blocks"><div data-script="ch1"></div></figure>
     </div>
     <div>
       <span class="stars">★★☆</span>
       <h3>② 再來一隻快外星人（+2 分）</h3>
-      <p>外星人上按右鍵 → <b>複製</b>，改名 <b>快外星人</b>。到 <span class="ui">造型</span> 分頁點 <b>外星人2</b>。程式改 2 個數字：移動 <b class="mono">7</b> 點、碰到子彈時得分改變 <b class="mono">2</b>。</p>
+      <p>外星人上按右鍵 → <b>複製</b>，改名 <b>快外星人</b>。到 <span class="ui">造型</span> 分頁點 <b>ghost-c</b>。程式改 2 個數字：移動 <b class="mono">7</b> 點、碰到子彈時得分改變 <b class="mono">2</b>。</p>
       <figure class="blocks" data-who="g2"><div data-script="ghost2"></div></figure>
     </div>
     <div>
@@ -560,7 +560,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
   </section>
 </div>
 
-<footer><span>太空保衛戰 第1節 教學步驟 · v2.0 · 2026-11-03</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
+<footer><span>太空保衛戰 第1節 教學步驟 · v3.0 · 2026-11-03</span><span>北極接水晶改版，課程修改自 老師提供的「接水晶」範例</span></footer>
 </div>
 
 <div class="pbar" id="pbar" hidden>
@@ -572,10 +572,9 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
 
 <script src="assets/scratch-blocks.js"></script>
 <script>
-/* 太空保衛戰 第1節 教學頁程式 v2.0 · 2026-11-03（老師上傳的素材）；前版 v1.3 · 2026-10-27（需先載入 assets/scratch-blocks.js） */
+/* 太空保衛戰 教學頁程式 v1.3 · 2026-10-27（需先載入 assets/scratch-blocks.js） */
 const CDN=id=>`https://cdn.assets.scratch.mit.edu/internalapi/asset/${id}/get/`;
-const SKIN='files/space-skin/';
-const IMG={rk:SKIN+'戰機.svg',rob:SKIN+'母艦.svg',g1:SKIN+'外星人.svg',g2:SKIN+'外星人2.svg',bu:SKIN+'導彈.svg',line:CDN('e85305b47cfd92d971704dcb7ad6e17b.svg'),bd:SKIN+'星球.png'};
+const IMG={rk:CDN('525c06ceb3a351244bcd810c9ba951c7.svg'),rob:CDN('35070c1078c4eec153ea2769516c922c.svg'),g1:CDN('f522b08c5757569ad289d67bce290cd0.svg'),g2:CDN('634744e3f98bee53e9cb477a63aa9b21.svg'),bu:CDN('3c6241985b581284ec191f9d1deffde8.svg'),line:CDN('e85305b47cfd92d971704dcb7ad6e17b.svg'),bd:CDN('5fab1922f254ae9fd150162c3e392bef.png')};
 const HAT={t:'hat',c:'event',p:['當',{flag:1},'被點擊']};
 const FOREVER=(inn)=>({t:'c',c:'control',cap:1,p:['重複無限次'],in:inn});
 const IF=(cond,inn)=>({t:'c',c:'control',p:['如果',cond,'那麼'],in:inn});
@@ -596,19 +595,19 @@ const SAY={t:'s',c:'looks',p:['說出',{n:'時間到！'},'持續',{n:'2'},'秒'
 const timer=(first)=>[HAT].concat(first).concat([{t:'s',c:'data',p:['變數',{dd:'得分'},'設為',{n:'0'}]},{t:'s',c:'data',p:['變數',{dd:'時間'},'設為',{n:'30'}]},
   FOREVER([WAIT(1),{t:'s',c:'data',p:['變數',{dd:'時間'},'改變',{n:'-1'}]},IF({bool:{c:'operators',p:[T('時間'),'=',{n:'0'}]}},[SAY,STOP])])]);
 const back=()=>[HIDE,WAIT(0.5),GOTO('外星母艦'),SHOW];
-const ghost=(sp,pts,hit)=>[HAT,SHOW,GOTO('外星母艦'),FOREVER([MOVE(sp),IF(TOUCH('地板線'),[GOTO('外星母艦')]),IF(TOUCH('戰鬥機'),[SCORE(-1)].concat(back()))].concat(hit?[IF(TOUCH('子彈'),[SOUND('爆炸'),SCORE(pts)].concat(back()))]:[]))];
+const ghost=(sp,pts,hit)=>[HAT,SHOW,GOTO('外星母艦'),FOREVER([MOVE(sp),IF(TOUCH('地板線'),[GOTO('外星母艦')]),IF(TOUCH('戰鬥機'),[SCORE(-1)].concat(back()))].concat(hit?[IF(TOUCH('子彈'),[SOUND('space ripple'),SCORE(pts)].concat(back()))]:[]))];
 const SCRIPTS={
   robot:[HAT,ROT,FOREVER([MOVE(4),{t:'s',c:'motion',p:['碰到邊緣就反彈']}])],
   rkGame0:timer([]),
-  rkGame:timer([BD('星球',1)]),
+  rkGame:timer([BD('Galaxy',1)]),
   rkMove:[HAT,ROT,FOREVER([IF(KEY('向右'),[FACE(90),MOVE(10)]),IF(KEY('向左'),[FACE(-90),MOVE(10)])])],
   rkLose:[HAT,FOREVER([IF({bool:{c:'operators',p:[T('得分'),'=',{n:'-3'}]}},[BD('你輸了',1),STOP])])],
   ghost0:ghost(4,1,0),
   ghost:ghost(4,1,1),
   ghost2:ghost(7,2,1),
   buHide:[HAT,HIDE],
-  buFire:[{t:'hat',c:'event',hl:1,p:['當',{dd:'空白'},'鍵被按下']},GOTO('戰鬥機'),SHOW,SOUND('發射')],
-  buShot:[{t:'hat',c:'event',hl:1,p:['當',{dd:'空白'},'鍵被按下']},GOTO('戰鬥機'),SHOW,SOUND('發射'),{t:'c',c:'control',hl:1,p:['重複直到',TOUCH('天花板線')],in:[MOVE(12)]},HIDE],
+  buFire:[{t:'hat',c:'event',hl:1,p:['當',{dd:'空白'},'鍵被按下']},GOTO('戰鬥機'),SHOW,SOUND('laser1')],
+  buShot:[{t:'hat',c:'event',hl:1,p:['當',{dd:'空白'},'鍵被按下']},GOTO('戰鬥機'),SHOW,SOUND('laser1'),{t:'c',c:'control',hl:1,p:['重複直到',TOUCH('天花板線')],in:[MOVE(12)]},HIDE],
   ch1:[MOVE(20)],
   ch2:[IF({bool:{c:'operators',p:[T('時間'),'=',{n:'0'}]}},[SAY,BD('你贏了'),STOP])],
   ch3:[HAT,ROT,FOREVER([MOVE(4),{t:'s',c:'motion',p:['碰到邊緣就反彈']},{t:'s',c:'looks',p:['造型換成下一個']},WAIT(0.3)])]
@@ -652,7 +651,7 @@ const FIGS={
     s+=`<rect x="12" y="12" width="576" height="34" rx="6" fill="#F2F5FA"/>`+['程式','背景','音效'].map((t,i)=>TX(40+i*80,35,t,`font-size="14" fill="${i===1?'#855CD6':'#575E75'}"${i===1?' font-weight="700"':''}`)).join('')+CO('①',104,16,62,28);
     s+=`<rect x="12" y="54" width="100" height="264" rx="8" fill="#F2F5FA"/>`;
     const tile=(y,n,on,dark)=>`<rect x="22" y="${y}" width="80" height="78" rx="8" fill="#fff" stroke="${on?'#855CD6':'#D9E0EA'}" stroke-width="${on?2.5:1}"/><rect x="30" y="${y+8}" width="64" height="44" rx="4" fill="#1b1b4a"/>`+(dark?TX(62,y+36,'你輸了','text-anchor="middle" font-size="12" font-weight="700" fill="#ff5a5a"'):'')+TX(62,y+70,n,'text-anchor="middle" font-size="12" fill="#575E75"');
-    s+=tile(64,'星球')+tile(152,'你輸了',1,1);
+    s+=tile(64,'Galaxy')+tile(152,'你輸了',1,1);
     s+=`<rect x="62" y="96" width="70" height="62" rx="5" fill="#fff" stroke="#C9CED6"/>`+['複製','匯出','刪除'].map((m,i)=>TX(74,115+i*19,m,`font-size="12" fill="${i===2?'#E5323E':'#575E75'}"${i===0?' font-weight="700"':''}`)).join('')+CO('②',62,100,70,22);
     s+=`<rect x="124" y="54" width="464" height="40" rx="8" fill="#F9F9F9" stroke="#E3E6EC"/>`+TX(136,79,'造型','font-size="12" fill="#575E75"')+`<rect x="172" y="62" width="110" height="24" rx="4" fill="#fff" stroke="#855CD6" stroke-width="2"/>`+TX(182,79,'你輸了','font-size="13" fill="#575E75" font-weight="700"')+CO('③',170,60,114,28);
     s+=TX(310,79,'填滿','font-size="12" fill="#575E75"')+`<rect x="342" y="64" width="30" height="20" rx="4" fill="#ff4d4d" stroke="#999"/>`;
@@ -676,16 +675,16 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
   new ResizeObserver(fit).observe(stage);fit();
   const fb=(w,h,body)=>'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">${body}</svg>`);
   const SP={
-    rob:{el:$('robIm'),w:115.8,h:70.4,cx:57.9,cy:35.2,k:.5,x:0,y:135,dir:90,fb:fb(110,170,'<rect x="20" y="40" width="70" height="80" rx="12" fill="#9AA5B5"/><rect x="30" y="0" width="50" height="40" rx="8" fill="#C9CED6"/><circle cx="45" cy="20" r="6" fill="#4CBF56"/><circle cx="65" cy="20" r="6" fill="#4CBF56"/><rect x="30" y="120" width="16" height="45" fill="#9AA5B5"/><rect x="64" y="120" width="16" height="45" fill="#9AA5B5"/>')},
-    g1:{el:$('g1Im'),w:283.5,h:245,cx:144,cy:111,k:.2,x:0,y:135,sp:4,pts:1,fb:fb(74,120,'<path d="M5 60a32 32 0 0 1 64 0v55l-11-9-10 9-11-9-10 9-11-9-11 9z" fill="#fff"/><circle cx="26" cy="50" r="6" fill="#222"/><circle cx="48" cy="50" r="6" fill="#222"/>')},
+    rob:{el:$('robIm'),w:110,h:170,cx:55,cy:85,k:.55,x:0,y:130,dir:90,fb:fb(110,170,'<rect x="20" y="40" width="70" height="80" rx="12" fill="#9AA5B5"/><rect x="30" y="0" width="50" height="40" rx="8" fill="#C9CED6"/><circle cx="45" cy="20" r="6" fill="#4CBF56"/><circle cx="65" cy="20" r="6" fill="#4CBF56"/><rect x="30" y="120" width="16" height="45" fill="#9AA5B5"/><rect x="64" y="120" width="16" height="45" fill="#9AA5B5"/>')},
+    g1:{el:$('g1Im'),w:74,h:120,cx:37,cy:68,k:.45,x:0,y:130,sp:4,pts:1,fb:fb(74,120,'<path d="M5 60a32 32 0 0 1 64 0v55l-11-9-10 9-11-9-10 9-11-9-11 9z" fill="#fff"/><circle cx="26" cy="50" r="6" fill="#222"/><circle cx="48" cy="50" r="6" fill="#222"/>')},
     g2:{el:null,w:122,h:144,cx:61,cy:72,k:.45,x:0,y:130,sp:7,pts:2,fb:fb(122,144,'<path d="M10 70a51 51 0 0 1 102 0v68l-17-11-17 11-17-11-17 11-17-11-17 11z" fill="#E9E0FF"/><circle cx="44" cy="60" r="8" fill="#222"/><circle cx="78" cy="60" r="8" fill="#222"/>')},
-    bu:{el:$('buIm'),w:88.2,h:88.2,cx:44,cy:44,k:.5,x:0,y:-100,fb:fb(44,44,'<circle cx="22" cy="22" r="20" fill="#F6C343"/>')},
-    rk:{el:$('rkIm'),w:66.8,h:37.9,cx:33.5,cy:19,k:1,x:0,y:-130,fb:fb(126,184,'<path d="M63 4c30 30 36 70 30 120H33C27 74 33 34 63 4z" fill="#E5E7EB" stroke="#9AA5B5" stroke-width="3"/><circle cx="63" cy="70" r="14" fill="#4C97FF"/><path d="M33 110l-26 40h26zM93 110l26 40H93z" fill="#E5323E"/><path d="M45 124h36l-8 40H53z" fill="#F6A623"/>')},
+    bu:{el:$('buIm'),w:44,h:44,cx:22,cy:22,k:.3,x:0,y:-100,fb:fb(44,44,'<circle cx="22" cy="22" r="20" fill="#F6C343"/>')},
+    rk:{el:$('rkIm'),w:126,h:184,cx:63,cy:92,k:.5,x:0,y:-120,fb:fb(126,184,'<path d="M63 4c30 30 36 70 30 120H33C27 74 33 34 63 4z" fill="#E5E7EB" stroke="#9AA5B5" stroke-width="3"/><circle cx="63" cy="70" r="14" fill="#4C97FF"/><path d="M33 110l-26 40h26zM93 110l26 40H93z" fill="#E5323E"/><path d="M45 124h36l-8 40H53z" fill="#F6A623"/>')},
     l1:{el:$('l1Im'),w:478,h:14,cx:239,cy:7,k:1,x:0,y:-176,fb:fb(478,14,'<rect y="4" width="478" height="6" rx="3" fill="#9AA5B5"/>')},
     l2:{el:$('l2Im'),w:478,h:14,cx:239,cy:7,k:1,x:0,y:176,fb:fb(478,14,'<rect y="4" width="478" height="6" rx="3" fill="#9AA5B5"/>')}
   };
   delete SP.g2;
-  for(const s of Object.values(SP)){const im=s.el;const set=()=>{if(im.naturalWidth&&!im.dataset.fb){s.cx=s.cx*im.naturalWidth/s.w;s.cy=s.cy*im.naturalHeight/s.h;s.w=im.naturalWidth;s.h=im.naturalHeight;}setTimeout(draw,0);};
+  for(const s of Object.values(SP)){const im=s.el;const set=()=>{if(im.naturalWidth&&!im.dataset.fb){s.cx=s.cx*im.naturalWidth/s.w;s.cy=s.cy*im.naturalHeight/s.h;s.w=im.naturalWidth;s.h=im.naturalHeight;}draw();};
     if(im.complete&&im.naturalWidth)set();else im.addEventListener('load',set,{once:true});
     im.addEventListener('error',()=>{im.dataset.fb=1;im.src=s.fb;},{once:true});}
   $('bdIm').addEventListener('error',e=>{e.target.src=fb(480,360,'<rect width="480" height="360" fill="#141436"/>'+Array.from({length:60},(_,i)=>`<circle cx="${(i*97)%480}" cy="${(i*53)%360}" r="${i%3?1:1.8}" fill="#fff" opacity=".8"/>`).join(''));},{once:true});
