@@ -754,4 +754,30 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
 })();
 </script>
 <script src="assets/skills.js"></script>
+<style>.jump{display:flex;flex-wrap:wrap;gap:6px}
+.jump a{font-size:14px;padding:4px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-decoration:none}
+.jump a:hover{background:var(--accent-soft)}
+#tabCode .sprbox{scroll-margin-top:16px}
+</style>
+<script>
+/* tabcode.js v1.0 · 2026-11-03：第三個分頁「完整程式（查閱）」— 學生隨時查這一節每個角色的完整程式（內容取自「完整程式」步驟） */
+(function(){
+  const bar=document.querySelector('.tabbar');const src=[...document.querySelectorAll('section.step')].find(s=>s.dataset.t==='完整程式');
+  if(!bar||!src)return;
+  const btn=document.createElement('button');btn.type='button';btn.setAttribute('role','tab');btn.dataset.k='code';btn.setAttribute('aria-selected','false');btn.textContent='完整程式（查閱）';
+  bar.insertBefore(btn,bar.children[1]);
+  const box=document.createElement('div');box.id='tabCode';box.hidden=true;
+  const names=[...src.querySelectorAll('.sprbox .sprhead span')].map(s=>s.textContent.replace('角色：',''));
+  box.innerHTML=`<section class="blk" style="padding-block:20px"><div class="shead"><span class="num re">程</span><h2>這一節做完：每個角色的完整程式</h2></div>
+    <p class="goal" style="margin-bottom:10px">卡住了就來這裡查。<b>先在角色區點那個角色</b>，再對照它的程式。點下面的角色名字可以直接跳過去。</p>
+    <div class="jump">${names.map((n,i)=>`<a href="#cbox${i}">${n}</a>`).join('')}</div></section>`;
+  [...src.querySelectorAll('.sprbox')].forEach((b,i)=>{const c=b.cloneNode(true);c.id='cbox'+i;box.appendChild(c);});
+  const warn=src.querySelector('.note.warn');if(warn)box.appendChild(warn.cloneNode(true));
+  const skills=document.getElementById('tabSkills');skills.parentNode.insertBefore(box,skills);
+  const tabs=[...bar.querySelectorAll('button')],P={lesson:document.getElementById('tabLesson'),code:box,skills};
+  function go(k){for(const key in P)P[key].hidden=key!==k;tabs.forEach(t=>t.setAttribute('aria-selected',String(t.dataset.k===k)));window.scrollTo(0,0);}
+  tabs.forEach(t=>t.onclick=()=>go(t.dataset.k));
+  if(location.hash==='#code')go('code');
+})();
+</script>
 </body></html>
