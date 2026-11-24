@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 太空保衛戰 第4節：BOSS 登場 教學步驟 v1.4 · 2026-11-24 · 大橋國小 資訊課 · 四年級（打擊外星人課程＋北極接水晶改版） -->
+<!-- 太空保衛戰 第4節：BOSS 登場 教學步驟 v1.5 · 2026-11-24 · 大橋國小 資訊課 · 四年級（打擊外星人課程＋北極接水晶改版） -->
 <title>太空保衛戰 第4節</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -269,7 +269,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
     </div></div>
     <div class="keys"><button class="btn" id="kL" type="button" aria-label="向左">◀ 左</button><button class="btn solid" id="kF" type="button" aria-label="發射">發射（空白）</button><button class="btn solid" id="kA" type="button" aria-label="超級子彈">超級（a）</button><button class="btn" id="kR" type="button" aria-label="向右">右 ▶</button></div>
     <div class="status" id="status">狀態：<b>還沒開始</b>（按綠旗）</div>
-    <div class="ctl"><label for="demoBossHide">示範</label><span><input id="demoBossHide" type="checkbox"> 拿掉 BOSS 被打中後的 <b>隱藏、等待 0.5 秒</b>，看一發扣幾滴</span></div>
+    <div class="ctl"><label for="demoBossHide">示範</label><span><input id="demoBossHide" type="checkbox"> 拿掉 BOSS 被打中後的 <b>等待 0.5 秒</b>，看一發扣幾滴</span></div>
   </div>
   <div class="goals">
     <h2>這一節學生會學到</h2>
@@ -347,12 +347,12 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
         <li><span>點 <b>BOSS</b>。<span class="cat c-event">事件</span> 拖出 <b>當收到訊息（boss）</b><span class="nb">新</span>。</span></li>
         <li><span>接 <b>定位到（外星母艦）位置 → 面朝 180 度 → 顯示</b>：從母艦冒出來，頭朝下。</span></li>
         <li><span>接 <b>重複無限次</b>，嘴巴裡：<b>移動 0.5 點</b>（慢慢直直往下）。</span></li>
-        <li><span>再放 <b>如果 碰到 子彈 或 碰到 超級子彈</b>：BOSS血量 −1、播放音效、<b>隱藏 → 等待 0.5 秒 → 顯示</b>（閃一下）。</span></li>
+        <li><span>再放 <b>如果 碰到 子彈 或 碰到 超級子彈</b>：BOSS血量 −1、播放音效、<b>等待 0.5 秒</b>（讓子彈飛過去，才不會一發扣好幾滴）。</span></li>
         <li><span>再放 <b>如果 BOSS血量 = 0</b>：背景換成 <b>你贏了</b>、停止全部。</span></li>
-        <li><span>再放 <b>如果 碰到（地板線）</b>：背景換成 <b>你輸了</b>、停止全部。BOSS 衝到底，地球就被攻破了！</span></li>
+        <li><span>再放 <b>如果 碰到（地板線）</b>：<b>隱藏</b>、背景換成 <b>你輸了</b>、停止全部。BOSS 只有一隻，只有衝到地板線才消失。BOSS 衝到底，地球就被攻破了！</span></li>
         <li><span>BOSS 的迴轉方式：點 <span class="ui">方向</span>，選「左-右」，飛回來時才不會倒立。</span></li>
       </ol>
-      <div class="note check"><b class="h">讓學生自己發現</b>勾上方預覽的「示範」：拿掉「隱藏、等待」，一發子彈扣好幾滴，BOSS 一下就死了。</div>
+      <div class="note check"><b class="h">讓學生自己發現</b>勾上方預覽的「示範」：拿掉「等待 0.5 秒」，子彈穿過 BOSS 的那一下會一直碰到，一發扣好幾滴，BOSS 一下就死了。</div>
     </div>
     <div class="fig"><figure class="blocks" data-who="boss"><div data-script="bossRun"></div><figcaption>BOSS ②：收到 boss 才出場</figcaption></figure></div>
   </div>
@@ -401,7 +401,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
       <tr><td>BOSS 一開始就出現</td><td>BOSS 程式 ① 沒有「隱藏」</td><td>加在綠旗下面</td></tr>
       <tr><td>打到 20 分 BOSS 沒出來</td><td>廣播和收到的訊息名字不一樣；或寫成 = 20</td><td>兩邊都選 boss；用 > 19</td></tr>
       <tr><td>BOSS 出來了但不會動</td><td>移動沒放進重複無限次</td><td>放進嘴巴裡</td></tr>
-      <tr><td>一發子彈扣好多血</td><td>打中後沒有「隱藏、等待 0.5 秒、顯示」</td><td>照步驟 4 加上</td></tr>
+      <tr><td>一發子彈扣好多血</td><td>打中後沒有「等待 0.5 秒」</td><td>照步驟 4 加上</td></tr>
       <tr><td>BOSS 一下就衝到底，來不及打</td><td>移動的數字太大</td><td>改回 移動 0.5</td></tr>
       <tr><td>BOSS 往旁邊飛，不會往下</td><td>少了「面朝 180 度」</td><td>接在定位到下面</td></tr>
       <tr><td>BOSS 碰到地板線沒有輸</td><td>如果 碰到 選成別的角色</td><td>下拉選 地板線</td></tr>
@@ -444,7 +444,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
         <li><span>依老師指定的方式上傳。<b>下一節會接著用這個檔案</b>，一定要存好。</span></li>
       </ol>
     </div>
-    <div class="note check"><b class="h">下課前確認</b><span>☐ 一開始看不到 BOSS　☐ 20 分 BOSS 出場　☐ 打中 BOSS 閃一下、血量 −1　☐ BOSS血量 0 出現你贏了　☐ BOSS 碰到地板線出現你輸了　☐ 檔案已上傳</span></div>
+    <div class="note check"><b class="h">下課前確認</b><span>☐ 一開始看不到 BOSS　☐ 20 分 BOSS 出場　☐ 打中 BOSS 血量 −1　☐ BOSS血量 0 出現你贏了　☐ BOSS 碰到地板線出現你輸了　☐ 檔案已上傳</span></div>
   </div>
 </section>
 
@@ -456,7 +456,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
   <section class="blk"><div class="shead"><span class="num re">全</span><h2>到目前為止學會的全部積木</h2></div><div class="filters" id="filters" role="group" aria-label="依課次篩選"></div><div id="allCats"></div></section>
   <section class="blk"><div class="shead"><span class="num re">技</span><h2>全部操作技能與觀念</h2></div><div class="two"><div class="list"><h3>操作技能</h3><ul id="allOps"></ul></div><div class="list"><h3>重要觀念</h3><ul id="allIdeas"></ul></div></div></section>
 </div>
-<footer><span>太空保衛戰 第4節：BOSS 登場 教學步驟 · v1.4 · 2026-11-24</span><span>整合自 Cona 老師「打擊外星人」課程，改編自北極接水晶</span></footer>
+<footer><span>太空保衛戰 第4節：BOSS 登場 教學步驟 · v1.5 · 2026-11-24</span><span>整合自 Cona 老師「打擊外星人」課程，改編自北極接水晶</span></footer>
 </div>
 <div class="pbar" id="pbar" hidden>
   <button class="btn" id="prev" type="button">← 上一步</button>
@@ -518,8 +518,8 @@ const ghost=(n,sp,pts)=>[HAT,SHOW,GOTO('外星母艦'),FOREVER([MOVE(sp),IF(TOUC
 const item=(v,w)=>[HAT].concat(back('外星母艦',w)).concat([FOREVER([MOVE(3),IF(TOUCH('地板線'),back('外星母艦',w)),IF(TOUCH('戰鬥機'),[SOUND('collect'),CHG(v,1)].concat(back('外星母艦',w)))])]);
 const bossInit=[HAT,HIDE,SET('BOSS血量',10)];
 const bossRun=[{t:'hat',c:'event',hl:NW===4?1:0,p:['當收到訊息',{dd:'boss'}]},GOTO('外星母艦'),FACE(180),SHOW,FOREVER([MOVE(0.5),
-  IF(OR(TOUCH('子彈'),TOUCH('超級子彈')),[CHG('BOSS血量',-1),SOUND('Magic Spell'),HIDE,WAIT(0.5),SHOW]),IF(EQ('BOSS血量',0),[BD('你贏了'),STOP]),
-  IF(TOUCH('地板線'),[BD('你輸了'),STOP])])];
+  IF(OR(TOUCH('子彈'),TOUCH('超級子彈')),[CHG('BOSS血量',-1),SOUND('Magic Spell'),WAIT(0.5)]),IF(EQ('BOSS血量',0),[BD('你贏了'),STOP]),
+  IF(TOUCH('地板線'),[HIDE,BD('你輸了'),STOP])])];
 const music=[HAT,FOREVER([{t:'s',c:'sound',hl:NW===5?1:0,p:['播放音效',{dd:'Space Ambience'},'直到結束']}])];
 const SCRIPTS={
   rkGame1:rkGame(1),rkGame2:rkGame(2),rkGame5:rkGame(5),rkMove,rkLose1:rkLose(1),rkLose2:rkLose(2),rkBoss,robot,buHide,buShot,
@@ -655,9 +655,9 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
     }
     if(SP.boss){const b=SP.boss;
       if(!bossOn&&V.score>19){bossOn=true;b.x=SP.rob.x;b.y=SP.rob.y;b.hidden=false;b.back=0;status.innerHTML='狀態：<b>廣播 boss！</b>　BOSS 出現了，打 10 下就贏';}
-      if(bossOn){if(b.hidden&&b.back&&now>=b.back){b.hidden=false;b.back=0;}
-        const bw=b.w*b.k/2;b.y-=0.5;if(b.y-bw*0.8<=-176){draw();end('BOSS 碰到地板線，背景換成「你輸了」','你輸了','#ff4d4d');return;}
-        if(hit(b,SP.bu)||hit(b,SP.sup)){V.bhp--;if(!($('demoBossHide')&&$('demoBossHide').checked)){b.hidden=true;b.back=now+500;}}
+      if(bossOn&&!(b.back&&now<b.back)){b.back=0;
+        const bw=b.w*b.k/2;b.y-=0.5;if(b.y-bw*0.8<=-176){b.hidden=true;draw();end('BOSS 碰到地板線，背景換成「你輸了」','你輸了','#ff4d4d');return;}
+        if(hit(b,SP.bu)||hit(b,SP.sup)){V.bhp--;if(!($('demoBossHide')&&$('demoBossHide').checked)){b.back=now+500;}}
         if(V.bhp<=0){V.bhp=0;draw();end('BOSS血量 = 0，背景換成「你贏了」','你贏了','#ffd43b');return;}}
     }
     if(LESSON>=2&&V.hp<=0){V.hp=0;draw();end('血量 = 0，背景換成「你輸了」','你輸了','#ff4d4d');return;}

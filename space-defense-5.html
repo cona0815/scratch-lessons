@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 太空保衛戰 第5節：改外型＋背景音樂 教學步驟 v1.4 · 2026-11-24 · 大橋國小 資訊課 · 四年級（打擊外星人課程＋北極接水晶改版） -->
+<!-- 太空保衛戰 第5節：改外型＋背景音樂 教學步驟 v1.5 · 2026-11-24 · 大橋國小 資訊課 · 四年級（打擊外星人課程＋北極接水晶改版） -->
 <title>太空保衛戰 第5節</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -455,7 +455,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
   <section class="blk"><div class="shead"><span class="num re">全</span><h2>到目前為止學會的全部積木</h2></div><div class="filters" id="filters" role="group" aria-label="依課次篩選"></div><div id="allCats"></div></section>
   <section class="blk"><div class="shead"><span class="num re">技</span><h2>全部操作技能與觀念</h2></div><div class="two"><div class="list"><h3>操作技能</h3><ul id="allOps"></ul></div><div class="list"><h3>重要觀念</h3><ul id="allIdeas"></ul></div></div></section>
 </div>
-<footer><span>太空保衛戰 第5節：改外型＋背景音樂 教學步驟 · v1.4 · 2026-11-24</span><span>整合自 Cona 老師「打擊外星人」課程，改編自北極接水晶</span></footer>
+<footer><span>太空保衛戰 第5節：改外型＋背景音樂 教學步驟 · v1.5 · 2026-11-24</span><span>整合自 Cona 老師「打擊外星人」課程，改編自北極接水晶</span></footer>
 </div>
 <div class="pbar" id="pbar" hidden>
   <button class="btn" id="prev" type="button">← 上一步</button>
@@ -517,8 +517,8 @@ const ghost=(n,sp,pts)=>[HAT,SHOW,GOTO('外星母艦'),FOREVER([MOVE(sp),IF(TOUC
 const item=(v,w)=>[HAT].concat(back('外星母艦',w)).concat([FOREVER([MOVE(3),IF(TOUCH('地板線'),back('外星母艦',w)),IF(TOUCH('戰鬥機'),[SOUND('collect'),CHG(v,1)].concat(back('外星母艦',w)))])]);
 const bossInit=[HAT,HIDE,SET('BOSS血量',10)];
 const bossRun=[{t:'hat',c:'event',hl:NW===4?1:0,p:['當收到訊息',{dd:'boss'}]},GOTO('外星母艦'),FACE(180),SHOW,FOREVER([MOVE(0.5),
-  IF(OR(TOUCH('子彈'),TOUCH('超級子彈')),[CHG('BOSS血量',-1),SOUND('Magic Spell'),HIDE,WAIT(0.5),SHOW]),IF(EQ('BOSS血量',0),[BD('你贏了'),STOP]),
-  IF(TOUCH('地板線'),[BD('你輸了'),STOP])])];
+  IF(OR(TOUCH('子彈'),TOUCH('超級子彈')),[CHG('BOSS血量',-1),SOUND('Magic Spell'),WAIT(0.5)]),IF(EQ('BOSS血量',0),[BD('你贏了'),STOP]),
+  IF(TOUCH('地板線'),[HIDE,BD('你輸了'),STOP])])];
 const music=[HAT,FOREVER([{t:'s',c:'sound',hl:NW===5?1:0,p:['播放音效',{dd:'Space Ambience'},'直到結束']}])];
 const SCRIPTS={
   rkGame1:rkGame(1),rkGame2:rkGame(2),rkGame5:rkGame(5),rkMove,rkLose1:rkLose(1),rkLose2:rkLose(2),rkBoss,robot,buHide,buShot,
@@ -654,9 +654,9 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
     }
     if(SP.boss){const b=SP.boss;
       if(!bossOn&&V.score>19){bossOn=true;b.x=SP.rob.x;b.y=SP.rob.y;b.hidden=false;b.back=0;status.innerHTML='狀態：<b>廣播 boss！</b>　BOSS 出現了，打 10 下就贏';}
-      if(bossOn){if(b.hidden&&b.back&&now>=b.back){b.hidden=false;b.back=0;}
-        const bw=b.w*b.k/2;b.y-=0.5;if(b.y-bw*0.8<=-176){draw();end('BOSS 碰到地板線，背景換成「你輸了」','你輸了','#ff4d4d');return;}
-        if(hit(b,SP.bu)||hit(b,SP.sup)){V.bhp--;if(!($('demoBossHide')&&$('demoBossHide').checked)){b.hidden=true;b.back=now+500;}}
+      if(bossOn&&!(b.back&&now<b.back)){b.back=0;
+        const bw=b.w*b.k/2;b.y-=0.5;if(b.y-bw*0.8<=-176){b.hidden=true;draw();end('BOSS 碰到地板線，背景換成「你輸了」','你輸了','#ff4d4d');return;}
+        if(hit(b,SP.bu)||hit(b,SP.sup)){V.bhp--;if(!($('demoBossHide')&&$('demoBossHide').checked)){b.back=now+500;}}
         if(V.bhp<=0){V.bhp=0;draw();end('BOSS血量 = 0，背景換成「你贏了」','你贏了','#ffd43b');return;}}
     }
     if(LESSON>=2&&V.hp<=0){V.hp=0;draw();end('血量 = 0，背景換成「你輸了」','你輸了','#ff4d4d');return;}
