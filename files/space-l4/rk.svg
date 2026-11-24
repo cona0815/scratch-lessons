@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="64.0" height="52.832" viewBox="0 0 64.0 52.832"><g transform="scale(0.859060) translate(-1.7500,-1.7500)"><g transform="scale(0.65)">
+  <g stroke="#101B32" stroke-width="2" stroke-linejoin="round">
+    <!-- Separate, closed shapes remain editable in Scratch. -->
+    <path fill="#FF9D38" d="M40 79 L45 96 L50 79 Z"/>
+    <path fill="#FFF1A1" d="M43 80 L45 90 L47 80 Z"/>
+    <path fill="#FF9D38" d="M70 79 L75 96 L80 79 Z"/>
+    <path fill="#FFF1A1" d="M73 80 L75 90 L77 80 Z"/>
+    <path fill="#243958" d="M49 33 L26 42 L4 77 L39 68 L51 56 Z"/>
+    <path fill="#243958" d="M71 33 L94 42 L116 77 L81 68 L69 56 Z"/>
+    <path fill="#46769B" d="M42 43 L28 48 L13 68 L37 60 Z"/>
+    <path fill="#46769B" d="M78 43 L92 48 L107 68 L83 60 Z"/>
+    <path fill="#58E4E8" d="M30 51 L24 60 L30 58 L26 66 L39 53 L32 56 L36 49 Z"/>
+    <path fill="#58E4E8" d="M90 51 L96 60 L90 58 L94 66 L81 53 L88 56 L84 49 Z"/>
+    <rect fill="#17243D" x="20" y="35" width="8" height="21" rx="3"/>
+    <rect fill="#17243D" x="92" y="35" width="8" height="21" rx="3"/>
+    <rect fill="#5CE8EB" x="21" y="30" width="6" height="9" rx="2"/>
+    <rect fill="#5CE8EB" x="93" y="30" width="6" height="9" rx="2"/>
+    <path fill="#304968" d="M37 58 L52 54 L53 83 L38 83 Z"/>
+    <path fill="#304968" d="M83 58 L68 54 L67 83 L82 83 Z"/>
+    <rect fill="#77CBD7" x="40" y="75" width="10" height="8" rx="2"/>
+    <rect fill="#77CBD7" x="70" y="75" width="10" height="8" rx="2"/>
+    <path fill="#47678A" d="M60 4 L73 25 L77 60 L68 83 L52 83 L43 60 L47 25 Z"/>
+    <path fill="#89AFC5" d="M60 4 L64 30 L60 39 L53 29 Z"/>
+    <path fill="#12233D" d="M53 30 Q60 23 67 30 L69 46 Q60 53 51 46 Z"/>
+    <path fill="#51DDE8" d="M55 32 Q60 28 65 32 L66 42 Q60 47 54 42 Z"/>
+    <path fill="#C8FFFF" stroke="none" d="M56 33 L59 32 L57 40 L55 40 Z"/>
+    <path fill="#17243D" d="M47 51 L57 57 L55 71 L47 64 Z"/>
+    <path fill="#17243D" d="M73 51 L63 57 L65 71 L73 64 Z"/>
+    <path fill="#FFFFFF" stroke="none" d="M48 54 L52 57 L49 61 Z"/>
+    <path fill="#FFFFFF" stroke="none" d="M53 58 L56 60 L54 65 Z"/>
+    <path fill="#FFFFFF" stroke="none" d="M72 54 L68 57 L71 61 Z"/>
+    <path fill="#FFFFFF" stroke="none" d="M67 58 L64 60 L66 65 Z"/>
+    <path fill="#FF6757" d="M46 44 L51 47 L46 49 Z"/>
+    <path fill="#FF6757" d="M74 44 L69 47 L74 49 Z"/>
+    <path fill="#5CE8EB" d="M60 53 L64 62 L61 62 L64 72 L56 61 L59 61 Z"/>
+    <path fill="#243958" d="M55 76 L60 71 L65 76 L64 87 L56 87 Z"/>
+    <rect fill="#FFB449" x="57" y="79" width="6" height="4" rx="1"/>
+  </g>
+</g></g></svg>
