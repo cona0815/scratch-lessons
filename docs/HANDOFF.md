@@ -288,3 +288,4 @@ node -e "const {chromium}=require('playwright');(async()=>{const b=await chromiu
 - 已同步 space-defense-4.html（v1.1，步驟、預覽模擬、除錯表、下課確認）、space-defense-5.html（v1.1，程式查閱）、SPRITE_SPEC.md。
 - sb3：太空保衛戰_第4節_老師檔／學生檔_v3.2_2026-11-24（不放公開站）。
 - v3.4（同日）：老師說一般小兵不用碰地板線就輸 → 撤回 v3.3；只有 BOSS 碰到地板線才輸。BOSS 保留「碰到邊緣就反彈」（沒有會黏在右牆滑下），教學頁加說明。
+- v3.5（同日）：老師要 BOSS 直直下來 → 面朝 180 度、移動 0.5，拿掉碰到邊緣就反彈；碰到地板線 → 你輸了。
