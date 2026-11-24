@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
-<!-- 太空保衛戰 第5節：改外型＋背景音樂 教學步驟 v1.1 · 2026-11-24 · 大橋國小 資訊課 · 四年級（打擊外星人課程＋北極接水晶改版） -->
+<!-- 太空保衛戰 第5節：改外型＋背景音樂 教學步驟 v1.2 · 2026-11-24 · 大橋國小 資訊課 · 四年級（打擊外星人課程＋北極接水晶改版） -->
 <title>太空保衛戰 第5節</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -394,10 +394,10 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
     <figure class="blocks"><div data-script="supHide"></div><figcaption>超級子彈 ①</figcaption></figure>    <figure class="blocks"><div data-script="supShot"></div><figcaption>超級子彈 ②</figcaption></figure>
   </div></div>
   <div class="sprbox" data-spr="g1"><div class="sprbody">
-    <figure class="blocks"><div data-script="ghost3"></div><figcaption>外星人</figcaption></figure>
+    <figure class="blocks"><div data-script="ghost4"></div><figcaption>外星人</figcaption></figure>
   </div></div>
   <div class="sprbox" data-spr="g2"><div class="sprbody">
-    <figure class="blocks"><div data-script="ghostFast"></div><figcaption>快外星人</figcaption></figure>
+    <figure class="blocks"><div data-script="ghost4Fast"></div><figcaption>快外星人</figcaption></figure>
   </div></div>
   <div class="sprbox" data-spr="heal"><div class="sprbody">
     <figure class="blocks"><div data-script="heal"></div><figcaption>補血水晶</figcaption></figure>
@@ -455,7 +455,7 @@ body.present section.step.sprsec{border-left:10px solid var(--sc)}
   <section class="blk"><div class="shead"><span class="num re">全</span><h2>到目前為止學會的全部積木</h2></div><div class="filters" id="filters" role="group" aria-label="依課次篩選"></div><div id="allCats"></div></section>
   <section class="blk"><div class="shead"><span class="num re">技</span><h2>全部操作技能與觀念</h2></div><div class="two"><div class="list"><h3>操作技能</h3><ul id="allOps"></ul></div><div class="list"><h3>重要觀念</h3><ul id="allIdeas"></ul></div></div></section>
 </div>
-<footer><span>太空保衛戰 第5節：改外型＋背景音樂 教學步驟 · v1.1 · 2026-11-24</span><span>整合自 Cona 老師「打擊外星人」課程，改編自北極接水晶</span></footer>
+<footer><span>太空保衛戰 第5節：改外型＋背景音樂 教學步驟 · v1.2 · 2026-11-24</span><span>整合自 Cona 老師「打擊外星人」課程，改編自北極接水晶</span></footer>
 </div>
 <div class="pbar" id="pbar" hidden>
   <button class="btn" id="prev" type="button">← 上一步</button>
@@ -511,7 +511,7 @@ const buShot=[{t:'hat',c:'event',p:['當',{dd:'空白'},'鍵被按下']}].concat
 const supHide=[HAT,HIDE,SET('超級子彈',3)];
 const supShot=(withIf=true)=>[{t:'hat',c:'event',p:['當',{dd:'a'},'鍵被按下']}].concat(withIf?[IF(GT('超級子彈',0,NW===3),[CHG('超級子彈',-1)].concat(shot()))]:shot());
 const back=(who,w)=>[HIDE,WAIT(w),GOTO(who),SHOW];
-const ghost=(n,sp,pts)=>[HAT,SHOW,GOTO('外星母艦'),FOREVER([MOVE(sp),IF(TOUCH('地板線'),[GOTO('外星母艦')]),
+const ghost=(n,sp,pts)=>[HAT,SHOW,GOTO('外星母艦'),FOREVER([MOVE(sp),IF(TOUCH('地板線'),n>=4?[BD('你輸了'),STOP]:[GOTO('外星母艦')]),
   IF(TOUCH('戰鬥機'),[n===1?CHG('得分',-1):CHG('血量',-1)].concat(back('外星母艦',0.5))),
   IF(n>=3?OR(TOUCH('子彈'),TOUCH('超級子彈')):TOUCH('子彈'),[SOUND('space ripple'),CHG('得分',pts)].concat(back('外星母艦',0.5)))])];
 const item=(v,w)=>[HAT].concat(back('外星母艦',w)).concat([FOREVER([MOVE(3),IF(TOUCH('地板線'),back('外星母艦',w)),IF(TOUCH('戰鬥機'),[SOUND('collect'),CHG(v,1)].concat(back('外星母艦',w)))])]);
@@ -522,7 +522,7 @@ const bossRun=[{t:'hat',c:'event',hl:NW===4?1:0,p:['當收到訊息',{dd:'boss'}
 const music=[HAT,FOREVER([{t:'s',c:'sound',hl:NW===5?1:0,p:['播放音效',{dd:'Space Ambience'},'直到結束']}])];
 const SCRIPTS={
   rkGame1:rkGame(1),rkGame2:rkGame(2),rkGame5:rkGame(5),rkMove,rkLose1:rkLose(1),rkLose2:rkLose(2),rkBoss,robot,buHide,buShot,
-  supHide,supShot:supShot(true),supShotNoIf:supShot(false),ghost1:ghost(1,4,1),ghost2:ghost(2,4,1),ghost3:ghost(3,4,1),ghostFast:ghost(3,7,2),
+  supHide,supShot:supShot(true),supShotNoIf:supShot(false),ghost1:ghost(1,4,1),ghost2:ghost(2,4,1),ghost3:ghost(3,4,1),ghostFast:ghost(3,7,2),ghost4:ghost(4,4,1),ghost4Fast:ghost(4,7,2),
   heal:item('血量',5),ammo:item('超級子彈',8),bossInit,bossRun,music,
   ch2a:[IF(TOUCH('戰鬥機'),[SOUND('collect'),CHG('血量',2)].concat(back('外星母艦',5)))],
   ch2b:[SET('血量',10)],
@@ -643,7 +643,7 @@ document.querySelectorAll('[data-fig]').forEach(el=>{el.innerHTML=FIGS[el.datase
     for(const k of ['g1','g2']){const g=SP[k];if(!g)continue;
       if(g.hidden){if(now>=g.back){toRob(g);g.hidden=false;}continue;}
       g.y-=g.sp;if(g.y<-175)g.y=-175;
-      if(g.y<=-168)toRob(g);
+      if(g.y<=-168){if(LESSON>=4){draw();end((k==='g2'?'快外星人':'外星人')+' 碰到地板線，背景換成「你輸了」','你輸了','#ff4d4d');return;}toRob(g);}
       if(hit(g,rk,6)){if(LESSON>=2)V.hp--;else V.score--;hideFor(g,500,now);continue;}
       if(hit(g,SP.bu)||hit(g,SP.sup)){V.score+=g.pts;hideFor(g,500,now);}
     }
